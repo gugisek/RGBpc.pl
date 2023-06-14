@@ -1,6 +1,6 @@
-<section class="w-1/5 lg:1/6 h-screen flex flex-col items-center justify-between bg-[#f8f9fa] py-5 px-8 font-[Lexend]">
+<section class="w-1/5 lg:1/6 h-screen flex flex-col items-center justify-between bg-[#f8f9fa] py-5 pl-8 pr-4 font-[Lexend]">
     <section class="hover:bg-white hover:shadow-lg w-full font-medium text-gray-600 flex gap-4 items-center justify-center py-4 px-5 text-sm rounded-xl transition-all duration-300">
-        <img src="public/img/logo2.png" alt="logo" class="w-1/2">
+        <img src="public/img/logo2.png" alt="logo" class="w-1/2 max-w-[150px] min-w-[80px]">
         <div>
             <h1 class="text-xs mb-[-5px]">Witaj</h1><h1 class="text-lg"><?=$_SESSION['user']?></h1>
         </div>
@@ -15,7 +15,7 @@
             $buttons=["dashboard", "szukaj", "produkty", "zamówienia"];
             while($button = current($buttons)) {
                 echo '
-                <a href="'.$button.'" class="flex items-center gap-3 py-2 px-3 w-full font-light hover:bg-white hover:shadow-xl rounded-xl transition-all duration-300">
+                <a href="?page='.$button.'&action=" class="flex items-center gap-3 py-2 px-3 w-full font-light hover:bg-white hover:shadow-xl rounded-xl transition-all duration-300">
                     <div class="bg-white p-3 rounded-xl shadow-xl">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
                             <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
@@ -35,7 +35,7 @@
             $buttons=["wydatki", "przychody", "księgowość"];
             while($button = current($buttons)) {
                 echo '
-                <a href="'.$button.'" class="flex items-center gap-3 py-2 px-3 w-full font-light hover:bg-white hover:shadow-xl rounded-xl transition-all duration-300">
+                <a href="?page='.$button.'&action=" class="flex items-center gap-3 py-2 px-3 w-full font-light hover:bg-white hover:shadow-xl rounded-xl transition-all duration-300">
                     <div class="bg-white p-3 rounded-xl shadow-xl">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
                             <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
@@ -55,7 +55,7 @@
             $buttons=["użytkownicy", "archiwum", "ustawienia"];
             while($button = current($buttons)) {
                 echo '
-                <a href="?page='.$button.'" class="flex items-center gap-3 py-2 px-3 w-full font-light hover:bg-white hover:shadow-xl rounded-xl transition-all duration-300">
+                <a href="?page='.$button.'&action=" class="flex items-center gap-3 py-2 px-3 w-full font-light hover:bg-white hover:shadow-xl rounded-xl transition-all duration-300">
                     <div class="bg-white p-3 rounded-xl shadow-xl">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
                             <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
