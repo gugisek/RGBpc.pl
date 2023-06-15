@@ -17,28 +17,28 @@ if ($action == "add") {
             echo "</div>";
             echo "<div class='flex flex-col gap-2'>";
                 echo "<label for='role' class='text-xs text-gray-500'>Rola</label>";
-                echo "<select name='role' id='role' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 focus:text-gray-800 outline-none transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
+                echo "<select name='role' id='role' class='capitalize w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 focus:text-gray-800 outline-none transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
                         $sql2 = "SELECT * FROM `user_roles`;";
                         $result2 = mysqli_query($conn, $sql2);
                         if(mysqli_num_rows($result2) > 0)
                             {
                                 while($row2 = mysqli_fetch_assoc($result2))
                                 {
-                                    echo "<option value='".$row2['id']."'>".$row2['role']."</option>";
+                                    echo "<option class='capitalize' value='".$row2['id']."'>".$row2['role']."</option>";
                                 }
                             }
                 echo "</select>";
             echo "</div>";
             echo "<div class='flex flex-col gap-2'>";
                 echo "<label for='status' class='text-xs text-gray-500'>Status</label>";
-                echo "<select name='status' id='status' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 focus:text-gray-800 transition-all outline-none duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
+                echo "<select name='status' id='status' class='capitalize w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 focus:text-gray-800 transition-all outline-none duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
                         $sql3 = "SELECT * FROM `user_status`;";
                         $result3 = mysqli_query($conn, $sql3);
                         if(mysqli_num_rows($result3) > 0)
                         {
                             while($row3 = mysqli_fetch_assoc($result3))
                             {
-                                echo "<option value='".$row3['id']."'>".$row3['status']."</option>";
+                                echo "<option class='capitalize' value='".$row3['id']."'>".$row3['status']."</option>";
                             }
                         }
                 echo "</select>";
