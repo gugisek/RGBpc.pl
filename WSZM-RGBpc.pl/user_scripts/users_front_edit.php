@@ -10,7 +10,7 @@ if ($action=="edit") {
             $create_date = $row['create_date'];
             echo "<section id='edit' class='w-full bg-white shadow-xl rounded-3xl py-6 px-6'>";
             echo "<h1 class='pb-2 font-medium text-gray-600 font-[Lexend]'>Edytuj użytkownika</h1>";
-            echo "<form action='scripts/users_back_edit.php' method='post' class='flex flex-col gap-4'>";
+            echo "<form action='user_scripts/users_back_edit.php' method='post' class='flex flex-col gap-4'>";
             echo "<input type='hidden' name='id' value='".$row['id']."'>";
             echo "<div class='flex flex-col gap-2'>";
             echo "<label for='name' class='text-xs text-gray-500'>Imię</label>";

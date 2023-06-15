@@ -2,7 +2,7 @@
 if ($action == "add") {
     echo "<section id='edit' class='w-full bg-white shadow-xl rounded-3xl py-6 px-6'>";
         echo "<h1 class='pb-2 font-medium text-gray-600 font-[Lexend]'>Dodaj użytkownika</h1>";
-        echo "<form action='scripts/users_back_add.php' method='post' class='flex flex-col gap-4'>";
+        echo "<form action='user_scripts/users_back_add.php' method='post' class='flex flex-col gap-4'>";
             echo "<div class='flex flex-col gap-2'>";
                 echo "<label for='name' class='text-xs text-gray-500'>Imię</label>";
                 echo "<input required type='text' name='name' id='name' class='w-full py-2 px-4 rounded-lg shadow-sm focus:outline-none outline-none text-gray-700 focus:text-gray-800 transition-all duration-300 focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
