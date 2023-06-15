@@ -2,9 +2,9 @@
     <section class="w-full flex gap-4">
         <section class="w-full bg-white shadow-xl rounded-3xl py-6 px-6 flex">
             <!-- search -->
-            <?php include 'scripts/users_search.php'; ?>
+            <?php include 'user_scripts/users_search.php'; ?>
             <!-- script for working enter to submit on select -->
-            <?php include 'scripts/users_option_enter.php'; ?>
+            <?php include 'user_scripts/users_option_enter.php'; ?>
         </section>
         <a href="?page=użytkownicy&action=add" class="flex items-center justify-center px-8 bg-indigo-400 hover:shadow-indigo-500 transition-all duration rounded-3xl hover:shadow-[0px_8px_19px_0px] hover:scale-105 shadow-xl">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="text-white w-6 h-6">
@@ -14,8 +14,8 @@
     </section>
     <?php
         $action = $_GET['action'];
-        include 'scripts/users_front_edit.php';
-        include 'scripts/users_front_add.php';
-        include 'scripts/users_front_table.php';
+        include 'user_scripts/users_front_edit.php';
+        include 'user_scripts/users_front_add.php';
+        include 'user_scripts/users_front_table.php';
     ?>
 </section>

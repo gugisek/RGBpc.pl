@@ -5,8 +5,8 @@
         </svg>
     </button>
     <input type="text" placeholder="<?php if (isset($_POST['search']) && $_POST['search']!="") { echo $_POST['search']; } else { echo "Wyszukaj"; } ?>" name="search" id="search" class="w-full outline-none font-light">
-    <?php include 'scripts/users_search_role.php'; ?>
-    <?php include 'scripts/users_search_state.php'; ?>
+    <?php include 'users_search_role.php'; ?>
+    <?php include 'users_search_state.php'; ?>
     <div class="flex gap-2">
         <button>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-6 h-6 text-gray-500 hover:text-green-500 trnasition-all duration-300">
