@@ -6,6 +6,7 @@ $surname = $_POST['sur_name'];
 $mail = $_POST['mail'];
 $role_id = $_POST['role'];
 $status_id = $_POST['status'];
+$create_date = $_POST['create_date'];
 $password = $_POST['password'];
 $password2 = $_POST['password2'];
 if ($password == $password2 && !empty($password) && !empty($password2)) {
@@ -16,9 +17,9 @@ if ($password == $password2 && !empty($password) && !empty($password2)) {
     if ($row['pswd'] == $password) {
         header('Location: ../panel.php?page=użytkownicy&action=edited_same#edited');
     } else {
-        $sql = "UPDATE users SET name='$name', sur_name='$surname', mail='$mail', role_id='$role_id', status_id='$status_id', pswd='$password' WHERE id='$id'";
+        $sql = "UPDATE users SET name='$name', sur_name='$surname', mail='$mail', role_id='$role_id', status_id='$status_id', pswd='$password', create_date='$create_date' WHERE id='$id'";
         if ($conn->query($sql) === TRUE) {
-            header('Location: ../panel.php?page=użytkownicy&action=edited_pswd#edited');
+            header('Location: ../panel.php?page=użytkownicy&action=edited_pswd');
         } else {
             header('Location: ../panel.php?page=użytkownicy&action=error');
         }
@@ -26,9 +27,9 @@ if ($password == $password2 && !empty($password) && !empty($password2)) {
 
 } elseif (empty($password) && empty($password2)) {
     
-        $sql = "UPDATE users SET name='$name', sur_name='$surname', mail='$mail', role_id='$role_id', status_id='$status_id' WHERE id='$id'";
+        $sql = "UPDATE users SET name='$name', sur_name='$surname', mail='$mail', role_id='$role_id', status_id='$status_id', create_date='$create_date' WHERE id='$id'";
         if ($conn->query($sql) === TRUE) {
-            header('Location: ../panel.php?page=użytkownicy&action=edited#edited');
+            header('Location: ../panel.php?page=użytkownicy&action=edited');
         } else {
             header('Location: ../panel.php?page=użytkownicy&action=error');
         }

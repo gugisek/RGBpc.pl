@@ -12,7 +12,7 @@
         <!-- MENU -->
         <section class="w-full my-4 py-1 px-1 flex flex-col gap-1">
             <?php
-            $buttons=["dashboard", "szukaj", "produkty", "zamówienia"];
+            $buttons=["dashboard", "produkty", "zamówienia"];
             while($button = current($buttons)) {
                 echo '
                 <a href="?page='.$button.'&action=" class="flex items-center gap-3 py-2 px-3 w-full font-light hover:bg-white hover:shadow-xl rounded-xl transition-all duration-300">

@@ -20,6 +20,9 @@
         if ($page=="użytkownicy") {
             include 'components/users.php';
         }
+        if ($page=="ustawienia") {
+            include 'components/settings.php';
+        }
         ?>
         <?php include 'components/footer.php'; ?>
     </section>
