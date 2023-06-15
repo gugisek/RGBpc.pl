@@ -1,5 +1,5 @@
 <?php
-include "../conn_db.php";
+include "../scripts/conn_db.php";
 $id = $_POST['id'];
 $name = $_POST['name'];
 $surname = $_POST['sur_name'];
