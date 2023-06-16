@@ -23,6 +23,9 @@
         if ($page=="ustawienia") {
             include 'components/settings.php';
         }
+        if ($page=="produkty") {
+            include 'components/products.php';
+        }
         ?>
         <?php include 'components/footer.php'; ?>
     </section>
