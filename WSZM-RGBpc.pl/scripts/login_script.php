@@ -9,10 +9,24 @@ $sql = "SELECT * FROM users WHERE login = '".$login_sha."' AND pswd = '".$passwo
 $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result) > 0)
 {
-    session_start();
-    $_SESSION['logged'] = true;
-    $_SESSION['user'] = $result->fetch_assoc()['name'];
-    header('Location: ../panel.php?page=');
+    $sql = "SELECT status_id, name FROM users WHERE login = '".$login_sha."' AND pswd = '".$password_sha."'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $status_id = $row['status_id'];
+    $name = $row['name'];
+    if($status_id == 1)
+    {
+        session_start();
+        $_SESSION['logged'] = true;
+        $_SESSION['user'] = $name;
+        header('Location: ../panel.php?page=');
+    }
+    else
+    {
+        session_start();
+        $_SESSION['error'] = 'Konto nieaktywne, zablokowane lub wyłączone.<br><br> Skontaktuj się z administratorem';
+        header('Location: ../login.php');
+    }
 }
 else
 {

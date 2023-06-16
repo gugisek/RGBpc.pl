@@ -24,7 +24,7 @@
                 <?php
                     if(isset($_SESSION['error']))
                     {
-                        echo '<span class="text-red-500 text-sm pt-3 font-extralight">'.$_SESSION['error'].'</span>';
+                        echo '<span class="text-red-500 text-center text-sm pt-3 font-extralight">'.$_SESSION['error'].'</span>';
                         echo '<script> document.getElementById("login").classList.add("animate-pulse", "bg-red-100"); document.getElementById("pswd").classList.add("animate-pulse", "bg-red-100"); </script>';
                         unset($_SESSION['error']);
                     }
