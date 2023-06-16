@@ -14,7 +14,7 @@
     <section class="w-5/6 flex flex-col items-center justify-between bg-[#f8f9fa] overflow-y-auto">
         <?php
         $page = $_GET['page'];
-        if ($page=="") {
+        if ($page=="dashboard" or $page=="") {
             include 'components/dashboard.php';
         }
         if ($page=="użytkownicy") {
