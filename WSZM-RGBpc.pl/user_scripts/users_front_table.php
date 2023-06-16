@@ -31,16 +31,16 @@
                         echo "<td class='py-3 text-gray-800 leading-4'>".$row['name']." ".$row['sur_name']."<br><span class='text-xs font-light text-gray-600'>".$row['mail']."</span></td>";
                         echo "<td class='text-center capitalize text-sm text-gray-500'>".$row['role']."</td>";
                         echo "<td class='text-center capitalize text-sm";
-                            if ($row['status']=="active") {
+                            if ($row['status']=="aktywne") {
                                 echo " text-green-500";
                             }
-                            else if ($row['status']=="unactive") {
+                            else if ($row['status']=="nieaktywne") {
                                 echo " text-gray-500";
                             }
-                            else if ($row['status']=="banned") {
+                            else if ($row['status']=="zbanowane") {
                                 echo " text-red-500 cursor-not-allowed";
                             }
-                            else if ($row['status']=="disabled") {
+                            else if ($row['status']=="wyłączone") {
                                 echo " text-yellow-500";
                             }
                         echo "'>";
