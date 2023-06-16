@@ -19,7 +19,7 @@ if(mysqli_num_rows($result) > 0)
         session_start();
         $_SESSION['logged'] = true;
         $_SESSION['user'] = $name;
-        header('Location: ../panel.php?page=');
+        header('Location: ../panel.php?page=dashboard');
     }
     else
     {
