@@ -9,3 +9,4 @@ Avaible documentations: <br>
 Avaible notes: <br>
 
 - Allegro prowizje 12.06.2023
+- Excel calculations https://onedrive.live.com/view.aspx?resid=3F9F3DE138065411%2127714
