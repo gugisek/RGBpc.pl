@@ -15,7 +15,7 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
     $sql = "SELECT name FROM products WHERE name='$name'";
     $result = mysqli_query($conn, $sql);
     $row = $result->fetch_assoc();
-    $sql = "UPDATE `products` SET name = '$name', sku = '$sku', bought = '$bought', sold='$sold', quantity='$quantity', img='$image', source='$source', category_id='$category', description='$description', status_id='$status' WHERE products.id = '$id';";
+    $sql = "UPDATE `products` SET name = '$name', sku = '$sku', bought = '$bought', sold='$sold', quantity='$quantity', img='$image', source='$source', category_id='$category', description='$description', status_id= case when quantity = 0 then 2 when quantity > 0 then status_id='$status' end WHERE products.id = '$id';";
     if ($conn->query($sql) === TRUE) {
          header('Location: ../panel.php?page=produkty&action=edited');
     } else {
