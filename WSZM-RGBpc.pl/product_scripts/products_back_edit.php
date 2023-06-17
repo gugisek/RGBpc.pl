@@ -16,18 +16,19 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
     $result = mysqli_query($conn, $sql);
     $row = $result->fetch_assoc();
     if($status == '3' or $status == '4'){
-        $sql = "UPDATE `products` SET name = '$name', sku = '$sku', bought = '$bought', sold='$sold', quantity='$quantity', img='$image', source='$source', category_id='$category', description='$description', status_id='$status' WHERE products.id = '$id';";
+        $sql = "UPDATE `products` SET name = '$name', sku = '$sku', bought = '$bought', sold='$sold', quantity='0', img='$image', source='$source', category_id='$category', description='$description', status_id='$status' WHERE products.id = '$id';";
         if ($conn->query($sql) === TRUE) {
             header('Location: ../panel.php?page=produkty&action=edited');
         } else {
             header('Location: ../panel.php?page=produkty&action=error');
         }
-    }else{
-        $sql = "UPDATE `products` SET name = '$name', sku = '$sku', bought = '$bought', sold='$sold', quantity='$quantity', img='$image', source='$source', category_id='$category', description='$description', status_id= case when quantity = 0 then 2 when quantity > 0 then status_id='$status' end WHERE products.id = '$id';";
+    }else if($status == '1' or $status == '2'){
+        $sql = "UPDATE `products` SET name = '$name', sku = '$sku', bought = '$bought', sold='$sold', quantity='$quantity', img='$image', source='$source', category_id='$category', description='$description', status_id= case when quantity = 0 then 2 when quantity > 0 then $status end WHERE products.id = '$id';";
         if ($conn->query($sql) === TRUE) {
             header('Location: ../panel.php?page=produkty&action=edited');
         } else {
             header('Location: ../panel.php?page=produkty&action=error');
+            print_r($sql);
         }
     }
     
