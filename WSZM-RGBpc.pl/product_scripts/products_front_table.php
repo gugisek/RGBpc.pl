@@ -25,7 +25,7 @@
                 $quantity = "between 0 and 1000";
                 $status = "";
             }
-            $sql = "SELECT products.id, name, sku, product_categories.category, quantity, bought, sold, product_status.status FROM products left join product_categories on product_categories.id = products.category_id left join product_status on product_status.id = products.status_id where (name like '%$search%' and products.category_id like '%$category%' and status_id like '%$status%' and quantity ".$quantity.") or (sku like '%$search%' and products.category_id like '%$category%' and status_id like '%$status%' and quantity ".$quantity.");";
+            $sql = "SELECT products.id, name, sku, product_categories.category, quantity, bought, sold, product_status.status FROM products left join product_categories on product_categories.id = products.category_id left join product_status on product_status.id = products.status_id where (name like '%$search%' and products.category_id like '%$category%' and status_id like '%$status%' and quantity ".$quantity.") or (sku like '%$search%' and products.category_id like '%$category%' and status_id like '%$status%' and quantity ".$quantity.") order by quantity desc;";
             $result = mysqli_query($conn, $sql);
             if(mysqli_num_rows($result) > 0)
             {
