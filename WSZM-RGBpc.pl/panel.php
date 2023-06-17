@@ -20,6 +20,9 @@
         if ($page=="użytkownicy") {
             include 'components/users.php';
         }
+        if ($page=="archiwum") {
+            include 'components/arch.php';
+        }
         if ($page=="ustawienia") {
             include 'components/settings.php';
         }
