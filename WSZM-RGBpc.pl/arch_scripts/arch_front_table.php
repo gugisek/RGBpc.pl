@@ -33,8 +33,8 @@
                 {
 
                     echo "<tr class='hover:bg-gray-100 transition-all duration-300 border-t-[0.5px] border-b-[0.5px]' style='cursor: pointer; cursor: hand;' onclick='window.location=`?page=archiwum&action=details&id=".$row['id']."`;'>";
-                        echo "<td class='py-3 text-gray-600 text-center md:table-cell hidden'>".$row['id']."</td>";
-                        echo "<td class='py-3 text-gray-600'>".$row['name']." ".$row['sur_name']."</td>";
+                        echo "<td class='py-3 text-gray-600 text-center text-sm md:table-cell hidden'>".$row['id']."</td>";
+                        echo "<td class='py-3 text-gray-600 text-sm'>".$row['name']." ".$row['sur_name']."</td>";
                         echo "<td class='text-center capitalize text-sm text-gray-500'>".$row['when']."</td>";
                         $description = $row['description'];
                         if (strlen($description) > 50) {
@@ -44,7 +44,7 @@
                         echo "<td class='text-center text-sm text-gray-500'>".$row['object_id']."</td>";
                         echo "<td class='text-center text-sm capitalize ";
                         if ($row['object_type'] == "users") {
-                            echo " text-green-500";
+                            echo " text-yellow-500";
                         }
                         else if ($row['object_type'] == "products") {
                             echo " text-purple-500";

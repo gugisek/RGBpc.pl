@@ -33,32 +33,32 @@ $description = $row['description'];
                     <div class="flex flex-col w-full md:w-1/2">
                         <div class="flex flex-col">
                             <label for="user_id" class="pb-2 pt-2 font-medium text-xs text-gray-500 font-[Lexend]">Użytkownik</label>
-                            <input type="text" name="user_id" id="user_id" value="<?php echo $row['name']; echo " "; echo $row['sur_name'] ?>" class="border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled>
+                            <input type="text" name="user_id" id="user_id" value="<?php echo $row['name']; echo " "; echo $row['sur_name'] ?>" class="text-sm border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled>
                         </div>
                     </div>
                     <div class="flex flex-col w-full md:w-1/2">
                         <div class="flex flex-col">
                             <label for="when" class="pb-2 pt-2 font-medium text-xs text-gray-500 font-[Lexend]">Kiedy</label>
-                            <input type="text" name="when" id="when" value="<?php echo $when; ?>" class="border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled>
+                            <input type="text" name="when" id="when" value="<?php echo $when; ?>" class="text-sm border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-col">
                     <label for="object_id" class="pb-2 font-medium pt-2 text-xs text-gray-500 font-[Lexend]">Id obiektu</label>
-                    <input type="text" name="object_id" id="object_id" value="<?php echo $objectId; ?>" class="border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled>
+                    <input type="text" name="object_id" id="object_id" value="<?php echo $objectId; ?>" class="text-sm border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled>
                 </div>
                 <div class="flex flex-col">
                     <label for="object_type" class="pb-2 pt-2 font-medium text-xs text-gray-500 font-[Lexend]">Typ obiektu</label>
-                    <input type="text" name="object_type" id="object_type" value="<?php echo $objectType; ?>" class="border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all
+                    <input type="text" name="object_type" id="object_type" value="<?php echo $objectType; ?>" class="text-sm border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all
                     duration-500" disabled>
                 </div>
                 <div class="flex flex-col">
                     <label for="before" class="pb-2 pt-2 font-medium text-xs text-gray-500 font-[Lexend]">Przed</label>
-                    <textarea name="before" id="before" cols="30" rows="5" class="border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled><?php echo $before; ?></textarea>
+                    <textarea name="before" id="before" cols="30" rows="5" class="text-sm border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled><?php echo $before; ?></textarea>
                 </div>
                 <div class="flex flex-col">
                     <label for="after" class="pb-2 pt-2 font-medium text-xs text-gray-500 font-[Lexend]">Po</label>
-                    <textarea name="after" id="after" cols="30" rows="5" class="border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled><?php echo $after; ?></textarea>
+                    <textarea name="after" id="after" cols="30" rows="5" class="text-sm border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled><?php echo $after; ?></textarea>
                 </div>
             </div>
             <div class="flex flex-col w-full md:w-1/2">
@@ -78,17 +78,17 @@ $description = $row['description'];
                     }
 
 
-                    ?>" class="border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled>
+                    ?>" class="border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500 text-sm" disabled>
                 </div>
                 <div class="flex flex-col">
                     <label for="type" class="pb-2 text-xs pt-2 font-medium text-gray-600 font-[Lexend]">Typ operacji</label>
                     <input type="text" name="type" id="type" value="<?php echo $type; ?>" class="
                     <?php if ($type == "create") {echo "bg-green-200";} elseif ($type == "delete") {echo "bg-red-200";} elseif ($type == "modify") {echo "bg-indigo-200";} ?>
-                    border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled>
+                    border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500 text-sm" disabled>
                 </div>
                 <div class="flex flex-col">
                     <label for="description" class="pb-2 text-xs pt-2 font-medium text-gray-600 font-[Lexend]">Opis</label>
-                    <textarea name="description" id="description" cols="30" rows="10" class="border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled><?php echo $description; ?></textarea>
+                    <textarea name="description" id="description" cols="30" rows="10" class="text-sm border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled><?php echo $description; ?></textarea>
                 </div>
             </div>
         </div>
