@@ -1,5 +1,8 @@
 <section class="w-full bg-white shadow-xl rounded-3xl py-6 px-6">
-    <h1 class="pb-2 font-medium text-gray-600 font-[Lexend]">Archiwum</h1>
+    <div class="w-full flex justify-between items-center">
+        <h1 class="pb-2 font-medium text-gray-600 font-[Lexend]">Archiwum</h1>
+        <?php include 'arch_scripts/arch_nav_page.php'; ?>
+    </div>
     <table class="w-full">
         <tr class="uppercase text-left text-xs text-gray-400 ">
             <th class="px-3 text-center md:w-auto md:table-cell hidden">ID</th>
@@ -22,8 +25,7 @@
                 $role = "";
                 $status = "";
             }
-            // SELECT users.id, users.name, users.mail, users.sur_name, user_roles.role, users.create_date, user_status.status FROM `users` join user_roles on users.role_id=user_roles.id join user_status on user_status.id=users.status_id where (name like '%$search%' and role_id like '%$role%' and status_id like '%$status%') or (sur_name like '%$search%' and role_id like '%$role%' and status_id like '%$status%') or (mail like '%$search%' and role_id like '%$role%' and status_id like '%$status%') 
-            $sql = "SELECT logs.id, users.name, users.sur_name, logs.when, logs.object_id, logs.object_type, log_types.type,logs.description FROM `logs` join users on users.id=logs.user_id join log_types on log_types.id=logs.type order by id desc;";
+            $sql = "SELECT logs.id, users.name, users.sur_name, logs.when, logs.object_id, logs.object_type, log_types.type,logs.description FROM `logs` join users on users.id=logs.user_id join log_types on log_types.id=logs.type order by id desc limit 20 offset ".($page_id - 1) * 20;
             $result = mysqli_query($conn, $sql);
             if(mysqli_num_rows($result) > 0)
             {
@@ -31,8 +33,8 @@
                 {
 
                     echo "<tr class='hover:bg-gray-100 transition-all duration-300 border-t-[0.5px] border-b-[0.5px]' style='cursor: pointer; cursor: hand;' onclick='window.location=`?page=archiwum&action=details&id=".$row['id']."`;'>";
-                        echo "<td class='py-3 text-gray-800 text-center md:table-cell hidden'>".$row['id']."</td>";
-                        echo "<td class='py-3 text-gray-800'>".$row['name']." ".$row['sur_name']."</td>";
+                        echo "<td class='py-3 text-gray-600 text-center md:table-cell hidden'>".$row['id']."</td>";
+                        echo "<td class='py-3 text-gray-600'>".$row['name']." ".$row['sur_name']."</td>";
                         echo "<td class='text-center capitalize text-sm text-gray-500'>".$row['when']."</td>";
                         $description = $row['description'];
                         if (strlen($description) > 50) {
@@ -45,16 +47,16 @@
                             echo " text-green-500";
                         }
                         else if ($row['object_type'] == "products") {
-                            echo " text-blue-500";
+                            echo " text-purple-500";
                         }
                         else if ($row['object_type'] == "orders") {
                             echo " text-yellow-500";
                         }
                         else if ($row['object_type'] == "finances") {
-                            echo " text-red-500";
+                            echo " text-blue-500";
                         }
                         else if ($row['object_type'] == "user_roles") {
-                            echo " text-purple-500";
+                            echo " text-red-500";
                         }
                         else if ($row['object_type'] == "user_status") {
                             echo " text-pink-500";
@@ -88,4 +90,11 @@
             }
         ?>
     </table>
+    <div class="w-full flex items-center justify-between mt-2 mb-[-16px]">
+        <div class="w-1/3"></div>
+        <?php include 'arch_scripts/arch_nav_page.php'; ?>
+        <span class="text-right w-1/3 text-sm text-gray-400">Strona <?=$page_id?> z <?=$total_pages?></span>
+        
+        
+    </div>
 </section>
