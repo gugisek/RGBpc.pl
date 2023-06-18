@@ -19,6 +19,7 @@ if(mysqli_num_rows($result) > 0)
         session_start();
         $_SESSION['logged'] = true;
         $_SESSION['user'] = $name;
+        $_SESSION['login'] = $login_sha;
         header('Location: ../panel.php?page=dashboard');
     }
     else

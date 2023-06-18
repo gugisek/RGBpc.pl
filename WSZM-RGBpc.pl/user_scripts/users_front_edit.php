@@ -14,7 +14,7 @@ if ($action=="edit") {
             echo "<input type='hidden' name='id' value='".$row['id']."'>";
             echo "<div class='flex flex-col gap-2'>";
             echo "<label for='name' class='text-xs text-gray-500'>Imię</label>";
-            echo "<input type='text' name='name' id='name' class='w-full py-2 px-4 rounded-lg shadow-sm focus:outline-none text-gray-700 focus:text-gray-800 transition-all duration-300 focus:ring-2 focus:ring-green-500 focus:border-transparent' value='".$row['name']."'>";
+            echo "<input type='text' name='name' id='name' class='w-full py-2 px-4 rounded-lg shadow-sm focus:outline-none outline-none text-gray-700 focus:text-gray-800 transition-all duration-300 focus:ring-2 focus:ring-indigo-300 focus:border-transparent' value='".$row['name']."'>";
             echo "</div>";
             echo "<div class='flex flex-col gap-2'>";
             echo "<label for='sur_name' class='text-xs text-gray-500'>Nazwisko</label>";

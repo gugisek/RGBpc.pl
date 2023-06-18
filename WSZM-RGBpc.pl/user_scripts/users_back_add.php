@@ -19,6 +19,15 @@ if ($password == $password2 && !empty($password) && !empty($password2) && !empty
         $password = hash('sha256', $password);
         $sql = "INSERT INTO `users` (`id`, `login`, `name`, `sur_name`, `pswd`, `mail`, `role_id`, `create_date`, `update_date`, `status_id`) VALUES (NULL, '$login', '$name', '$surname', '$password', '$mail', '$role_id', current_timestamp(), current_timestamp(), '$status_id')";
         if ($conn->query($sql) === TRUE) {
+            //log
+            $object_id=$conn->insert_id;
+            $object_type="users";
+            $before="NULL";
+            $after="$login, $name, $surname, $password, $mail, $role_id, current_timestamp(), current_timestamp(), $status_id";
+            $action_type="2";
+            $desc="Dodano użytkownika";
+            include "../scripts/log.php";
+            //log
             header('Location: ../panel.php?page=użytkownicy&action=added');
         } else {
             header('Location: ../panel.php?page=użytkownicy&action=error');

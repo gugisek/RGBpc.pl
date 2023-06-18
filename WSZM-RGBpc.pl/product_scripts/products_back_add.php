@@ -19,6 +19,15 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
     } else {
         $sql = "INSERT INTO `products` (`name`, `sku`, `bought`, `sold`, `quantity`, `img`, `source`, `category_id`, `description`, `status_id`) VALUES ('$name', '$sku', '$bought', '$sold', '$quantity', '$image', '$source', '$category', '$description', '$status')";
         if ($conn->query($sql) === TRUE) {
+            //log
+            $object_id=$conn->insert_id;
+            $object_type="products";
+            $before="NULL";
+            $after="$name, $sku, $bought, $sold, $quantity, $image, $source, $category, $description, $status";
+            $action_type="2";
+            $desc="Dodano produkt";
+            include "../scripts/log.php";
+            //log
             header('Location: ../panel.php?page=produkty&action=added');
         } else {
             header('Location: ../panel.php?page=produkty&action=error');
