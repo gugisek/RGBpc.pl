@@ -32,7 +32,7 @@
                 while($row = mysqli_fetch_assoc($result))
                 {
 
-                    echo "<tr class='hover:bg-gray-100 transition-all duration-300 border-t-[0.5px] border-b-[0.5px]' style='cursor: pointer; cursor: hand;' onclick='window.location=`?page=archiwum&action=details&id=".$row['id']."`;'>";
+                    echo "<tr class='hover:bg-gray-100 transition-all duration-300 border-t-[0.5px] border-b-[0.5px]' style='cursor: pointer; cursor: hand;' onclick='window.location=`?page=archiwum&action=details&page_id=".$page_id."&id=".$row['id']."`;'>";
                         echo "<td class='py-3 text-gray-600 text-center text-sm md:table-cell hidden'>".$row['id']."</td>";
                         echo "<td class='py-3 text-gray-600 text-sm'>".$row['name']." ".$row['sur_name']."</td>";
                         echo "<td class='text-center capitalize text-sm text-gray-500'>".$row['when']."</td>";
