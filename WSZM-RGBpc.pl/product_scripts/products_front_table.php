@@ -31,8 +31,8 @@
             {
                 while($row = mysqli_fetch_assoc($result))
                 {
-                    echo "<tr class='border-t-[0.5px] border-b-[0.5px]'>";
-                        echo "<td class='capitalize text-sm text-gray-500'><a class='transition-all duration-300 hover:text-indigo-500 hover:cursor-pointer' href='?page=produkty&action=edit&id=".$row['id']."#edit'>".$row['name']."</a></td>";
+                    echo "<tr class='border-t-[0.5px] border-b-[0.5px] hover:bg-gray-100 transition-all duration-300' style='cursor: pointer; cursor: hand;' onclick='window.location=`?page=produkty&action=edit&id=".$row['id']."#edit`;'>";
+                        echo "<td class='capitalize text-sm text-gray-500'>".$row['name']."</td>";
                         echo "<td class='text-center capitalize text-sm text-gray-500'>".$row['sku']."</td>";
                         echo "<td class='py-5 text-center capitalize text-sm text-gray-500'>".$row['category']."</td>";
                         echo "<td class='py-5 text-center capitalize text-sm";
