@@ -29,7 +29,7 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
             $object_id = $id;
             $object_type = 'products';
             $before="$row_old[name], $row_old[sku], $row_old[bought], $row_old[sold], $row_old[quantity], $row_old[img], $row_old[source], $row_old[category_id], $row_old[description], $row_old[status_id]";
-            $after = "$name, $sku, $bought, $sold, 0, $image, $source, $category, $description, $status";
+            $after = "$name, $sku, $bought, $sold, $quantity, $image, $source, $category, $description, $status";
             $action_type = '1';
             $desc = 'Edycja produktu';
             include "../scripts/log.php";
@@ -45,7 +45,7 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
             $object_id = $id;
             $object_type = 'products';
             $before="$row_old[name], $row_old[sku], $row_old[bought], $row_old[sold], $row_old[quantity], $row_old[img], $row_old[source], $row_old[category_id], $row_old[description], $row_old[status_id]";
-            $after = "$name, $sku, $bought, $sold, 0, $image, $source, $category, $description, $status";
+            $after = "$name, $sku, $bought, $sold, $quantity, $image, $source, $category, $description, $status";
             $action_type = '1';
             $desc = 'Edycja produktu';
             include "../scripts/log.php";
