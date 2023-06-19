@@ -4,7 +4,7 @@
             <!-- search -->
             <?php include 'product_scripts/products_search.php'; ?>
             <!-- script for working enter to submit on select -->
-            <?php include 'user_scripts/users_option_enter.php'; ?>
+            <?php include 'product_scripts/products_option_enter.php'; ?>
         </section>
         <a href="?page=produkty&action=add" class="flex items-center justify-center px-8 bg-indigo-400 hover:shadow-indigo-500 transition-all duration rounded-3xl hover:shadow-[0px_8px_19px_0px] hover:scale-105 shadow-xl">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-white w-6 h-6">
