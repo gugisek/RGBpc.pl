@@ -2,19 +2,16 @@
 include 'conn_db.php';
 $login_sha = hash('sha256', $_POST['login']);
 $password_sha = hash('sha256', $_POST['password']);
-echo $login_sha;
-echo $sql;
-
 $sql = "SELECT * FROM users WHERE login = '".$login_sha."' AND pswd = '".$password_sha."'";
 $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result) > 0)
 {
-    $sql = "SELECT status_id, name FROM users WHERE login = '".$login_sha."' AND pswd = '".$password_sha."'";
+    $sql = "SELECT users.status_id, users.name, status_privileges.login FROM users join user_status on users.status_id=user_status.id join status_privileges on status_privileges.id=user_status.privileges WHERE users.login = '".$login_sha."' AND pswd = '".$password_sha."'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-    $status_id = $row['status_id'];
+    $login = $row['login'];
     $name = $row['name'];
-    if($status_id == 1)
+    if($login == 1)
     {
         session_start();
         $_SESSION['logged'] = true;
