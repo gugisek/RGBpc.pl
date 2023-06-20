@@ -25,15 +25,15 @@
                 $quantity = "between 0 and 1000";
                 $status = "";
             }
-            $sql = "SELECT products.id, name, sku, product_categories.category, quantity, bought, sold, product_status.status FROM products left join product_categories on product_categories.id = products.category_id left join product_status on product_status.id = products.status_id where (name like '%$search%' and products.category_id like '%$category%' and status_id like '%$status%' and quantity ".$quantity.") or (sku like '%$search%' and products.category_id like '%$category%' and status_id like '%$status%' and quantity ".$quantity.") order by quantity desc;";
+            $sql = "SELECT products.id, name, sku, product_categories.category, quantity, bought, sold, product_status.status, img FROM products left join product_categories on product_categories.id = products.category_id left join product_status on product_status.id = products.status_id where (name like '%$search%' and products.category_id like '%$category%' and status_id like '%$status%' and quantity ".$quantity.") or (sku like '%$search%' and products.category_id like '%$category%' and status_id like '%$status%' and quantity ".$quantity.") order by quantity desc;";
             $result = mysqli_query($conn, $sql);
             if(mysqli_num_rows($result) > 0)
             {
                 while($row = mysqli_fetch_assoc($result))
                 {
                     echo "<tr class='border-t-[0.5px] border-b-[0.5px] hover:bg-gray-100 transition-all duration-300' style='cursor: pointer; cursor: hand;' onclick='window.location=`?page=produkty&action=edit&id=".$row['id']."#edit`;'>";
-                        echo "<td class='capitalize text-sm text-gray-500'>".$row['name']."</td>";
-                        echo "<td class='text-center capitalize text-sm text-gray-500'>".$row['sku']."</td>";
+                        echo "<td class='py-5 capitalize text-sm text-gray-500 flex items-center'><img class='object-none object-center bg-yellow-300 w-10 h-10 mx-2 rounded-xl' src='public/img/products_images/".$row['img']."' />".$row['name']."</td>";
+                        echo "<td class='text-center text-sm text-gray-500 uppercase'>".$row['sku']."</td>";
                         echo "<td class='py-5 text-center capitalize text-sm text-gray-500'>".$row['category']."</td>";
                         echo "<td class='py-5 text-center capitalize text-sm";
                             if ($row['quantity']>=5 && $row['quantity']<10) {

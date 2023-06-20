@@ -17,7 +17,7 @@ if ($action == "edit") {
                 echo "</div>";
                 echo "<div class='flex flex-col gap-2'>";
                     echo "<label for='sku' class='text-xs text-gray-500'>SKU</label>";
-                    echo "<input required readonly type='text' name='sku' id='sku' value='".$row['sku']."' class='w-full py-2 px-4 rounded-lg text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
+                    echo "<input required readonly type='text' name='sku' id='sku' value='".$row['sku']."' class='w-full py-2 px-4 rounded-lg text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent uppercase'>";
                 echo "</div>";
                 echo "<div class='flex flex-col gap-2'>";
                     echo "<label for='bought' class='text-xs text-gray-500'>Cena zakupu</label>";
