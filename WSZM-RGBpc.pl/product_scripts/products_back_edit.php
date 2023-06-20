@@ -11,6 +11,7 @@ $status = $_POST['status'];
 $description = $_POST['description'];
 $image = $_POST['image'];
 $source = $_POST['source'];
+include "products_back_upload.php";
 
 //log
 $sql_old = "SELECT * FROM products WHERE id='$id'";
@@ -24,7 +25,7 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
     $row = $result->fetch_assoc();
     if($status == '3' or $status == '4'){
         $sql = "UPDATE `products` SET name = '$name', sku = '$sku', bought = '$bought', sold='$sold', quantity='0', img='$image', source='$source', category_id='$category', description='$description', status_id='$status' WHERE products.id = '$id';";
-        if ($conn->query($sql) === TRUE) {
+        if ($conn->query($sql) === TRUE || move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)) {
             //log
             $object_id = $id;
             $object_type = 'products';
@@ -34,6 +35,7 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
             $desc = 'Edycja produktu';
             include "../scripts/log.php";
             //log
+            rename($target_file, $target_dir . $image.".".$imageFileType);
             header('Location: ../panel.php?page=produkty&action=edited');
         } else {
             header('Location: ../panel.php?page=produkty&action=error');
@@ -50,7 +52,13 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
             $desc = 'Edycja produktu';
             include "../scripts/log.php";
             //log
-            header('Location: ../panel.php?page=produkty&action=edited');
+            if(move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)){
+                shell_exec("rm -f ".$target_dir . $image .".*");
+                rename($target_file, $target_dir . $image.".".$imageFileType);
+                header('Location: ../panel.php?page=produkty&action=edited');
+            } else {
+                header('Location: ../panel.php?page=produkty&action=img_error');
+            }
         } else {
             header('Location: ../panel.php?page=produkty&action=error');
             print_r($sql);
