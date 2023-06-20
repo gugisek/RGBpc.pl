@@ -12,13 +12,14 @@
             while($row = mysqli_fetch_assoc($result))
             {
             echo "<tr class='hover:bg-gray-100 transition-all duration-300 border-t-[0.5px] border-b-[0.5px]' style='cursor: pointer; cursor: hand;' onclick='window.location=`?page=ustawienia&action=edit&setting=user_status&id_sett=".$row['id']."`'>";
-                echo "<td class='py-3 text-gray-600 text-sm'>".$row['status']."</td>";
+                echo "<td class='capitalize py-3 text-gray-600 text-sm'>".$row['status']."</td>";
                 echo "<td class='py-3 text-gray-600 text-sm text-right'>".$row['description']."</td>";
             echo "</tr>";
             }
         } else {
             echo "<tr class='border-t-[0.5px] border-b-[0.5px]'>";
                 echo "<td class='py-3 text-gray-800 leading-4 text-sm'>Brak wyników</td>";
+                echo "<td class='py-3 text-gray-800 leading-4 text-sm'></td>";
             echo "</tr>";
         }
     ?>

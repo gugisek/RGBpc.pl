@@ -13,7 +13,7 @@
                             {
 
                                 echo "<tr class='hover:bg-gray-100 transition-all duration-300 border-t-[0.5px] border-b-[0.5px]' style='cursor: pointer; cursor: hand;' onclick='window.location=`?page=ustawienia&action=edit&setting=user_role&id_sett=".$row['id']."`'>";
-                                    echo "<td class='py-3 text-gray-600 text-sm'>".$row['role']."</td>";
+                                    echo "<td class='capitalize py-3 text-gray-600 text-sm'>".$row['role']."</td>";
                                     $description = $row['description'];
                                     if (strlen($description) > 50) {
                                         $description = substr($description, 0, 50)."...";
@@ -26,9 +26,6 @@
                             echo "<tr class='border-t-[0.5px] border-b-[0.5px]'>";
                                 echo "<td class='py-3 text-gray-800 leading-4 text-sm'>Brak wyników</td>";
                                 echo "<td class='text-center capitalize text-sm text-gray-500'></td>";
-                                echo "<td class='text-center capitalize text-sm text-gray-500'></td>";
-                                echo "<td class='text-center text-sm text-gray-500'></td>";
-                                echo "<td class='text-center text-sm'></td>";
                             echo "</tr>";
                         }
                     ?>

@@ -24,7 +24,7 @@ include 'scripts/conn_db.php';
         </div>
         <div class='flex flex-row gap-2'>
             <button type='submit' class='w-full py-2 px-4 bg-green-500 hover:bg-green-600 hover:shadow-green-500 shadow-xl rounded-lg text-white font-medium transition-all duration-300'>Dodaj</button>
-            <a href='?page=ustawienia&action=' class='w-full py-2 px-4 bg-red-500 text-center hover:bg-red-600 hover:shadow-red-500 shadow-xl rounded-lg text-white font-medium transition-all duration-300'>Anuluj</a>
+            <a href='?page=ustawienia&action=' class='w-full py-2 px-4 bg-gray-500 text-center hover:bg-gray-600 hover:shadow-gray-500 shadow-xl rounded-lg text-white font-medium transition-all duration-300'>Anuluj</a>
         </div>
     </form>
 </section>
