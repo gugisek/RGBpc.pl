@@ -24,7 +24,11 @@
                         $action_color = 'green';
                     }elseif($action == 'same'){
                         $action_status = 'Błąd!';
-                        $action_desc = 'Nie wprowadzono żadnych zmian';
+                        $action_desc = 'Nie wprowadzono żadnych zmian, ponieważ nie zmieniono żadnych pól lub istnieje już taki wpis w bazie danych';
+                        $action_color = 'orange';
+                    }elseif($action == 'delete_in_use'){
+                        $action_status = 'Błąd!';
+                        $action_desc = 'Dany rekord jest użyciu i nie można go usunąć, najpierw modyfikuj rekordy, które go używają, a następnie spróbuj ponownie';
                         $action_color = 'orange';
                     }
                     echo "
@@ -50,7 +54,7 @@
         <h1 class="pb-2 font-medium text-gray-600 font-[Lexend]">Użytkownicy</h1>
         <div class="w-full flex gap-4">
             <div class="w-1/2">
-            <div class="flex justify-between items-center">
+                <div class="flex justify-between items-center">
                     <h2 class="pb-2 font-medium text-sm text-gray-600 font-[Lexend]">Role</h2>
                     <a href="" class="flex items-center justify-center text-xs text-gray-500 hover:text-green-500">Dodaj role
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-6 h-6">
@@ -75,41 +79,23 @@
             <div class="w-1/2">
                 <div class="flex justify-between items-center">
                     <h2 class="pb-2 font-medium text-sm text-gray-600 font-[Lexend]">Statusy</h2>
-                    <a href="" class="flex items-center justify-center text-xs text-gray-500 hover:text-green-500">Dodaj status
+                    <a href="?page=ustawienia&action=add&setting=user_status" class="flex items-center justify-center text-xs text-gray-500 hover:text-green-500">Dodaj status
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
                         </svg>
                     </a>
                 </div>
-                <table class="w-full">
-                    <tr class="uppercase text-left text-xs text-gray-400 ">
-                        <th class="">Status</th>
-                    </tr>
-                    <?php
-                        include 'scripts/conn_db.php';
-                        $sql = "SELECT * from user_status";
-                        $result = mysqli_query($conn, $sql);
-                        if(mysqli_num_rows($result) > 0)
-                        {
-                            while($row = mysqli_fetch_assoc($result))
-                            {
-
-                                echo "<tr class='hover:bg-gray-100 transition-all duration-300 border-t-[0.5px] border-b-[0.5px]' style='cursor: pointer; cursor: hand;' onclick='window.location=`?page=ustawienia&action=details&setting=user_logs&id_sett=".$row['id']."`'>";
-                                    echo "<td class='py-3 text-gray-600 text-sm'>".$row['status']."</td>";
-                                echo "</tr>";
-                                ;
-                            }
-                        } else {
-                            echo "<tr class='border-t-[0.5px] border-b-[0.5px]'>";
-                                echo "<td class='py-3 text-gray-800 leading-4 text-sm'>Brak wyników</td>";
-                                echo "<td class='text-center capitalize text-sm text-gray-500'></td>";
-                                echo "<td class='text-center capitalize text-sm text-gray-500'></td>";
-                                echo "<td class='text-center text-sm text-gray-500'></td>";
-                                echo "<td class='text-center text-sm'></td>";
-                            echo "</tr>";
-                        }
-                    ?>
-                </table>
+                <?php 
+                    if ($setting == 'user_status' && $action == 'edit'){
+                        include 'setting_scripts/settings_front_status_edit.php';
+                    }elseif ($setting == 'user_status' && $action == 'add'){
+                        include 'setting_scripts/settings_front_status_add.php';
+                    }elseif ($setting == 'user_status' && $action == 'delete'){
+                        include 'setting_scripts/settings_front_status_delete.php';
+                    }else{
+                        include 'setting_scripts/settings_front_status.php';
+                    }
+                ?>
             </div>
         </div>
     </section>
