@@ -52,7 +52,9 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
             $desc = 'Edycja produktu';
             include "../scripts/log.php";
             //log
-            if(move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)){
+            if($_FILES["upload"]["error"] == '4'){
+                header('Location: ../panel.php?page=produkty&action=edited');
+            }else if(move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)){
                 shell_exec("rm -f ".$target_dir . $image .".*");
                 rename($target_file, $target_dir . $image.".".$imageFileType);
                 header('Location: ../panel.php?page=produkty&action=edited');
