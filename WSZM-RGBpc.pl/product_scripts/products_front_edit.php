@@ -9,7 +9,7 @@ if ($action == "edit") {
         {
         echo "<section id='edit' class='w-full bg-white shadow-xl rounded-3xl py-6 px-6'>";
             echo "<h1 class='pb-2 font-medium text-gray-600 font-[Lexend]'>Edytuj produkt</h1>";
-            echo "<form action='product_scripts/products_back_edit.php' method='post' class='flex flex-col gap-4'>";
+            echo "<form action='product_scripts/products_back_edit.php' method='post' enctype='multipart/form-data' class='flex flex-col gap-4'>";
                 echo "<input type='hidden' name='id' value='".$row['id']."'>";
                 echo "<div class='flex flex-col gap-2'>";
                     echo "<label for='name' class='text-xs text-gray-500'>Nazwa</label>";
@@ -72,12 +72,16 @@ if ($action == "edit") {
                     echo "<input type='text' name='description' id='description' value='".$row['description']."' class='w-full py-2 px-4 rounded-lg text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
                 echo "</div>";
                 echo "<div class='flex flex-col gap-2'>";
+                    echo "<label for='source' class='text-xs text-gray-500'>Źródło</label>";
+                    echo "<input required type='text' name='source' id='source' value='".$row['source']."' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
+                echo "</div>";
+                echo "<div class='flex flex-col gap-2'>";
                     echo "<label for='image' class='text-xs text-gray-500'>URL zdjęcia</label>";
                     echo "<input readonly required type='text' name='image' id='image' value='".$row['img']."' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
                     echo "</div>";
                 echo "<div class='flex flex-col gap-2'>";
-                    echo "<label for='source' class='text-xs text-gray-500'>Źródło</label>";
-                    echo "<input required type='text' name='source' id='source' value='".$row['source']."' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
+                    echo "<label for='upload' class='text-xs text-gray-500'>Zdjęcie</label>";
+                    echo "<input type='file' name='upload' id='upload' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
                 echo "</div>";
                 echo "<div class='flex flex-row gap-2'>";
                     echo "<button type='submit' class='w-full py-2 px-4 bg-green-500 hover:bg-green-600 hover:shadow-green-500 shadow-xl rounded-lg text-white font-medium transition-all duration-300'>Zapisz</button>";
@@ -100,6 +104,13 @@ if ($action == "edit") {
 }elseif($action=='error') {
     echo "<section id='edited' class='flex justify-between w-full bg-red-500 text-white shadow-red-300 shadow-xl rounded-3xl py-6 px-6'>";
     echo "<h1>Błąd bazy danych. Spróbuj ponownie lub skontaktuj się z administratorem.</h1>";
+    echo '<a href="?page=produkty&action=" class="hover:rotate-90 transition-all duration-300"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+         </svg></a>';
+    echo "</section>";
+}elseif($action=='img_error') {
+    echo "<section id='edited' class='flex justify-between w-full bg-red-500 text-white shadow-red-300 shadow-xl rounded-3xl py-6 px-6'>";
+    echo "<h1>Błąd przesyłania pliku. Skontaktuj się z administratorem.</h1>";
     echo '<a href="?page=produkty&action=" class="hover:rotate-90 transition-all duration-300"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
          </svg></a>';
