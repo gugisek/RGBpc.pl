@@ -2,12 +2,12 @@
     <h1 class="pb-2 font-medium text-gray-600 font-[Lexend]">Produkty</h1>
     <table class="w-full">
         <tr class="uppercase text-left text-xs text-gray-400 ">
-            <th class="w-1/3">Nazwa</th>
-            <th class="w-1/8 text-center">SKU</th>
+            <th class="w-1/3" <?php if($action=='sorted_name') { echo 'onclick=window.location="?page=produkty&action=sorted_name_desc"'; echo ' style="cursor: n-resize;"'; echo '>Nazwa ⬇';} else if($action=='sorted_name_desc') { echo 'onclick=window.location="?page=produkty&action=sorted_name"'; echo ' style="cursor: s-resize;"'; echo '>Nazwa ⬆';} else { echo 'onclick=window.location="?page=produkty&action=sorted_name"'; echo ' style="cursor: s-resize;"'; echo '>Nazwa'; } ?></th>
+            <th class="w-1/8 text-center" <?php if($action=='sorted_sku') { echo 'onclick=window.location="?page=produkty&action=sorted_sku_desc"'; echo ' style="cursor: n-resize;"'; echo '>SKU ⬇';} else if($action=='sorted_sku_desc') { echo 'onclick=window.location="?page=produkty&action=sorted_sku"'; echo ' style="cursor: s-resize;"'; echo '>SKU ⬆';} else { echo 'onclick=window.location="?page=produkty&action=sorted_sku"'; echo ' style="cursor: s-resize;"'; echo '>SKU';} ?></th>
             <th class="text-center py-3 w-1/8">Kategoria</th>
-            <th class="w-1/8 text-center">Ilość</th>
-            <th class="w-1/8 text-center">Zakup</th>
-            <th class="w-1/8 text-center">Sprzedaż</th>
+            <th class="w-1/8 text-center" <?php if($action=='sorted_quantity') { echo 'onclick=window.location="?page=produkty&action=sorted_quantity_desc"'; echo ' style="cursor: n-resize;"'; echo '>Ilość ⬇';} else if($action=='sorted_quantity_desc') { echo 'onclick=window.location="?page=produkty&action=sorted_quantity"'; echo ' style="cursor: s-resize;"'; echo '>Ilość ⬆';} else { echo 'onclick=window.location="?page=produkty&action=sorted_quantity_desc"'; echo ' style="cursor: n-resize;"'; echo '>Ilość';} ?></th>
+            <th class="w-1/8 text-center" <?php if($action=='sorted_bought') { echo 'onclick=window.location="?page=produkty&action=sorted_bought_desc"'; echo ' style="cursor: n-resize;"'; echo '>Zakup ⬇';} else if($action=='sorted_bought_desc') { echo 'onclick=window.location="?page=produkty&action=sorted_bought"'; echo ' style="cursor: s-resize;"'; echo '>Zakup ⬆';} else { echo 'onclick=window.location="?page=produkty&action=sorted_bought"'; echo ' style="cursor: s-resize;"'; echo '>Zakup';} ?></th>
+            <th class="w-1/8 text-center" <?php if($action=='sorted_sold') { echo 'onclick=window.location="?page=produkty&action=sorted_sold_desc"'; echo ' style="cursor: n-resize;"'; echo '>Sprzedaż ⬇';} else if($action=='sorted_sold_desc') { echo 'onclick=window.location="?page=produkty&action=sorted_sold"'; echo ' style="cursor: s-resize;"'; echo '>Sprzedaż ⬆';} else { echo 'onclick=window.location="?page=produkty&action=sorted_sold"'; echo ' style="cursor: s-resize;"'; echo '>Sprzedaż';} ?></th>
             <th class="w-1/8 text-center">Status</th>
             <th class="w-1/8"></th>
         </tr>
@@ -25,7 +25,32 @@
                 $quantity = "between 0 and 1000";
                 $status = "";
             }
-            $sql = "SELECT products.id, name, sku, product_categories.category, quantity, bought, sold, product_status.status, img FROM products left join product_categories on product_categories.id = products.category_id left join product_status on product_status.id = products.status_id where (name like '%$search%' and products.category_id like '%$category%' and status_id like '%$status%' and quantity ".$quantity.") or (sku like '%$search%' and products.category_id like '%$category%' and status_id like '%$status%' and quantity ".$quantity.") order by quantity desc;";
+                if($action == 'sorted_name'){
+                    $ordered = 'name';
+                } else if($action == 'sorted_name_desc'){
+                    $ordered = 'name desc';
+                } else if($action == 'sorted_sku'){
+                    $ordered = 'sku';
+                } else if($action == 'sorted_sku_desc'){
+                    $ordered = 'sku desc';
+                } else if($action == 'sorted_quantity'){
+                    $ordered = 'quantity';
+                } else if($action == 'sorted_quantity_desc'){
+                    $ordered = 'quantity desc';
+                } else if($action == 'sorted_bought'){
+                    $ordered = 'bought';
+                } else if($action == 'sorted_bought_desc'){
+                    $ordered = 'bought desc';
+                } else if($action == 'sorted_sold'){
+                    $ordered = 'sold';
+                } else if($action == 'sorted_sold_desc'){
+                    $ordered = 'sold desc';
+                } else if($action == 'sorted_status'){
+                    $ordered = 'status';
+                } else{
+                    $ordered = 'products.id';
+                }
+            $sql = "SELECT products.id, name, sku, product_categories.category, quantity, bought, sold, product_status.status, img FROM products left join product_categories on product_categories.id = products.category_id left join product_status on product_status.id = products.status_id where (name like '%$search%' and products.category_id like '%$category%' and status_id like '%$status%' and quantity ".$quantity.") or (sku like '%$search%' and products.category_id like '%$category%' and status_id like '%$status%' and quantity ".$quantity.") order by ".$ordered.";";
             $result = mysqli_query($conn, $sql);
             if(mysqli_num_rows($result) > 0)
             {
