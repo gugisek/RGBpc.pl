@@ -1,5 +1,5 @@
 <section id="menu"class="hover:w-[400px] lg:hover:w-1/5 w-[130px] lg:w-1/5 xl:hover:w-1/6 xl:w-1/6 h-screen flex flex-col items-center justify-between bg-[#f8f9fa] py-5 pl-8 pr-4 font-[Lexend]  transition-all duration-300">
-    <a href="?page=dashboard&action=" class="flex hover:bg-white hover:shadow-lg w-full font-medium text-gray-600 gap-4 items-center justify-center py-4 px-5 text-sm rounded-xl transition-all duration-300">
+    <a class="flex hover:bg-white hover:shadow-lg w-full font-medium text-gray-600 gap-4 items-center justify-center py-4 px-5 text-sm rounded-xl transition-all duration-300">
         <img src="public/img/logo2.png" alt="logo" class="hidden lg:block w-1/2 max-w-[150px] min-w-[80px]">
         <div class="hidden lg:block">
             <h1 class="text-xs mb-[-5px]">Witaj</h1><h1 class="text-lg"><?=$_SESSION['user']?></h1>
