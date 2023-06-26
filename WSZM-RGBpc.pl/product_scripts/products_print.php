@@ -16,7 +16,7 @@ $id = $_GET['id'];
             <h1 class='font-bold text-sm uppercase'><?=$category?></h1>
             <h1 class="text-xs mb-[-5px]">Polski dystrybutor:</h1>
             <h1 class="font-medium text-lg py-0">RGBpc.pl</h1>
-            <h1 class="text-center text-sm mt-2">MADE IN CHINA</h1>
+            <h1 class="text-center text-sm mt-2">Wyprodukowano w Chinach</h1>
         </div>
     </section>
 </section>

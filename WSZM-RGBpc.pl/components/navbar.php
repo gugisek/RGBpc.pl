@@ -13,13 +13,23 @@
     <section class="w-full overflow-y-auto">
         <!-- LOGO + text -->
         <!-- MENU -->
-        <section class="w-full my-4 py-1 px-1 flex flex-col gap-1 overflow-x-hidden">
+        <section class="w-full pb-8 pt-4 px-1 flex flex-col gap-1 overflow-x-hidden">
             <?php
             $buttons=["dashboard", "produkty", "zamówienia"];
             while($button = current($buttons)) {
                 echo '
-                <a href="?page='.$button.'&action=" class="flex items-center gap-3 py-2 px-3 w-full font-light hover:bg-white hover:shadow-xl rounded-xl transition-all duration-300">
-                    <div class="bg-white p-3 rounded-xl shadow-xl">';
+                <a href="?page='.$button.'&action=" class="';
+                if($button == $_GET['page'])
+                    echo 'bg-white shadow-xl rounded-xl transition-all duration-300 ';
+                else
+                    echo 'hover:bg-white hover:shadow-xl rounded-xl transition-all duration-300 ';
+                echo 'flex items-center gap-3 py-2 px-3 w-full font-light ">
+                    <div class="';
+                    if($button == $_GET['page'])
+                        echo 'bg-indigo-400 text-white ';
+                    else
+                        echo 'bg-white ';
+                    echo ' p-3 rounded-xl shadow-xl">';
                     include 'public/img/svg/'.$button.'.php';
             echo   '</div>
                     <span id="text_btn" class="text_btn hidden lg:block text-gray-700 text-sm">'.ucfirst($button).'</span>
@@ -38,8 +48,18 @@
             $buttons=["wydatki", "przychody", "księgowość"];
             while($button = current($buttons)) {
                 echo '
-                <a href="?page='.$button.'&action=" class="flex items-center gap-3 py-2 px-3 w-full font-light hover:bg-white hover:shadow-xl rounded-xl transition-all duration-300">
-                    <div class="bg-white p-3 rounded-xl shadow-xl">';
+                <a href="?page='.$button.'&action=" class="';
+                if($button == $_GET['page'])
+                    echo 'bg-white shadow-xl rounded-xl transition-all duration-300 ';
+                else
+                    echo 'hover:bg-white hover:shadow-xl rounded-xl transition-all duration-300 ';
+                echo 'flex items-center gap-3 py-2 px-3 w-full font-light ">
+                    <div class="';
+                    if($button == $_GET['page'])
+                        echo 'bg-indigo-400 text-white ';
+                    else
+                        echo 'bg-white ';
+                    echo ' p-3 rounded-xl shadow-xl">';
                     include 'public/img/svg/'.$button.'.php';
             echo   '</div>
                     <span id="text_btn" class="text_btn hidden lg:block text-gray-700 text-sm">'.ucfirst($button).'</span>
@@ -57,8 +77,18 @@
             $buttons=["użytkownicy", "archiwum", "ustawienia"];
             while($button = current($buttons)) {
                 echo '
-                <a href="?page='.$button.'&action=" class="flex items-center gap-3 py-2 px-3 w-full font-light hover:bg-white hover:shadow-xl rounded-xl transition-all duration-300">
-                    <div class="bg-white p-3 rounded-xl shadow-xl">';
+                <a href="?page='.$button.'&action=" class="';
+                if($button == $_GET['page'])
+                    echo 'bg-white shadow-xl rounded-xl transition-all duration-300 ';
+                else
+                    echo 'hover:bg-white hover:shadow-xl rounded-xl transition-all duration-300 ';
+                echo 'flex items-center gap-3 py-2 px-3 w-full font-light ">
+                    <div class="';
+                    if($button == $_GET['page'])
+                        echo 'bg-indigo-400 text-white ';
+                    else
+                        echo 'bg-white ';
+                    echo ' p-3 rounded-xl shadow-xl">';
                     include 'public/img/svg/'.$button.'.php';
             echo   '</div>
                     <span id="text_btn" class="text_btn hidden lg:block text-gray-700 text-sm">'.ucfirst($button).'</span>
@@ -69,8 +99,8 @@
         </section>
     </section>
     <!-- mini footer w navie z nazwą i logoutem -->
-    <section class="w-full my-4 py-1 px-1 flex flex-col gap-1">
-        <span id="text_btn" class="hidden lg:block text-xs font-medium text-gray-500 lg:py-5 py-1 px-3">
+    <section class="w-full py-1 px-1 flex flex-col gap-1">
+        <span id="text_btn" class="hidden lg:block text-xs font-medium text-gray-500 lg:py-4 mt-2 py-1 px-3">
             KONTO
         </span>
         <span id="text_btn" class="lg:hidden block text-xs text-center font-medium text-gray-500 lg:py-5 py-1 px-3">
