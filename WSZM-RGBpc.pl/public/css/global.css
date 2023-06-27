@@ -65,3 +65,32 @@ input[type=number] {
     outline: 1px solid #4b8ebb;
     /* border: 1px solid #a84bbb; */
 }
+
+#hamburger {
+    width: 30px;
+    height: 2px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  #hamburger::before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  
+  }
+  
+  #hamburger::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    
+  }
+  

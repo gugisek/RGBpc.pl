@@ -1,4 +1,4 @@
-<section class="w-full bg-white shadow-xl rounded-3xl py-6 px-6">
+<section class="overflow-x-auto w-full bg-white shadow-xl rounded-3xl py-6 px-6">
     <h1 class="pb-2 font-medium text-gray-600 font-[Lexend]">Produkty</h1>
     <table class="w-full">
         <tr class="uppercase text-left text-xs text-gray-400 ">
@@ -57,7 +57,7 @@
                 while($row = mysqli_fetch_assoc($result))
                 {
                     echo "<tr class='border-t-[0.5px] border-b-[0.5px] hover:bg-gray-100 transition-all duration-300' style='cursor: pointer; cursor: hand;' onclick='window.location=`?page=produkty&action=edit&id=".$row['id']."#edit`;'>";
-                        echo "<td class='py-5 capitalize text-sm text-gray-500 flex items-center'><img class='object-cover bg-yellow-300 w-10 h-10 mx-2 rounded-xl' src='public/img/products_images/".$row['img']."' />".$row['name']."</td>";
+                        echo "<td class='min-w-[200px] py-5 capitalize text-sm text-gray-500 flex items-center'><img class='object-cover bg-yellow-300 w-10 h-10 mx-2 rounded-xl' src='public/img/products_images/".$row['img']."' />".$row['name']."</td>";
                         echo "<td class='text-center text-sm text-gray-500 uppercase'>".$row['sku']."</td>";
                         echo "<td class='py-5 text-center capitalize text-sm text-gray-500'>".$row['category']."</td>";
                         echo "<td class='py-5 text-center capitalize text-sm";

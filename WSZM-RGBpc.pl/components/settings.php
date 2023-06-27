@@ -58,16 +58,17 @@
             <h1 class="font-medium text-gray-600 font-[Lexend]">Użytkownicy</h1>
         </div>
    
-        <div class="w-full flex gap-4">
-            <div class="w-1/2">
-                <div class="flex justify-between items-center">
-                    <h2 class="pb-2 font-medium text-sm text-gray-600 font-[Lexend]">Role</h2>
+        <div class="w-full sm:flex-row flex-col flex gap-4">
+            <div class="sm:w-1/2">
+                <div class="flex sm:pt-1 pt-5 justify-between items-center">
+                    <h2 class="pb-2 font-medium text-md text-gray-600 font-[Lexend]">Role</h2>
                     <a href="" class="flex items-center justify-center text-xs text-gray-500 hover:text-green-500">Dodaj role
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
                         </svg>
                     </a>
                 </div>
+                <div class="my-3 mb-6 w-full border-t-[1px] border-gray-400"></div>
                 <?php 
                     if(isset($_GET['setting'])) {
                         $setting = $_GET['setting'];
@@ -82,15 +83,16 @@
                 
                 ?>
             </div>
-            <div class="w-1/2">
-                <div class="flex justify-between items-center">
-                    <h2 class="pb-2 font-medium text-sm text-gray-600 font-[Lexend]">Statusy</h2>
+            <div class="sm:w-1/2">
+                <div class="flex sm:pt-1 pt-5 justify-between items-center">
+                    <h2 class="pb-2 font-medium text-md text-gray-600 font-[Lexend]">Statusy</h2>
                     <a href="?page=ustawienia&action=add&setting=user_status" class="flex items-center justify-center text-xs text-gray-500 hover:text-green-500">Dodaj status
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
                         </svg>
                     </a>
                 </div>
+                <div class="my-3 mb-6 w-full border-t-[1px] border-gray-400"></div>
                 <?php 
                     if ($setting == 'user_status' && $action == 'edit'){
                         include 'setting_scripts/settings_front_status_edit.php';

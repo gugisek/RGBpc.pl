@@ -13,7 +13,7 @@
     
     <section class="w-full flex flex-col items-center justify-between font-[Lexend]">
         <section class="w-full h-full flex items-center justify-center">
-            <section class="items-center justify-center neo-shadow min-h-1/3 w-1/6 max-w-[500px] py-10 px-5 flex flex-col">
+            <section class="items-center justify-center neo-shadow min-h-1/3 w-1/6 min-w-[250px] max-w-[500px] py-10 px-5 flex flex-col">
                 <img src="public/img/logo2.png" alt="logo" class="w-3/5">
                 <span class=" font-[Lexend] py-5 text-xs text-gray-600">Zaloguj się, aby kontynuować</span>
                 <?php
