@@ -10,7 +10,7 @@
     </a>
     
     <div class="border-b-[1px] w-full my-2"></div> <!-- border -->
-    <section class="w-full overflow-y-auto">
+    <section id="scrolled_nav" class="w-full overflow-y-auto">
         <!-- LOGO + text -->
         <!-- MENU -->
         <section class="w-full pb-8 pt-4 px-1 flex flex-col gap-1 overflow-x-hidden">

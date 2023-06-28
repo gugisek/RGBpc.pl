@@ -6,6 +6,10 @@
 
 }
 
+#scrolled_nav{
+  scroll-behavior: unset;
+}
+
 ::file-selector-button {
     display: none;
 }

@@ -8,4 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="public/css/global.css">
     <link rel="icon" type="image/x-icon" href="public/img/favicon2.png">
+    <?php 
+    if (isset($_GET['sku']) && isset($_GET['category'])){
+    }else{
+    include 'scripts/stay_scroll.php';
+    }
+    ?>
 </head>
