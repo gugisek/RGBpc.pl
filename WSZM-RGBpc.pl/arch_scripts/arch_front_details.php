@@ -60,11 +60,11 @@ else {
                 </div>
                 <div class="flex flex-col">
                     <label for="before" class="pb-2 pt-2 font-medium text-xs text-gray-500 font-[Lexend]">Przed</label>
-                    <textarea name="before" id="before" cols="30" rows="5" class="text-sm border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled><?php echo $before; ?></textarea>
+                    <div name="before" id="before" cols="30" rows="5" class="bg-[#fafafa] text-sm border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled><?php echo $before; ?></div>
                 </div>
                 <div class="flex flex-col">
                     <label for="after" class="pb-2 pt-2 font-medium text-xs text-gray-500 font-[Lexend]">Po</label>
-                    <textarea name="after" id="after" cols="30" rows="5" class="text-sm border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled><?php echo $after; ?></textarea>
+                    <div name="after" id="after" cols="30" rows="5" class="bg-[#fafafa] text-sm border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled><?php echo $after; ?></div>
                 </div>
             </div>
             <div class="flex flex-col w-full md:w-1/2">

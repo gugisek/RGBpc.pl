@@ -1,7 +1,7 @@
 <?php
 if ($action == "edit") {
     $id = $_GET['id'];
-    $sql = "SELECT products.id, products.name, products.sku, products.bought, products.sold, products.quantity, product_categories.category, product_status.status, products.description, products.img, products.source FROM products left join product_categories on product_categories.id = products.category_id left join product_status on product_status.id = products.status_id WHERE products.id = $id;";
+    $sql = "SELECT products.id, products.name, products.sku, products.bought, products.sold, products.quantity, product_categories.category, product_status.status, products.description, products.img, products.source, products.our_olx, products.our_allegro FROM products left join product_categories on product_categories.id = products.category_id left join product_status on product_status.id = products.status_id WHERE products.id = $id;";
     $result = mysqli_query($conn, $sql);
     if(mysqli_num_rows($result) > 0)
     {
@@ -17,6 +17,8 @@ if ($action == "edit") {
         $description = $row['description'];
         $img = $row['img'];
         $source = $row['source'];
+        $our_olx = $row['our_olx'];
+        $our_allegro = $row['our_allegro'];
         }
     }
 }
@@ -108,15 +110,39 @@ if ($action == "edit") {
                     <label for='description' class='text-xs text-gray-500'>Opis</label>
                     <input type='text' name='description' id='description' value='<?=$description?>' class='w-full py-2 px-4 rounded-lg text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>
                 </div>
-                <div class='flex flex-col gap-2'>
-                    <label for='source' class='text-xs text-gray-500'>Źródło</label>
-                    <div class="flex f items-center justify-center gap-5">
-                        <input required type='text' name='source' id='source' value='<?=$source?>' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>
-                        <a href="<?=$source?>" target="_blank">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                            </svg>
-                        </a>
+                <div class='flex flex-row gap-2'>
+                    <div>
+                        <label for='source' class='text-xs text-gray-500'>Źródło</label>
+                        <div class="flex items-center justify-center gap-2">
+                            <input required type='text' name='source' id='source' value='<?=$source?>' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>
+                            <a href="<?=$source?>" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <label for='our_olx' class='text-xs text-gray-500'>OLX</label>
+                        <div class="flex items-center justify-center gap-2">
+                            <input type='text' name='our_olx' id='our_olx' value='<?=$our_olx?>' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>
+                            <a href="<?=$our_olx?>" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <label for='our_allegro' class='text-xs text-gray-500'>Allegro</label>
+                        <div class="flex items-center justify-center gap-2">
+                            <input type='text' name='our_allegro' id='our_allegro' value='<?=$our_allegro?>' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>
+                            <a href="<?=$our_allegro?>" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

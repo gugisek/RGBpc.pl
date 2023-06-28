@@ -10,6 +10,8 @@ $category = $_POST['category'];
 $status = $_POST['status'];
 $description = $_POST['description'];
 $source = $_POST['source'];
+$our_olx = $_POST['our_olx'];
+$our_allegro = $_POST['our_allegro'];
 $image = $_POST['sku'].".".$imageFileType;
 if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty($quantity) && !empty($category) && !empty($status) && !empty($image) && !empty($source)) {
     $sql = "SELECT name FROM products WHERE name='$name'";
@@ -20,13 +22,13 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
     }else if($_FILES["upload"]["size"] > 500000){
         header('Location: ../panel.php?page=produkty&action=too_large');
     }else if($_FILES["upload"]["error"] == '4'){
-        $sql = "INSERT INTO `products` (`name`, `sku`, `bought`, `sold`, `quantity`, `img`, `source`, `category_id`, `description`, `status_id`) VALUES ('$name', '$sku', '$bought', '$sold', '$quantity', '', '$source', '$category', '$description', '$status')";
+        $sql = "INSERT INTO `products` (`name`, `sku`, `bought`, `sold`, `quantity`, `img`, `source`, `our_olx`, `our_allegro`, `category_id`, `description`, `status_id`) VALUES ('$name', '$sku', '$bought', '$sold', '$quantity', '', '$source', '$our_olx', '$our_allegro', '$category', '$description', '$status')";
         if ($conn->query($sql) === TRUE) {
             //log
             $object_id=$conn->insert_id;
             $object_type="products";
             $before="NULL";
-            $after="$name, $sku, $bought, $sold, $quantity, $image, $source, $category, $description, $status";
+            $after="Nazwa: $name, <br>SKU:$sku, <br>Cena zakupu: $bought, <br>Cena: $sold, <br>Ilość: $quantity, $image, <br>Źródło: $source, <br>ID kategorii: $category, <br>Opis: $description, <br>ID statusu: $status";
             $action_type="2";
             $desc="Dodano produkt";
             include "../scripts/log.php";
@@ -40,13 +42,13 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
         if($imageFileType !== 'jpg' && $imageFileType !== 'jpeg' && $imageFileType !== 'png'){
             header('Location: ../panel.php?page=produkty&action=wrong_ext');
         } else {
-            $sql = "INSERT INTO `products` (`name`, `sku`, `bought`, `sold`, `quantity`, `img`, `source`, `category_id`, `description`, `status_id`) VALUES ('$name', '$sku', '$bought', '$sold', '$quantity', '$image', '$source', '$category', '$description', '$status')";
+            $sql = "INSERT INTO `products` (`name`, `sku`, `bought`, `sold`, `quantity`, `img`, `source`, `our_olx`, `our_allegro`, `category_id`, `description`, `status_id`) VALUES ('$name', '$sku', '$bought', '$sold', '$quantity', '$image', '$source', '$our_olx', '$our_allegro', '$category', '$description', '$status')";
             if ($conn->query($sql) === TRUE && move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)) {
                 //log
                 $object_id=$conn->insert_id;
                 $object_type="products";
                 $before="NULL";
-                $after="$name, $sku, $bought, $sold, $quantity, $image, $source, $category, $description, $status";
+                $after="Nazwa: $name, <br>SKU:$sku, <br>Cena zakupu: $bought, <br>Cena: $sold, <br>Ilość: $quantity, $image, <br>Źródło: $source, <br>ID kategorii: $category, <br>Opis: $description, <br>ID statusu: $status";
                 $action_type="2";
                 $desc="Dodano produkt";
                 include "../scripts/log.php";
