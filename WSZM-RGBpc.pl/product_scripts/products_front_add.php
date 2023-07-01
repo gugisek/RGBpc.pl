@@ -1,6 +1,13 @@
 <?php
+if(isset($_GET['type']) && isset($_GET['for'])){
+    $type = $_GET['type'];
+    $for = $_GET['for'];
+} else{
+    $type = '';
+    $for = '';
+}
 if ($action == "add") {
-    echo "<section id='edit' class='w-full bg-white shadow-xl rounded-3xl py-6 px-6'>";
+    echo "<section id='add' class='w-full bg-white shadow-xl rounded-3xl py-6 px-6'>";
         echo "<h1 class='pb-2 font-medium text-gray-600 font-[Lexend]'>Dodaj produkt</h1>";
         echo "<form action='product_scripts/products_back_add.php' method='post' enctype='multipart/form-data' class='flex flex-col gap-4'>";
             echo "<div class='flex flex-col gap-2'>";
@@ -24,10 +31,12 @@ if ($action == "add") {
                 echo "<label for='sold' class='text-xs text-gray-500'>Cena sprzedaży</label>";
                 echo "<input required type='text' name='sold' id='sold' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
             echo "</div>";
-            echo "<div class='flex flex-col gap-2'>";
-                echo "<label for='quantity' class='text-xs text-gray-500'>Ilość</label>";
-                echo "<input required type='number' min='0' step='1' value='1' name='quantity' id='quantity' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
-            echo "</div>";
+            ?>
+            <div class='flex flex-col gap-2'>
+                <label for='quantity' class='text-xs text-gray-500'>Ilość</label>
+                <input required type='number' min='0' step='1' <?php if($type == 'cart'){ echo 'value="0" readonly'; } else{ echo 'value="1"'; } ?> name='quantity' id='quantity' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'/>
+            </div>
+            <?php
             echo "<div class='flex flex-col gap-2'>";
                 echo "<label for='category' class='text-xs text-gray-500'>Kategoria</label>";
                 echo "<select name='category' id='category' class='capitalize w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 focus:text-gray-800 outline-none transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
@@ -45,7 +54,11 @@ if ($action == "add") {
             echo "<div class='flex flex-col gap-2'>";
                 echo "<label for='status' class='text-xs text-gray-500'>Status</label>";
                 echo "<select name='status' id='status' class='capitalize w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 focus:text-gray-800 transition-all outline-none duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
-                        $sql3 = "SELECT * FROM `product_status`;";
+                        if($type == 'cart'){
+                            $sql3 = "SELECT * FROM `product_status` where id = '3';";
+                        } else{
+                            $sql3 = "SELECT * FROM `product_status`;";
+                        }
                         $result3 = mysqli_query($conn, $sql3);
                         if(mysqli_num_rows($result3) > 0)
                         {
@@ -74,13 +87,16 @@ if ($action == "add") {
             echo "</div>";
             echo "<div class='flex flex-col gap-2'>";
                 echo "<label for='image' class='text-xs text-gray-500'>URL zdjęcia</label>";
-                echo "<input readonly required type='text' name='image' id='image' value='Uzupełniany automatycznie' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-400 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
-                echo "</div>";
+                echo "<input readonly type='text' name='image' id='image' value='Uzupełniany automatycznie' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-400 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
+            echo "</div>";
             echo "<div class='flex flex-col gap-2'>";
                 echo "<label for='upload' class='text-xs text-gray-500'>Zdjęcie</label>";
                 echo "<input type='file' name='upload' id='upload' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
             echo "</div>";
             echo "<div class='flex flex-row gap-2'>";
+                if($type == 'cart' && $for){
+                    echo "<input type='hidden' name='for' value='".$for."'/>";
+                }
                 echo "<button type='submit' class='w-full py-2 px-4 bg-indigo-500 hover:bg-indigo-600 hover:shadow-indigo-500 shadow-xl rounded-lg text-white font-medium transition-all duration-300'>Dodaj</button>";
                 echo "<a href='?page=produkty&action=' class='w-full py-2 px-4 bg-red-500 text-center hover:bg-red-600 hover:shadow-red-500 shadow-xl rounded-lg text-white font-medium transition-all duration-300'>Anuluj</a>";
             echo "</div>";

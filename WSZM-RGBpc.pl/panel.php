@@ -30,6 +30,9 @@
         if ($page=="produkty") {
             include 'components/products.php';
         }
+        if ($page=="zamówienia") {
+            include 'components/orders.php';
+        }
         ?>
         <?php include 'components/footer.php'; ?>
     </section>
