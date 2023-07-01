@@ -1,4 +1,4 @@
-<section class="overflow-x-auto w-full bg-white shadow-xl rounded-3xl py-6 px-6">
+<section class="w-full bg-white shadow-xl rounded-3xl py-6 px-6">
     <h1 class="pb-2 font-medium text-gray-600 font-[Lexend]">Użytkownicy</h1>
     <table class="w-full">
         <tr class="uppercase text-left text-xs text-gray-400 ">

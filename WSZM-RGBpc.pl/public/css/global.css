@@ -6,14 +6,6 @@
 
 }
 
-#scrolled_nav{
-  scroll-behavior: unset;
-}
-
-::file-selector-button {
-    display: none;
-}
-
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -69,32 +61,3 @@ input[type=number] {
     outline: 1px solid #4b8ebb;
     /* border: 1px solid #a84bbb; */
 }
-
-#hamburger {
-    width: 30px;
-    height: 2px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-  }
-  
-  #hamburger::before {
-    content: "";
-    position: absolute;
-    width: 30px;
-    height: 2px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-  
-  }
-  
-  #hamburger::after {
-    content: "";
-    position: absolute;
-    width: 30px;
-    height: 2px;
-    
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    
-  }
-  

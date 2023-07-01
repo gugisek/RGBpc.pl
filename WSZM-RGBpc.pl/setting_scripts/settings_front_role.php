@@ -18,7 +18,7 @@
                                     if (strlen($description) > 50) {
                                         $description = substr($description, 0, 50)."...";
                                     }
-                                    echo "<td class='text-sm text-gray-600'>".$description."</td>";
+                                    echo "<td class='text-sm md:table-cell hidden text-gray-600'>".$description."</td>";
                                 echo "</tr>";
                                 ;
                             }

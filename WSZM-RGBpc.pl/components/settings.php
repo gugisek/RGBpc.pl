@@ -51,24 +51,17 @@
         tu bezie sie edytowało np. statusy, role zmieniało i tworzyło nowe
     </section>
     <section class="w-full bg-white shadow-xl rounded-3xl py-6 px-6">
-        <div class="w-full flex items-center pb-3 gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-600">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-            </svg>
-            <h1 class="font-medium text-gray-600 font-[Lexend]">Użytkownicy</h1>
-        </div>
-   
-        <div class="w-full sm:flex-row flex-col flex gap-4">
-            <div class="sm:w-1/2">
-                <div class="flex sm:pt-1 pt-5 justify-between items-center">
-                    <h2 class="pb-2 font-medium text-md text-gray-600 font-[Lexend]">Role</h2>
+        <h1 class="pb-2 font-medium text-gray-600 font-[Lexend]">Użytkownicy</h1>
+        <div class="w-full flex gap-4">
+            <div class="w-1/2">
+                <div class="flex justify-between items-center">
+                    <h2 class="pb-2 font-medium text-sm text-gray-600 font-[Lexend]">Role</h2>
                     <a href="" class="flex items-center justify-center text-xs text-gray-500 hover:text-green-500">Dodaj role
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
                         </svg>
                     </a>
                 </div>
-                <div class="my-3 mb-6 w-full border-t-[1px] border-gray-400"></div>
                 <?php 
                     if(isset($_GET['setting'])) {
                         $setting = $_GET['setting'];
@@ -83,16 +76,15 @@
                 
                 ?>
             </div>
-            <div class="sm:w-1/2">
-                <div class="flex sm:pt-1 pt-5 justify-between items-center">
-                    <h2 class="pb-2 font-medium text-md text-gray-600 font-[Lexend]">Statusy</h2>
+            <div class="w-1/2">
+                <div class="flex justify-between items-center">
+                    <h2 class="pb-2 font-medium text-sm text-gray-600 font-[Lexend]">Statusy</h2>
                     <a href="?page=ustawienia&action=add&setting=user_status" class="flex items-center justify-center text-xs text-gray-500 hover:text-green-500">Dodaj status
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
                         </svg>
                     </a>
                 </div>
-                <div class="my-3 mb-6 w-full border-t-[1px] border-gray-400"></div>
                 <?php 
                     if ($setting == 'user_status' && $action == 'edit'){
                         include 'setting_scripts/settings_front_status_edit.php';
