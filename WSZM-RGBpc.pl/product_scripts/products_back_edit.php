@@ -50,7 +50,7 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
                 }else if($_FILES["upload"]["size"] > 500000){
                     header('Location: ../panel.php?page=produkty&action=too_large');
                 }else if(move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)){
-                    shell_exec("rm -f ".$target_dir . $sku.".*");
+                    //shell_exec("rm -f ".$target_dir . $sku.".*");
                     rename($target_file, $target_dir.$sku.".".$img_ext);
                     header('Location: ../panel.php?page=produkty&action=edited');
                 } else {
@@ -81,7 +81,7 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
                 }else if($_FILES["upload"]["size"] > 500000){
                     header('Location: ../panel.php?page=produkty&action=too_large');
                 }else if(move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)){
-                    shell_exec("rm -f ".$target_dir . $sku.".*");
+                    //shell_exec("rm -f ".$target_dir . $sku.".*");
                     rename($target_file, $target_dir.$sku.".".$img_ext);
                     header('Location: ../panel.php?page=produkty&action=edited');
                 } else {
@@ -113,7 +113,7 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
                     }else if($_FILES["upload"]["size"] > 500000){
                         header('Location: ../panel.php?page=produkty&action=too_large');
                     }else if(move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)){
-                        shell_exec("rm -f ".$target_dir . $sku.".*");
+                        //shell_exec("rm -f ".$target_dir . $sku.".*");
                         rename($target_file, $target_dir.$sku.".".$img_ext);
                         header('Location: ../panel.php?page=produkty&action=edited');
                     } else {
@@ -139,7 +139,7 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
                     }else if($_FILES["upload"]["size"] > 500000){
                         header('Location: ../panel.php?page=produkty&action=too_large');
                     }else if(move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)){
-                        shell_exec("rm -f ".$target_dir . $sku.".*");
+                        //shell_exec("rm -f ".$target_dir . $sku.".*");
                         rename($target_file, $target_dir.$sku.".".$img_ext);
                         header('Location: ../panel.php?page=produkty&action=edited');
                     } else {

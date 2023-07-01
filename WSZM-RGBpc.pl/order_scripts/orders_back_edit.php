@@ -62,7 +62,7 @@
                 }else if($_FILES["upload"]["size"] > 500000){
                     header('Location: ../panel.php?page=zamówienia&action=too_large');
                 }else if(move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)){
-                    shell_exec("rm -f ".$target_dir . $order_number.".*");
+                    //shell_exec("rm -f ".$target_dir . $order_number.".*");
                     rename($target_file, $target_dir.$order_number.".".$in_ext);
                     header('Location: ../panel.php?page=zamówienia&action=edited');
                 } else {
@@ -82,7 +82,7 @@
                     }else if($_FILES["upload"]["size"] > 500000){
                         header('Location: ../panel.php?page=zamówienia&action=too_large');
                     }else if(move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)){
-                        shell_exec("rm -f ".$target_dir . $order_number.".*");
+                        //shell_exec("rm -f ".$target_dir . $order_number.".*");
                         rename($target_file, $target_dir.$order_number.".".$in_ext);
                         header('Location: ../panel.php?page=zamówienia&action=edited');
                     } else {
