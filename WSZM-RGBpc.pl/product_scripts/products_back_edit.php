@@ -11,6 +11,8 @@ $status = $_POST['status'];
 $description = $_POST['description'];
 $image = $_POST['image'];
 $source = $_POST['source'];
+$our_olx = $_POST['our_olx'];
+$our_allegro = $_POST['our_allegro'];
 include "products_back_upload.php";
 $img_ext = pathinfo($target_file, PATHINFO_EXTENSION);
 $image_without_ext = pathinfo($image, PATHINFO_FILENAME);
@@ -32,13 +34,13 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
             $image = '';
         }
         if($status == '3' or $status == '4'){
-            $sql = "UPDATE `products` SET name = '$name', sku = '$sku', bought = '$bought', sold='$sold', quantity='0', img='$image', source='$source', category_id='$category', description='$description', status_id='$status' WHERE products.id = '$id';";
+            $sql = "UPDATE `products` SET name = '$name', sku = '$sku', bought = '$bought', sold='$sold', quantity='0', img='$image', source='$source', our_olx='$our_olx', our_allegro='$our_allegro', category_id='$category', description='$description', status_id='$status' WHERE products.id = '$id';";
             if ($conn->query($sql) === TRUE) {
                 //log
                 $object_id = $id;
                 $object_type = 'products';
-                $before="$row_old[name], $row_old[sku], $row_old[bought], $row_old[sold], $row_old[quantity], $row_old[img], $row_old[source], $row_old[category_id], $row_old[description], $row_old[status_id]";
-                $after = "$name, $sku, $bought, $sold, $quantity, $image, $source, $category, $description, $status";
+                $before="Nazwa: $row_old[name], <br>SKU: $row_old[sku], <br>Cena zakupu: $row_old[bought], <br>Cena: $row_old[sold], <br>Ilość: $row_old[quantity], <br>$row_old[img], <br>źródło: $row_old[source], <br>olx: $row_old[our_olx], <br>allegro: $row_old[our_allegro], <br>ID kategorii: $row_old[category_id], <br>Opis: $row_old[description], <br>ID statusu: $row_old[status_id]";
+                $after = "Name: $name, <br>SKU: $sku, <br>Cena zakupu: $bought, <br>Cena: $sold, <br>Ilość: $quantity, <br>$image, <br>źródło: $source, <br>olx: $our_olx, <br>allegro: $our_allegro, <br>ID kategorii: $category, <br>Opis: $description, <br>ID statusu: $status";
                 $action_type = '1';
                 $desc = 'Edycja produktu';
                 include "../scripts/log.php";
@@ -63,13 +65,13 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
             } else{
                 $image = '';
             }
-            $sql = "UPDATE `products` SET name = '$name', sku = '$sku', bought = '$bought', sold='$sold', quantity='$quantity', img='$image', source='$source', category_id='$category', description='$description', status_id= case when quantity = 0 then 2 when quantity > 0 then $status end WHERE products.id = '$id';";
+            $sql = "UPDATE `products` SET name = '$name', sku = '$sku', bought = '$bought', sold='$sold', quantity='$quantity', img='$image', source='$source', our_olx='$our_olx', our_allegro='$our_allegro', category_id='$category', description='$description', status_id= case when quantity = 0 then 2 when quantity > 0 then $status end WHERE products.id = '$id';";
             if ($conn->query($sql) === TRUE) {
                 //log
                 $object_id = $id;
                 $object_type = 'products';
-                $before="$row_old[name], $row_old[sku], $row_old[bought], $row_old[sold], $row_old[quantity], $row_old[img], $row_old[source], $row_old[category_id], $row_old[description], $row_old[status_id]";
-                $after = "$name, $sku, $bought, $sold, $quantity, $image, $source, $category, $description, $status";
+                $before="Nazwa: $row_old[name], <br>SKU: $row_old[sku], <br>Cena zakupu: $row_old[bought], <br>Cena: $row_old[sold], <br>Ilość: $row_old[quantity], <br>$row_old[img], <br>źródło: $row_old[source], <br>olx: $row_old[our_olx], <br>allegro: $row_old[our_allegro], <br>ID kategorii: $row_old[category_id], <br>Opis: $row_old[description], <br>ID statusu: $row_old[status_id]";
+                $after = "Name: $name, <br>SKU: $sku, <br>Cena zakupu: $bought, <br>Cena: $sold, <br>Ilość: $quantity, <br>$image, <br>źródło: $source, <br>olx: $our_olx, <br>allegro: $our_allegro, <br>ID kategorii: $category, <br>Opis: $description, <br>ID statusu: $status";
                 $action_type = '1';
                 $desc = 'Edycja produktu';
                 include "../scripts/log.php";
@@ -95,13 +97,13 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
             header('Location: ../panel.php?page=produkty&action=wrong_ext');
         } else{
             if($status == '3' or $status == '4'){
-                $sql = "UPDATE `products` SET name = '$name', sku = '$sku', bought = '$bought', sold='$sold', quantity='0', img='$sku.$img_ext', source='$source', category_id='$category', description='$description', status_id='$status' WHERE products.id = '$id';";
+                $sql = "UPDATE `products` SET name = '$name', sku = '$sku', bought = '$bought', sold='$sold', quantity='0', img='$sku.$img_ext', source='$source', our_olx='$our_olx', our_allegro='$our_allegro', category_id='$category', description='$description', status_id='$status' WHERE products.id = '$id';";
                 if ($conn->query($sql) === TRUE) {
                     //log
                     $object_id = $id;
                     $object_type = 'products';
-                    $before="$row_old[name], $row_old[sku], $row_old[bought], $row_old[sold], $row_old[quantity], $row_old[img], $row_old[source], $row_old[category_id], $row_old[description], $row_old[status_id]";
-                    $after = "$name, $sku, $bought, $sold, $quantity, $image, $source, $category, $description, $status";
+                    $before="Nazwa: $row_old[name], <br>SKU: $row_old[sku], <br>Cena zakupu: $row_old[bought], <br>Cena: $row_old[sold], <br>Ilość: $row_old[quantity], <br>$row_old[img], <br>źródło: $row_old[source], <br>olx: $row_old[our_olx], <br>allegro: $row_old[our_allegro], <br>ID kategorii: $row_old[category_id], <br>Opis: $row_old[description], <br>ID statusu: $row_old[status_id]";
+                    $after = "Name: $name, <br>SKU: $sku, <br>Cena zakupu: $bought, <br>Cena: $sold, <br>Ilość: $quantity, <br>$image, <br>źródło: $source, <br>olx: $our_olx, <br>allegro: $our_allegro, <br>ID kategorii: $category, <br>Opis: $description, <br>ID statusu: $status";
                     $action_type = '1';
                     $desc = 'Edycja produktu';
                     include "../scripts/log.php";
@@ -121,13 +123,13 @@ if (!empty($name) && !empty($sku) && !empty($bought) && !empty($sold) && !empty(
                     header('Location: ../panel.php?page=produkty&action=error');
                 }
             }else if($status == '1' or $status == '2'){
-                $sql = "UPDATE `products` SET name = '$name', sku = '$sku', bought = '$bought', sold='$sold', quantity='$quantity', img='$sku.$img_ext', source='$source', category_id='$category', description='$description', status_id= case when quantity = 0 then 2 when quantity > 0 then $status end WHERE products.id = '$id';";
+                $sql = "UPDATE `products` SET name = '$name', sku = '$sku', bought = '$bought', sold='$sold', quantity='$quantity', img='$sku.$img_ext', source='$source', our_olx='$our_olx', our_allegro='$our_allegro', category_id='$category', description='$description', status_id= case when quantity = 0 then 2 when quantity > 0 then $status end WHERE products.id = '$id';";
                 if ($conn->query($sql) === TRUE) {
                     //log
                     $object_id = $id;
                     $object_type = 'products';
-                    $before="$row_old[name], $row_old[sku], $row_old[bought], $row_old[sold], $row_old[quantity], $row_old[img], $row_old[source], $row_old[category_id], $row_old[description], $row_old[status_id]";
-                    $after = "$name, $sku, $bought, $sold, $quantity, $image, $source, $category, $description, $status";
+                    $before="Nazwa: $row_old[name], <br>SKU: $row_old[sku], <br>Cena zakupu: $row_old[bought], <br>Cena: $row_old[sold], <br>Ilość: $row_old[quantity], <br>$row_old[img], <br>źródło: $row_old[source], <br>olx: $row_old[our_olx], <br>allegro: $row_old[our_allegro], <br>ID kategorii: $row_old[category_id], <br>Opis: $row_old[description], <br>ID statusu: $row_old[status_id]";
+                    $after = "Name: $name, <br>SKU: $sku, <br>Cena zakupu: $bought, <br>Cena: $sold, <br>Ilość: $quantity, <br>$image, <br>źródło: $source, <br>olx: $our_olx, <br>allegro: $our_allegro, <br>ID kategorii: $category, <br>Opis: $description, <br>ID statusu: $status";
                     $action_type = '1';
                     $desc = 'Edycja produktu';
                     include "../scripts/log.php";

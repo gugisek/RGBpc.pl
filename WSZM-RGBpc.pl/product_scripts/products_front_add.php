@@ -76,6 +76,14 @@ if ($action == "add") {
             echo "<div class='flex flex-col gap-2'>";
                 echo "<label for='source' class='text-xs text-gray-500'>Źródło</label>";
                 echo "<input required type='text' name='source' id='source' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
+            echo "</div>";            
+            echo "<div class='flex flex-col gap-2'>";
+                echo "<label for='our_olx' class='text-xs text-gray-500'>OLX</label>";
+                echo "<input type='text' name='our_olx' id='our_olx' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
+            echo "</div>";
+            echo "<div class='flex flex-col gap-2'>";
+                echo "<label for='our_allegro' class='text-xs text-gray-500'>Allegro</label>";
+                echo "<input type='text' name='our_allegro' id='our_allegro' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>";
             echo "</div>";
             echo "<div class='flex flex-col gap-2'>";
                 echo "<label for='image' class='text-xs text-gray-500'>URL zdjęcia</label>";

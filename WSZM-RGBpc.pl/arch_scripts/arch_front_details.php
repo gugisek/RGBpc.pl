@@ -15,11 +15,17 @@ $before = $row['before'];
 $after = $row['after'];
 $type = $row['type'];
 $description = $row['description'];
+if (isset($_GET['return'])) {
+    $return = "panel.php?page=".$_GET['return']."&action=edit&id=".$objectId;
+}
+else {
+    $return = "panel.php?page=archiwum&action=&page_id=".$_GET['page_id'];
+}
 ?>
    <section class="w-full bg-white shadow-xl rounded-3xl py-6 px-6">
         <div class="w-full flex justify-between items-center">
             <h1 class="pb-2 font-medium text-gray-600 font-[Lexend]">Szczegóły</h1>
-            <a href="panel.php?page=archiwum&action=&page_id=<?php echo $_GET['page_id'];?>" class="flex items-center space-x-2 text-gray-500 hover:text-red-600 transition-all duration-500">
+            <a href="<?=$return?>" class="flex items-center space-x-2 text-gray-500 hover:text-red-600 transition-all duration-500">
                 <p class="uppercase font-medium text-xs">zamknij</p>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -54,11 +60,11 @@ $description = $row['description'];
                 </div>
                 <div class="flex flex-col">
                     <label for="before" class="pb-2 pt-2 font-medium text-xs text-gray-500 font-[Lexend]">Przed</label>
-                    <textarea name="before" id="before" cols="30" rows="5" class="text-sm border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled><?php echo $before; ?></textarea>
+                    <div name="before" id="before" cols="30" rows="5" class="bg-[#fafafa] text-sm border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled><?php echo $before; ?></div>
                 </div>
                 <div class="flex flex-col">
                     <label for="after" class="pb-2 pt-2 font-medium text-xs text-gray-500 font-[Lexend]">Po</label>
-                    <textarea name="after" id="after" cols="30" rows="5" class="text-sm border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled><?php echo $after; ?></textarea>
+                    <div name="after" id="after" cols="30" rows="5" class="bg-[#fafafa] text-sm border border-gray-300 rounded-3xl px-4 py-2 focus:outline-none focus:border-indigo-500 transition-all duration-500" disabled><?php echo $after; ?></div>
                 </div>
             </div>
             <div class="flex flex-col w-full md:w-1/2">

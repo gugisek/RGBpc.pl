@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jul 01, 2023 at 06:38 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.2.34
+-- Host: 127.0.0.1
+-- Czas generowania: 28 Cze 2023, 20:09
+-- Wersja serwera: 10.4.27-MariaDB
+-- Wersja PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,40 +18,26 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `wszm_rgbpc`
+-- Baza danych: `wszm_rgbpc`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carts`
+-- Struktura tabeli dla tabeli `carts`
 --
 
 CREATE TABLE `carts` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
-  `quantity` decimal(10,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `carts`
---
-
-INSERT INTO `carts` (`id`, `product_id`, `order_id`, `quantity`) VALUES
-(77, 35, 17, '5'),
-(78, 33, 17, '7'),
-(89, 2, 1, '3'),
-(90, 1, 1, '4'),
-(92, 1, 17, '9'),
-(98, 1, 19, '10'),
-(99, 2, 19, '10'),
-(100, 3, 19, '10');
+  `quantity` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `finances`
+-- Struktura tabeli dla tabeli `finances`
 --
 
 CREATE TABLE `finances` (
@@ -61,12 +47,12 @@ CREATE TABLE `finances` (
   `date` datetime NOT NULL,
   `invoice` varchar(40) NOT NULL,
   `description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `logs`
+-- Struktura tabeli dla tabeli `logs`
 --
 
 CREATE TABLE `logs` (
@@ -79,10 +65,10 @@ CREATE TABLE `logs` (
   `after` text NOT NULL,
   `type` int(11) NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `logs`
+-- Zrzut danych tabeli `logs`
 --
 
 INSERT INTO `logs` (`id`, `user_id`, `when`, `object_id`, `object_type`, `before`, `after`, `type`, `description`) VALUES
@@ -281,35 +267,101 @@ INSERT INTO `logs` (`id`, `user_id`, `when`, `object_id`, `object_type`, `before
 (195, 2, '2023-06-20 14:57:48', 4, 'products', 'Szkło hartowane 9H do iPhone 12 z czarnymi ramkami, pn-1004, 29.76, 57.99, 3, pn-1004.jpg, https://www.aliexpress.us/item/3256805424784115.html?spm=a2g0o.productlist.main.49.2142M0uaM0uatc&algo_pvid=dcc47a42-ae1e-491d-9704-da64ac621b1a&aem_p4p_detail=202306161110219138718064091540004380597&algo_exp_id=dcc47a42-ae1e-491d-9704-da64ac621b1a-24&pdp_npi=3%40dis%21USD%216.22%214.04%21%21%21%21%21%402145265416869390219124827d0768%2112000033748110723%21sea%21US%210&curPageLogUid=8DsF5WaQ0luM&search_p4p_id=202306161110219138718064091540004380597_5, 2, Pełen zestaw, wraz ze specjalnymi prowadnicami, 1', 'Szkło hartowane 9H do iPhone 12 z czarnymi ramkami, pn-1004, 29.76, 57.99, 3, pn-1004.jpg, https://www.aliexpress.us/item/3256805424784115.html?spm=a2g0o.productlist.main.49.2142M0uaM0uatc&algo_pvid=dcc47a42-ae1e-491d-9704-da64ac621b1a&aem_p4p_detail=202306161110219138718064091540004380597&algo_exp_id=dcc47a42-ae1e-491d-9704-da64ac621b1a-24&pdp_npi=3%40dis%21USD%216.22%214.04%21%21%21%21%21%402145265416869390219124827d0768%2112000033748110723%21sea%21US%210&curPageLogUid=8DsF5WaQ0luM&search_p4p_id=202306161110219138718064091540004380597_5, 2, Pełen zestaw, wraz ze specjalnymi prowadnicami, 1', 1, 'Edycja produktu'),
 (196, 2, '2023-06-20 14:57:54', 5, 'products', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.jpg, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.jpg, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 1, 'Edycja produktu'),
 (197, 2, '2023-06-20 14:58:10', 3, 'products', 'Etui przezroczyste iPhone 11 slim, pn-1003, 8.87, 23.99, 0, pn-1003.png, https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK, 1, chińczyk XD, 2', 'Etui przezroczyste iPhone 11 slim, pn-1003, 8.87, 23.99, 0, pn-1003.png, https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK, 1, chińczyk XD, 2', 1, 'Edycja produktu'),
-(198, 2, '2023-06-27 14:12:17', 30, 'products', 'NULL', 'test, pn-1006, 55, 55, 1, pn-1006., ali, 1, xd, 1', 2, 'Dodano produkt'),
-(199, 2, '2023-06-27 14:25:36', 31, 'products', 'NULL', 'tescik, pn-1007, 67, 77, 1, pn-1007.jpg, test, 1, test, 3', 2, 'Dodano produkt'),
-(200, 2, '2023-06-27 14:28:30', 32, 'products', 'NULL', 'op, pn-1008, 66, 77, 0, pn-1008.jpg, op, 1, op, 3', 2, 'Dodano produkt'),
-(201, 2, '2023-06-27 14:28:52', 33, 'products', 'NULL', 'pl, pn-1009, 99, 90, 0, pn-1009., pl, 1, pl, 3', 2, 'Dodano produkt'),
-(202, 2, '2023-06-27 14:31:09', 34, 'products', 'NULL', 'ty, pn-1010, 88, 88, 1, pn-1010.jpg, ty, 1, ty, 1', 2, 'Dodano produkt'),
-(203, 2, '2023-06-27 14:51:23', 35, 'products', 'NULL', 'rf, pn-1011, 55, 55, 0, pn-1011.jpg, rf, 1, rf, 3', 2, 'Dodano produkt'),
-(204, 2, '2023-06-28 16:36:55', 36, 'products', 'NULL', 'td, pn-1012, 77, 77, 0, pn-1012., 6, 1, 5, 3', 2, 'Dodano produkt'),
-(205, 2, '2023-06-28 16:38:55', 37, 'products', 'NULL', 'oil, pn-1013, 99, 99, 0, pn-1013., 99, 1, 99, 3', 2, 'Dodano produkt'),
-(206, 2, '2023-06-28 16:52:06', 38, 'products', 'NULL', 'ftgyhb, pn-1014, 99, 99, 0, pn-1014., 99, 1, 99, 3', 2, 'Dodano produkt'),
-(207, 2, '2023-06-28 16:56:42', 39, 'products', 'NULL', 'fcghvbjug, pn-1015, 77, 77, 0, pn-1015., ty, 1, ty, 3', 2, 'Dodano produkt');
+(198, 1, '2023-06-22 08:34:44', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.png, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, joł, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.png, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasd, 1', 1, 'Edycja produktu'),
+(199, 1, '2023-06-22 08:36:32', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.png, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.png, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(200, 1, '2023-06-22 08:36:35', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.png, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.png, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(201, 1, '2023-06-22 08:36:37', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.png, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.png, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(202, 1, '2023-06-24 12:18:02', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.png, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.png, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu');
 INSERT INTO `logs` (`id`, `user_id`, `when`, `object_id`, `object_type`, `before`, `after`, `type`, `description`) VALUES
-(208, 2, '2023-07-01 12:10:13', 1, 'products', 'Etui różowe na iPhone 14 Plus, pn-1001, 17.97, 34.99, 0, pn-1001.jpg, https://www.aliexpress.us/item/3256805477811430.html?spm=a2g0o.productlist.main.3.4d1871af8i5yM0&algo_pvid=33181c55-2eff-4769-8db5-fc9cdd78ae61&algo_exp_id=33181c55-2eff-4769-8db5-fc9cdd78ae61-1&pdp_npi=3%40dis%21USD%214.71%213.53%21%21%21%21%21%402100bfe316869095759754328d0745%2112000033940295690%21sea%21US%210&curPageLogUid=uKU182GuWzxr, 5, , 1', 'Etui różowe na iPhone 14 Plus, pn-1001, 17.97, 34.99, 0, pn-1001.jpg, https://www.aliexpress.us/item/3256805477811430.html?spm=a2g0o.productlist.main.3.4d1871af8i5yM0&algo_pvid=33181c55-2eff-4769-8db5-fc9cdd78ae61&algo_exp_id=33181c55-2eff-4769-8db5-fc9cdd78ae61-1&pdp_npi=3%40dis%21USD%214.71%213.53%21%21%21%21%21%402100bfe316869095759754328d0745%2112000033940295690%21sea%21US%210&curPageLogUid=uKU182GuWzxr, 5, , 2', 1, 'Edycja produktu'),
-(209, 2, '2023-07-01 12:10:19', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 0, pn-1002.png, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, joł, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 0, pn-1002.png, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, joł, 2', 1, 'Edycja produktu'),
-(210, 2, '2023-07-01 16:34:00', 40, 'products', 'NULL', 'Nazwa: Dobry, <br>SKU:pn-1016, <br>Cena zakupu: 14.00, <br>Cena: 19.50, <br>Ilość: 1, pn-1016., <br>Źródło: fghj, <br>ID kategorii: 1, <br>Opis: fghj, <br>ID statusu: 1', 2, 'Dodano produkt'),
-(211, 2, '2023-07-01 16:34:13', 40, 'products', 'Nazwa: Dobry, <br>SKU: pn-1016, <br>Cena zakupu: 14.00, <br>Cena: 19.50, <br>Ilość: 1, <br>, <br>źródło: fghj, <br>olx: ghkj, <br>allegro: gjhk, <br>ID kategorii: 1, <br>Opis: fghj, <br>ID statusu: 1', 'Name: Dobry, <br>SKU: pn-1016, <br>Cena zakupu: 14.00, <br>Cena: 19.50, <br>Ilość: 1, <br>, <br>źródło: fghj, <br>olx: ghkj, <br>allegro: gjhk, <br>ID kategorii: 1, <br>Opis: fghj, <br>ID statusu: 1', 1, 'Edycja produktu');
+(203, 1, '2023-06-24 13:57:16', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(204, 1, '2023-06-24 13:57:40', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.JPG, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.JPG, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(205, 1, '2023-06-24 14:03:02', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(206, 1, '2023-06-24 14:03:16', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(207, 1, '2023-06-24 14:03:31', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.JPG, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.JPG, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(208, 1, '2023-06-24 14:03:48', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(209, 1, '2023-06-24 14:03:57', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(210, 1, '2023-06-24 14:04:40', 1, 'products', 'Etui różowe na iPhone 14 Plus, pn-1001, 17.97, 34.99, 8, pn-1001.jpg, https://www.aliexpress.us/item/3256805477811430.html?spm=a2g0o.productlist.main.3.4d1871af8i5yM0&algo_pvid=33181c55-2eff-4769-8db5-fc9cdd78ae61&algo_exp_id=33181c55-2eff-4769-8db5-fc9cdd78ae61-1&pdp_npi=3%40dis%21USD%214.71%213.53%21%21%21%21%21%402100bfe316869095759754328d0745%2112000033940295690%21sea%21US%210&curPageLogUid=uKU182GuWzxr, 5, , 1', 'Etui różowe na iPhone 14 Plus, pn-1001, 17.97, 34.99, 8, pn-1001.jpg, https://www.aliexpress.us/item/3256805477811430.html?spm=a2g0o.productlist.main.3.4d1871af8i5yM0&algo_pvid=33181c55-2eff-4769-8db5-fc9cdd78ae61&algo_exp_id=33181c55-2eff-4769-8db5-fc9cdd78ae61-1&pdp_npi=3%40dis%21USD%214.71%213.53%21%21%21%21%21%402100bfe316869095759754328d0745%2112000033940295690%21sea%21US%210&curPageLogUid=uKU182GuWzxr, 5, , 1', 1, 'Edycja produktu'),
+(211, 1, '2023-06-24 14:05:03', 4, 'products', 'Szkło hartowane 9H do iPhone 12 z czarnymi ramkami, pn-1004, 29.76, 57.99, 3, pn-1004.jpg, https://www.aliexpress.us/item/3256805424784115.html?spm=a2g0o.productlist.main.49.2142M0uaM0uatc&algo_pvid=dcc47a42-ae1e-491d-9704-da64ac621b1a&aem_p4p_detail=202306161110219138718064091540004380597&algo_exp_id=dcc47a42-ae1e-491d-9704-da64ac621b1a-24&pdp_npi=3%40dis%21USD%216.22%214.04%21%21%21%21%21%402145265416869390219124827d0768%2112000033748110723%21sea%21US%210&curPageLogUid=8DsF5WaQ0luM&search_p4p_id=202306161110219138718064091540004380597_5, 2, Pełen zestaw, wraz ze specjalnymi prowadnicami, 1', 'Szkło hartowane 9H do iPhone 12 z czarnymi ramkami, pn-1004, 29.76, 57.99, 3, pn-1004.jpg, https://www.aliexpress.us/item/3256805424784115.html?spm=a2g0o.productlist.main.49.2142M0uaM0uatc&algo_pvid=dcc47a42-ae1e-491d-9704-da64ac621b1a&aem_p4p_detail=202306161110219138718064091540004380597&algo_exp_id=dcc47a42-ae1e-491d-9704-da64ac621b1a-24&pdp_npi=3%40dis%21USD%216.22%214.04%21%21%21%21%21%402145265416869390219124827d0768%2112000033748110723%21sea%21US%210&curPageLogUid=8DsF5WaQ0luM&search_p4p_id=202306161110219138718064091540004380597_5, 2, Pełen zestaw, wraz ze specjalnymi prowadnicami, 1', 1, 'Edycja produktu'),
+(212, 1, '2023-06-24 14:05:18', 5, 'products', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.jpg, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.jpg, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 1, 'Edycja produktu'),
+(213, 1, '2023-06-24 14:05:29', 5, 'products', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.jpg, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.jpg, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 1, 'Edycja produktu'),
+(214, 1, '2023-06-24 14:05:46', 5, 'products', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.jpg, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.jpg, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 1, 'Edycja produktu'),
+(215, 1, '2023-06-24 14:05:58', 5, 'products', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.png, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.png, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 1, 'Edycja produktu'),
+(216, 1, '2023-06-24 14:06:51', 5, 'products', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.JPG, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.JPG, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 1, 'Edycja produktu'),
+(217, 1, '2023-06-24 14:07:04', 5, 'products', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.jpg, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.jpg, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 1, 'Edycja produktu'),
+(218, 1, '2023-06-24 14:07:18', 5, 'products', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.jpeg, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.jpeg, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 1, 'Edycja produktu'),
+(219, 1, '2023-06-24 14:07:37', 4, 'products', 'Szkło hartowane 9H do iPhone 12 z czarnymi ramkami, pn-1004, 29.76, 57.99, 3, pn-1004.jpg, https://www.aliexpress.us/item/3256805424784115.html?spm=a2g0o.productlist.main.49.2142M0uaM0uatc&algo_pvid=dcc47a42-ae1e-491d-9704-da64ac621b1a&aem_p4p_detail=202306161110219138718064091540004380597&algo_exp_id=dcc47a42-ae1e-491d-9704-da64ac621b1a-24&pdp_npi=3%40dis%21USD%216.22%214.04%21%21%21%21%21%402145265416869390219124827d0768%2112000033748110723%21sea%21US%210&curPageLogUid=8DsF5WaQ0luM&search_p4p_id=202306161110219138718064091540004380597_5, 2, Pełen zestaw, wraz ze specjalnymi prowadnicami, 1', 'Szkło hartowane 9H do iPhone 12 z czarnymi ramkami, pn-1004, 29.76, 57.99, 3, pn-1004.jpg, https://www.aliexpress.us/item/3256805424784115.html?spm=a2g0o.productlist.main.49.2142M0uaM0uatc&algo_pvid=dcc47a42-ae1e-491d-9704-da64ac621b1a&aem_p4p_detail=202306161110219138718064091540004380597&algo_exp_id=dcc47a42-ae1e-491d-9704-da64ac621b1a-24&pdp_npi=3%40dis%21USD%216.22%214.04%21%21%21%21%21%402145265416869390219124827d0768%2112000033748110723%21sea%21US%210&curPageLogUid=8DsF5WaQ0luM&search_p4p_id=202306161110219138718064091540004380597_5, 2, Pełen zestaw, wraz ze specjalnymi prowadnicami, 1', 1, 'Edycja produktu'),
+(220, 1, '2023-06-24 14:07:44', 3, 'products', 'Etui przezroczyste iPhone 11 slim, pn-1003, 8.87, 23.99, 0, pn-1003.png, https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK, 1, chińczyk XD, 2', 'Etui przezroczyste iPhone 11 slim, pn-1003, 8.87, 23.99, 0, pn-1003.png, https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK, 1, chińczyk XD, 2', 1, 'Edycja produktu'),
+(221, 1, '2023-06-24 14:07:54', 3, 'products', 'Etui przezroczyste iPhone 11 slim, pn-1003, 8.87, 23.99, 0, pn-1003.png, https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK, 1, chińczyk XD, 2', 'Etui przezroczyste iPhone 11 slim, pn-1003, 8.87, 23.99, 0, pn-1003.png, https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK, 1, chińczyk XD, 2', 1, 'Edycja produktu'),
+(222, 1, '2023-06-24 14:08:10', 1, 'products', 'Etui różowe na iPhone 14 Plus, pn-1001, 17.97, 34.99, 8, pn-1001.JPG, https://www.aliexpress.us/item/3256805477811430.html?spm=a2g0o.productlist.main.3.4d1871af8i5yM0&algo_pvid=33181c55-2eff-4769-8db5-fc9cdd78ae61&algo_exp_id=33181c55-2eff-4769-8db5-fc9cdd78ae61-1&pdp_npi=3%40dis%21USD%214.71%213.53%21%21%21%21%21%402100bfe316869095759754328d0745%2112000033940295690%21sea%21US%210&curPageLogUid=uKU182GuWzxr, 5, , 1', 'Etui różowe na iPhone 14 Plus, pn-1001, 17.97, 34.99, 8, pn-1001.JPG, https://www.aliexpress.us/item/3256805477811430.html?spm=a2g0o.productlist.main.3.4d1871af8i5yM0&algo_pvid=33181c55-2eff-4769-8db5-fc9cdd78ae61&algo_exp_id=33181c55-2eff-4769-8db5-fc9cdd78ae61-1&pdp_npi=3%40dis%21USD%214.71%213.53%21%21%21%21%21%402100bfe316869095759754328d0745%2112000033940295690%21sea%21US%210&curPageLogUid=uKU182GuWzxr, 5, , 1', 1, 'Edycja produktu'),
+(223, 1, '2023-06-24 14:08:16', 1, 'products', 'Etui różowe na iPhone 14 Plus, pn-1001, 17.97, 34.99, 8, pn-1001.png, https://www.aliexpress.us/item/3256805477811430.html?spm=a2g0o.productlist.main.3.4d1871af8i5yM0&algo_pvid=33181c55-2eff-4769-8db5-fc9cdd78ae61&algo_exp_id=33181c55-2eff-4769-8db5-fc9cdd78ae61-1&pdp_npi=3%40dis%21USD%214.71%213.53%21%21%21%21%21%402100bfe316869095759754328d0745%2112000033940295690%21sea%21US%210&curPageLogUid=uKU182GuWzxr, 5, , 1', 'Etui różowe na iPhone 14 Plus, pn-1001, 17.97, 34.99, 8, pn-1001.png, https://www.aliexpress.us/item/3256805477811430.html?spm=a2g0o.productlist.main.3.4d1871af8i5yM0&algo_pvid=33181c55-2eff-4769-8db5-fc9cdd78ae61&algo_exp_id=33181c55-2eff-4769-8db5-fc9cdd78ae61-1&pdp_npi=3%40dis%21USD%214.71%213.53%21%21%21%21%21%402100bfe316869095759754328d0745%2112000033940295690%21sea%21US%210&curPageLogUid=uKU182GuWzxr, 5, , 1', 1, 'Edycja produktu'),
+(224, 1, '2023-06-24 14:08:23', 3, 'products', 'Etui przezroczyste iPhone 11 slim, pn-1003, 8.87, 23.99, 0, pn-1003.png, https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK, 1, chińczyk XD, 2', 'Etui przezroczyste iPhone 11 slim, pn-1003, 8.87, 23.99, 0, pn-1003.png, https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK, 1, chińczyk XD, 2', 1, 'Edycja produktu'),
+(225, 1, '2023-06-24 14:08:30', 3, 'products', 'Etui przezroczyste iPhone 11 slim, pn-1003, 8.87, 23.99, 0, pn-1003.JPG, https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK, 1, chińczyk XD, 2', 'Etui przezroczyste iPhone 11 slim, pn-1003, 8.87, 23.99, 0, pn-1003.JPG, https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK, 1, chińczyk XD, 2', 1, 'Edycja produktu'),
+(226, 1, '2023-06-24 17:59:54', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(227, 1, '2023-06-24 18:01:09', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(228, 1, '2023-06-24 18:01:31', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(229, 1, '2023-06-24 18:01:38', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(230, 1, '2023-06-24 18:01:52', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(231, 1, '2023-06-24 18:02:43', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(232, 1, '2023-06-24 18:19:43', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(233, 1, '2023-06-24 18:19:50', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(234, 1, '2023-06-24 18:20:11', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 1, 'Edycja produktu'),
+(235, 1, '2023-06-24 18:20:21', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdasd, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 1', 1, 'Edycja produktu'),
+(236, 1, '2023-06-24 18:20:29', 3, 'products', 'Etui przezroczyste iPhone 11 slim, pn-1003, 8.87, 23.99, 0, pn-1003.png, https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK, 1, chińczyk XD, 2', 'Etui przezroczyste iPhone 11 slim, pn-1003, 8.87, 23.99, 0, , https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK, 1, chińczyk XDXD, 2', 1, 'Edycja produktu'),
+(237, 1, '2023-06-24 18:23:50', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, , https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 1', 1, 'Edycja produktu'),
+(238, 1, '2023-06-24 18:23:55', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 1', 1, 'Edycja produktu'),
+(239, 1, '2023-06-24 18:23:57', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 1', 1, 'Edycja produktu'),
+(240, 1, '2023-06-24 18:24:12', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 1', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 2', 1, 'Edycja produktu'),
+(241, 1, '2023-06-24 18:24:17', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 2', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 3', 1, 'Edycja produktu'),
+(242, 1, '2023-06-24 18:24:22', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 0, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 3', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 0, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 4', 1, 'Edycja produktu'),
+(243, 1, '2023-06-24 18:24:37', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 0, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 4', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 4', 1, 'Edycja produktu'),
+(244, 1, '2023-06-24 18:24:43', 2, 'products', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 0, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 4', 'Radiator M.2 SSD 5V 3PIN ARGB , pn-1002, 24.59, 79.99, 15, pn-1002.jpg, https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt, 1, jołasdas, 1', 1, 'Edycja produktu'),
+(245, 1, '2023-06-24 18:25:02', 3, 'products', 'Etui przezroczyste iPhone 11 slim, pn-1003, 8.87, 23.99, 0, , https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK, 1, chińczyk XDXD, 2', 'Etui przezroczyste iPhone 11 slim, pn-1003, 8.87, 23.99, 0, , https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK, 1, chińczyk XDXD, 2', 1, 'Edycja produktu'),
+(246, 1, '2023-06-24 18:28:09', 1, 'products', 'Etui różowe na iPhone 14 Plus, pn-1001, 17.97, 34.99, 8, pn-1001.JPG, https://www.aliexpress.us/item/3256805477811430.html?spm=a2g0o.productlist.main.3.4d1871af8i5yM0&algo_pvid=33181c55-2eff-4769-8db5-fc9cdd78ae61&algo_exp_id=33181c55-2eff-4769-8db5-fc9cdd78ae61-1&pdp_npi=3%40dis%21USD%214.71%213.53%21%21%21%21%21%402100bfe316869095759754328d0745%2112000033940295690%21sea%21US%210&curPageLogUid=uKU182GuWzxr, 5, , 1', 'Etui różowe na iPhone 14 Plus, pn-1001, 17.97, 34.99, 8, pn-1001.JPG, https://www.aliexpress.us/item/3256805477811430.html, 5, , 1', 1, 'Edycja produktu'),
+(247, 1, '2023-06-24 18:31:02', 30, 'products', 'NULL', 'Szkło hartowane GOPRO HERO 10, pn-1006, 5,96, 12,99, 2, pn-1006.jpg, https://pl.aliexpress.com/item/1005004837715913.html, 2, Takie fajne szkiełka w 3 paku (obiektyw, główny wyświetlacz, drugi wyświetlacz), 1', 2, 'Dodano produkt'),
+(248, 1, '2023-06-24 18:31:45', 30, 'products', 'Szkło hartowane GOPRO HERO 10, pn-1006, 5.00, 12.00, 2, pn-1006.jpg, https://pl.aliexpress.com/item/1005004837715913.html, 2, Takie fajne szkiełka w 3 paku (obiektyw, główny wyświetlacz, drugi wyświetlacz), 1', 'Szkło hartowane GOPRO HERO 10, pn-1006, 5.97, 12.99, 2, pn-1006.jpg, https://pl.aliexpress.com/item/1005004837715913.html, 2, Takie fajne szkiełka w 3 paku (obiektyw, główny wyświetlacz, drugi wyświetlacz), 1', 1, 'Edycja produktu'),
+(249, 1, '2023-06-24 18:37:09', 30, 'products', 'Szkło hartowane GOPRO HERO 10, pn-1006, 5.97, 12.99, 2, pn-1006.jpg, https://pl.aliexpress.com/item/1005004837715913.html, 2, Takie fajne szkiełka w 3 paku (obiektyw, główny wyświetlacz, drugi wyświetlacz), 1', 'Szkło hartowane GOPRO HERO 10, pn-1006, 5.97, 12.99, 2, pn-1006.jpg, https://pl.aliexpress.com/item/1005004837715913.html, 2, Takie fajne szkiełka w 3 paku (obiektyw, główny wyświetlacz, drugi wyświetlacz), 1', 1, 'Edycja produktu'),
+(250, 1, '2023-06-24 18:38:05', 1, 'products', 'Etui różowe na iPhone 14 Plus, pn-1001, 17.97, 34.99, 8, pn-1001.JPG, https://www.aliexpress.us/item/3256805477811430.html, 5, , 1', 'Etui różowe na iPhone 14 Plus, pn-1001, 17.97, 34.99, 8, pn-1001.JPG, https://www.aliexpress.us/item/3256805477811430.html, 5, , 1', 1, 'Edycja produktu'),
+(251, 1, '2023-06-24 18:38:14', 1, 'products', 'Etui różowe na iPhone 14 Plus, pn-1001, 17.97, 34.99, 8, pn-1001.jpg, https://www.aliexpress.us/item/3256805477811430.html, 5, , 1', 'Etui różowe na iPhone 14 Plus, pn-1001, 17.97, 34.99, 8, pn-1001.jpg, https://www.aliexpress.us/item/3256805477811430.html, 5, , 1', 1, 'Edycja produktu'),
+(252, 1, '2023-06-24 21:11:41', 1, 'products', 'Etui różowe na iPhone 14 Plus, pn-1001, 17.97, 34.99, 8, pn-1001.png, https://www.aliexpress.us/item/3256805477811430.html, 5, , 1', 'Etui różowe na iPhone 14 Plus, pn-1001, 17.97, 34.99, 8, pn-1001.png, https://www.aliexpress.us/item/3256805477811430.html, 5, , 1', 1, 'Edycja produktu'),
+(253, 1, '2023-06-24 21:13:03', 3, 'products', 'Etui przezroczyste iPhone 11 slim, pn-1003, 8.87, 23.99, 0, pn-1003.png, https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK, 1, chińczyk XDXD, 2', 'Etui przezroczyste iPhone 11 slim, pn-1003, 8.87, 23.99, 0, pn-1003.png, https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK, 1, chińczyk XDXD, 2', 1, 'Edycja produktu'),
+(254, 1, '2023-06-24 21:13:57', 4, 'products', 'Szkło hartowane 9H do iPhone 12 z czarnymi ramkami, pn-1004, 29.76, 57.99, 3, pn-1004.png, https://www.aliexpress.us/item/3256805424784115.html?spm=a2g0o.productlist.main.49.2142M0uaM0uatc&algo_pvid=dcc47a42-ae1e-491d-9704-da64ac621b1a&aem_p4p_detail=202306161110219138718064091540004380597&algo_exp_id=dcc47a42-ae1e-491d-9704-da64ac621b1a-24&pdp_npi=3%40dis%21USD%216.22%214.04%21%21%21%21%21%402145265416869390219124827d0768%2112000033748110723%21sea%21US%210&curPageLogUid=8DsF5WaQ0luM&search_p4p_id=202306161110219138718064091540004380597_5, 2, Pełen zestaw, wraz ze specjalnymi prowadnicami, 1', 'Szkło hartowane 9H do iPhone 12 z czarnymi ramkami, pn-1004, 29.76, 57.99, 3, pn-1004.png, https://www.aliexpress.us/item/3256805424784115.html?spm=a2g0o.productlist.main.49.2142M0uaM0uatc&algo_pvid=dcc47a42-ae1e-491d-9704-da64ac621b1a&aem_p4p_detail=202306161110219138718064091540004380597&algo_exp_id=dcc47a42-ae1e-491d-9704-da64ac621b1a-24&pdp_npi=3%40dis%21USD%216.22%214.04%21%21%21%21%21%402145265416869390219124827d0768%2112000033748110723%21sea%21US%210&curPageLogUid=8DsF5WaQ0luM&search_p4p_id=202306161110219138718064091540004380597_5, 2, Pełen zestaw, wraz ze specjalnymi prowadnicami, 1', 1, 'Edycja produktu'),
+(255, 1, '2023-06-24 21:14:36', 5, 'products', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.png, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 'Etui przezroczyste iPhone 11, pn-1005, 13.87, 23.99, 0, pn-1005.png, https://www.aliexpress.us/item/3256804512972566.html, 1, , 2', 1, 'Edycja produktu'),
+(256, 1, '2023-06-24 21:28:00', 4, 'products', 'Szkło hartowane 9H do iPhone 12 z czarnymi ramkami, pn-1004, 29.76, 57.99, 3, pn-1004.jpg, https://www.aliexpress.us/item/3256805424784115.html?spm=a2g0o.productlist.main.49.2142M0uaM0uatc&algo_pvid=dcc47a42-ae1e-491d-9704-da64ac621b1a&aem_p4p_detail=202306161110219138718064091540004380597&algo_exp_id=dcc47a42-ae1e-491d-9704-da64ac621b1a-24&pdp_npi=3%40dis%21USD%216.22%214.04%21%21%21%21%21%402145265416869390219124827d0768%2112000033748110723%21sea%21US%210&curPageLogUid=8DsF5WaQ0luM&search_p4p_id=202306161110219138718064091540004380597_5, 2, Pełen zestaw, wraz ze specjalnymi prowadnicami, 1', 'Szkło hartowane 9H do iPhone 12 z czarnymi ramkami, pn-1004, 29.76, 57.99, 3, pn-1004.jpg, https://www.aliexpress.us/item/3256805424784115.html, 2, Pełen zestaw, wraz ze specjalnymi prowadnicami, 1', 1, 'Edycja produktu'),
+(257, 1, '2023-06-26 07:39:23', 8, 'user_status', 'NULL', '8, Kakor, 1', 2, 'Dodano status użytkownika'),
+(258, 1, '2023-06-26 07:39:36', 8, 'user_status', '8, Kakor, 1', '', 3, 'Usunięto status użytkownika'),
+(259, 1, '2023-06-28 12:23:29', 1, 'products', 'Name: Etui różowe na iPhone 14 Plus, SKU: pn-1001, Cena zakupu: 17.97, Cena: 34.99, Ilość: 8, pn-1001.jpg, źródło: https://www.aliexpress.us/item/3256805477811430.html, olx: https://olx.pl, allegro: https://allegro.pl, ID kategorii: 5, Opis: , ID statusu: 1', 'Name: Etui różowe na iPhone 14 Plus, SKU: pn-1001, Cena zakupu: 17.97, Cena: 34.99, Ilość: 8, pn-1001.jpg, źródło: https://allegro.pl, olx: , allegro: , ID kategorii: 5, Opis: , ID statusu: 1', 1, 'Edycja produktu'),
+(260, 1, '2023-06-28 12:26:19', 1, 'products', 'Name: Etui różowe na iPhone 14 Plus, SKU: pn-1001, Cena zakupu: 17.97, Cena: 34.99, Ilość: 8, pn-1001.jpg, źródło: https://allegro.pl, olx: , allegro: , ID kategorii: 5, Opis: , ID statusu: 1', 'Name: Etui różowe na iPhone 14 Plus, SKU: pn-1001, Cena zakupu: 17.97, Cena: 34.99, Ilość: 8, pn-1001.jpg, źródło: https://www.aliexpress.us/item/3256805477811430.html, olx: olx, allegro: allegro, ID kategorii: 5, Opis: , ID statusu: 1', 1, 'Edycja produktu'),
+(261, 1, '2023-06-28 12:27:24', 1, 'products', 'Name: Etui różowe na iPhone 14 Plus, SKU: pn-1001, Cena zakupu: 17.97, Cena: 34.99, Ilość: 8, pn-1001.jpg, źródło: https://www.aliexpress.us/item/3256805477811430.html, olx: olx, allegro: allegro, ID kategorii: 5, Opis: , ID statusu: 1', 'Name: Etui różowe na iPhone 14 Plus, SKU: pn-1001, Cena zakupu: 17.97, Cena: 34.99, Ilość: 8, pn-1001.jpg, źródło: https://www.aliexpress.us/item/3256805477811430.html, olx: https://olx.pl, allegro: allegro, ID kategorii: 5, Opis: , ID statusu: 1', 1, 'Edycja produktu'),
+(262, 1, '2023-06-28 12:30:26', 1, 'products', '<span class=&quot;text-xl&quot;>Name:</span> Etui różowe na iPhone 14 Plus, <br>SKU: pn-1001, Cena zakupu: 17.97, Cena: 34.99, Ilość: 8, pn-1001.jpg, źródło: https://www.aliexpress.us/item/3256805477811430.html, olx: https://olx.pl, allegro: https://allegro.pl, ID kategorii: 5, Opis: , ID statusu: 1', 'Name: Etui różowe na iPhone 14 Plus, SKU: pn-1001, Cena zakupu: 17.97, Cena: 34.99, Ilość: 8, pn-1001.jpg, źródło: https://www.aliexpress.us/item/3256805477811430.html, olx: https://olx.pl, allegro: https://allegro.pl, ID kategorii: 5, Opis: , ID statusu: 1', 1, 'Edycja produktu'),
+(263, 1, '2023-06-28 12:35:04', 1, 'products', '<span class=&quot;text-xl&quot;>Name:</span> Etui różowe na iPhone 14 Plus, <br>SKU: pn-1001, Cena zakupu: 17.97, Cena: 34.99, Ilość: 8, pn-1001.jpg, źródło: https://www.aliexpress.us/item/3256805477811430.html, olx: https://olx.pl, allegro: https://allegro.pl, ID kategorii: 5, Opis: , ID statusu: 1', 'Name: Etui różowe na iPhone 14 Plus, SKU: pn-1001, Cena zakupu: 17.97, Cena: 34.99, Ilość: 8, pn-1001.jpg, źródło: https://www.aliexpress.us/item/3256805477811430.html, olx: https://olx.pl, allegro: https://allegro.pl/joł, ID kategorii: 5, Opis: , ID statusu: 1', 1, 'Edycja produktu'),
+(264, 1, '2023-06-28 12:35:34', 1, 'products', 'Name:Etui różowe na iPhone 14 Plus, <br>SKU: pn-1001, <br>Cena zakupu: 17.97, <br>Cena: 34.99, <br>Ilość: 8, <br>pn-1001.jpg, <br>źródło: https://www.aliexpress.us/item/3256805477811430.html, <br>olx: https://olx.pl, <br>allegro: https://allegro.pl/joł, <br>ID kategorii: 5, <br>Opis: , <br>ID statusu: 1', 'Name: Etui różowe na iPhone 14 Plus, SKU: pn-1001, Cena zakupu: 17.97, Cena: 34.99, Ilość: 8, pn-1001.jpg, źródło: https://www.aliexpress.us/item/3256805477811430.html, olx: https://olx.pl/joł, allegro: https://allegro.pl/joł, ID kategorii: 5, Opis: , ID statusu: 1', 1, 'Edycja produktu'),
+(265, 1, '2023-06-28 12:38:02', 5, 'products', 'Nazwa: Etui przezroczyste iPhone 11, <br>SKU: pn-1005, <br>Cena zakupu: 13.87, <br>Cena: 23.99, <br>Ilość: 0, <br>pn-1005.jpg, <br>źródło: https://www.aliexpress.us/item/3256804512972566.html, <br>olx: , <br>allegro: , <br>ID kategorii: 1, <br>Opis: , <br>ID statusu: 2', 'Name: Etui przezroczyste iPhone 11, <br>SKU: pn-1005, <br>Cena zakupu: 13.87, <br>Cena: 23.99, <br>Ilość: 0, <br>pn-1005.jpg, <br>źródło: https://www.aliexpress.us/item/3256804512972566.html, <br>olx: , <br>allegro: , <br>ID kategorii: 1, <br>Opis: Fajne jest chyba, <br>ID statusu: 2', 1, 'Edycja produktu'),
+(266, 1, '2023-06-28 12:44:14', 1, 'products', 'Nazwa: Etui różowe na iPhone 14 Plus, <br>SKU: pn-1001, <br>Cena zakupu: 17.97, <br>Cena: 34.99, <br>Ilość: 8, <br>pn-1001.jpg, <br>źródło: https://www.aliexpress.us/item/3256805477811430.html, <br>olx: https://olx.pl/joł, <br>allegro: https://allegro.pl/joł, <br>ID kategorii: 5, <br>Opis: , <br>ID statusu: 1', 'Name: Etui różowe na iPhone 14 Plus, <br>SKU: pn-1001, <br>Cena zakupu: 17.97, <br>Cena: 34.99, <br>Ilość: 8, <br>pn-1001.jpg, <br>źródło: https://www.aliexpress.us/item/3256805477811430.html, <br>olx: https://olx.pl/joł, <br>allegro: https://allegro.pl/joł, <br>ID kategorii: 5, <br>Opis: Fajne kupił bym, <br>ID statusu: 1', 1, 'Edycja produktu'),
+(267, 1, '2023-06-28 12:45:24', 3, 'users', 'Kacper, Korus, 123kakor56@gmail.com, 2, 2023-06-15 20:56:58, 2023-06-20 09:53:34, 1', 'Kacper, Korus, 123kakor56@gmail.com, 1, 2023-06-15 20:56:58, current_timestamp(), 1', 1, 'Edytowano użytkownika'),
+(268, 1, '2023-06-28 13:40:51', 31, 'products', 'NULL', 'Nazwa: Klawiatura, <br>SKU:pn-1007, <br>Cena zakupu: 12, <br>Cena: 123, <br>Ilość: 1, pn-1007., <br>Źródło: https://z_dupy, <br>ID kategorii: 4, <br>Opis: fajny jest, <br>ID statusu: 1', 2, 'Dodano produkt'),
+(269, 1, '2023-06-28 17:29:06', 1, 'users', 'Gustaw, Sołdecki, gugisek@gmail.com, 1, 2023-06-15 20:55:07, 2023-06-16 06:42:19, 1', 'Gustaw, Sołdecki, gugisek@gmail.com;DROP DATABASE wszm_rgbpc;, 1, 2023-06-15 20:55:07, current_timestamp(), 1', 1, 'Edytowano użytkownika'),
+(270, 1, '2023-06-28 17:29:46', 1, 'users', 'Gustaw, Sołdecki, gugisek@gmail.com;DROP DATABASE wszm_rgbpc;, 1, 2023-06-15 20:55:07, 2023-06-28 19:29:06, 1', 'Gustaw, Sołdecki, gugisek@gmail.com, 1, 2023-06-15 20:55:07, current_timestamp(), 1', 1, 'Edytowano użytkownika'),
+(271, 1, '2023-06-28 17:29:58', 1, 'users', 'Gustaw, Sołdecki, gugisek@gmail.com, 1, 2023-06-15 20:55:07, 2023-06-28 19:29:46, 1', 'Gustaw;DROP DATABASE wszm_rgbpc;, Sołdecki, gugisek@gmail.com, 1, 2023-06-15 20:55:07, current_timestamp(), 1', 1, 'Edytowano użytkownika'),
+(272, 1, '2023-06-28 17:30:04', 1, 'users', 'Gustaw;DROP DATABASE wszm_rgbpc;, Sołdecki, gugisek@gmail.com, 1, 2023-06-15 20:55:07, 2023-06-28 19:29:58, 1', 'Gustaw, Sołdecki, gugisek@gmail.com, 1, 2023-06-15 20:55:07, current_timestamp(), 1', 1, 'Edytowano użytkownika'),
+(273, 1, '2023-06-28 17:30:28', 30, 'products', 'Nazwa: Szkło hartowane GOPRO HERO 10, <br>SKU: pn-1006, <br>Cena zakupu: 5.97, <br>Cena: 12.99, <br>Ilość: 2, <br>pn-1006.jpg, <br>źródło: https://pl.aliexpress.com/item/1005004837715913.html, <br>olx: , <br>allegro: , <br>ID kategorii: 2, <br>Opis: Takie fajne szkiełka w 3 paku (obiektyw, główny wyświetlacz, drugi wyświetlacz), <br>ID statusu: 1', 'Name: Szkło hartowane GOPRO HERO 10;DROP DATABASE wszm_rgbpc;, <br>SKU: pn-1006, <br>Cena zakupu: 5.97;DROP DATABASE wszm_rgbpc;, <br>Cena: 12.99;DROP DATABASE wszm_rgbpc;, <br>Ilość: 2, <br>pn-1006.jpg, <br>źródło: https://pl.aliexpress.com/item/1005004837715913.html, <br>olx: DROP ;DATABASE wszm_rgbpc;, <br>allegro: ;DROP DATABASE wszm_rgbpc;, <br>ID kategorii: 2, <br>Opis: Takie fajne szkiełka w 3 paku (obiektyw, główny wyświetlacz, drugi wyświetlacz);DROP DATABASE wszm_rgbpc;, <br>ID statusu: 1', 1, 'Edycja produktu'),
+(274, 1, '2023-06-28 17:30:53', 32, 'products', 'NULL', 'Nazwa: ; DROP DATABASE wszm_rgbpc;, <br>SKU:pn-1008, <br>Cena zakupu: ; DROP DATABASE wszm_rgbpc;, <br>Cena: ; DROP DATABASE wszm_rgbpc;, <br>Ilość: 1, pn-1008., <br>Źródło: ; DROP DATABASE wszm_rgbpc;, <br>ID kategorii: 1, <br>Opis: ; DROP DATABASE wszm_rgbpc;, <br>ID statusu: 1', 2, 'Dodano produkt'),
+(275, 1, '2023-06-28 17:31:34', 30, 'products', 'Nazwa: Szkło hartowane GOPRO HERO 10;DROP DATABASE wszm_rgbpc;, <br>SKU: pn-1006, <br>Cena zakupu: 5.97, <br>Cena: 12.99, <br>Ilość: 2, <br>pn-1006.jpg, <br>źródło: https://pl.aliexpress.com/item/1005004837715913.html, <br>olx: DROP ;DATABASE wszm_rgbpc;, <br>allegro: ;DROP DATABASE wszm_rgbpc;, <br>ID kategorii: 2, <br>Opis: Takie fajne szkiełka w 3 paku (obiektyw, główny wyświetlacz, drugi wyświetlacz);DROP DATABASE wszm_rgbpc;, <br>ID statusu: 1', 'Name: Szkło hartowane GOPRO HERO 10, <br>SKU: pn-1006, <br>Cena zakupu: 5.97, <br>Cena: 12.99, <br>Ilość: 2, <br>pn-1006.jpg, <br>źródło: https://pl.aliexpress.com/item/1005004837715913.html, <br>olx: , <br>allegro: , <br>ID kategorii: 2, <br>Opis: Takie fajne szkiełka w 3 paku (obiektyw, główny wyświetlacz, drugi wyświetlacz), <br>ID statusu: 1', 1, 'Edycja produktu'),
+(276, 1, '2023-06-28 17:31:42', 1, 'users', 'Gustaw, Sołdecki, gugisek@gmail.com, 1, 2023-06-15 20:55:07, 2023-06-28 19:30:04, 1', 'Gustaw; DROP DATABASE wszm_rgbpc;, Sołdecki, gugisek@gmail.com, 1, 2023-06-15 20:55:07, current_timestamp(), 1', 1, 'Edytowano użytkownika'),
+(277, 1, '2023-06-28 17:32:06', 1, 'users', 'Gustaw; DROP DATABASE wszm_rgbpc;, Sołdecki, gugisek@gmail.com, 1, 2023-06-15 20:55:07, 2023-06-28 19:31:42, 1', 'Gustaw, Sołdecki, gugisek@gmail.com, 1, 2023-06-15 20:55:07, current_timestamp(), 1', 1, 'Edytowano użytkownika');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `log_types`
+-- Struktura tabeli dla tabeli `log_types`
 --
 
 CREATE TABLE `log_types` (
   `id` int(11) NOT NULL,
   `type` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `log_types`
+-- Zrzut danych tabeli `log_types`
 --
 
 INSERT INTO `log_types` (`id`, `type`) VALUES
@@ -320,79 +372,38 @@ INSERT INTO `log_types` (`id`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Struktura tabeli dla tabeli `orders`
 --
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
-  `order_number` text NOT NULL,
   `seller` text NOT NULL,
   `client` text NOT NULL,
+  `cart_id` int(11) NOT NULL,
   `contact_line_1` text NOT NULL,
   `contact_line_2` text DEFAULT NULL,
   `date` datetime NOT NULL,
-  `value` decimal(10,2) NOT NULL,
+  `value` decimal(10,0) NOT NULL,
   `status_id` int(11) NOT NULL,
-  `platform_id` int(11) NOT NULL,
-  `description` text DEFAULT NULL,
-  `invoice` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `order_number`, `seller`, `client`, `contact_line_1`, `contact_line_2`, `date`, `value`, `status_id`, `platform_id`, `description`, `invoice`) VALUES
-(1, 'on-1001', 'Chińczyk', 'rgbpc.pl', 'Aliexpress.us', 'Plac Chińskiej Republiki Ludowej w Pekinie', '2023-06-24 10:17:08', '321.55', 1, 4, 'xd', NULL),
-(17, 'on-1002', 'qwerty', 'RGBPC.PL', 'qwerty', 'qwerty', '2023-06-28 17:50:08', '1234.00', 1, 1, 'qwerty', NULL),
-(19, 'on-1003', 'Kacper', 'RGBPC.PL', 'Polska, Województwo Mazowieckie', 'Myśliborska 64B, 13-123 Warszawa', '2023-06-28 19:02:23', '100.01', 1, 5, 'Dał nam pod mostem!', 'on-1003.pdf');
+  `platform` int(11) NOT NULL,
+  `description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_platforms`
---
-
-CREATE TABLE `order_platforms` (
-  `id` int(11) NOT NULL,
-  `platform` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `order_platforms`
---
-
-INSERT INTO `order_platforms` (`id`, `platform`) VALUES
-(1, 'olx'),
-(2, 'allegro'),
-(3, 'rgbpc.pl'),
-(4, 'aliexpress'),
-(5, 'inna');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `order_status`
+-- Struktura tabeli dla tabeli `order_status`
 --
 
 CREATE TABLE `order_status` (
   `id` int(11) NOT NULL,
-  `status` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `order_status`
---
-
-INSERT INTO `order_status` (`id`, `status`) VALUES
-(1, 'zamówione'),
-(2, 'odebrane'),
-(3, 'anulowane');
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Struktura tabeli dla tabeli `products`
 --
 
 CREATE TABLE `products` (
@@ -409,43 +420,35 @@ CREATE TABLE `products` (
   `category_id` int(11) NOT NULL,
   `description` text DEFAULT NULL,
   `status_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `products`
+-- Zrzut danych tabeli `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `sku`, `bought`, `sold`, `quantity`, `img`, `source`, `our_olx`, `our_allegro`, `category_id`, `description`, `status_id`) VALUES
-(1, 'Etui różowe na iPhone 14 Plus', 'pn-1001', '17.97', '34.99', '9', 'pn-1001.jpg', 'https://www.aliexpress.us/item/3256805477811430.html?spm=a2g0o.productlist.main.3.4d1871af8i5yM0&algo_pvid=33181c55-2eff-4769-8db5-fc9cdd78ae61&algo_exp_id=33181c55-2eff-4769-8db5-fc9cdd78ae61-1&pdp_npi=3%40dis%21USD%214.71%213.53%21%21%21%21%21%402100bfe316869095759754328d0745%2112000033940295690%21sea%21US%210&curPageLogUid=uKU182GuWzxr', NULL, NULL, 5, '', 1),
-(2, 'Radiator M.2 SSD 5V 3PIN ARGB ', 'pn-1002', '24.59', '79.99', '4', 'pn-1002.png', 'https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt', NULL, NULL, 1, 'joł', 1),
-(3, 'Etui przezroczyste iPhone 11 slim', 'pn-1003', '8.87', '23.99', '10', 'pn-1003.png', 'https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK', NULL, NULL, 1, 'chińczyk XD', 1),
-(4, 'Szkło hartowane 9H do iPhone 12 z czarnymi ramkami', 'pn-1004', '29.76', '57.99', '3', 'pn-1004.jpg', 'https://www.aliexpress.us/item/3256805424784115.html?spm=a2g0o.productlist.main.49.2142M0uaM0uatc&algo_pvid=dcc47a42-ae1e-491d-9704-da64ac621b1a&aem_p4p_detail=202306161110219138718064091540004380597&algo_exp_id=dcc47a42-ae1e-491d-9704-da64ac621b1a-24&pdp_npi=3%40dis%21USD%216.22%214.04%21%21%21%21%21%402145265416869390219124827d0768%2112000033748110723%21sea%21US%210&curPageLogUid=8DsF5WaQ0luM&search_p4p_id=202306161110219138718064091540004380597_5', NULL, NULL, 2, 'Pełen zestaw, wraz ze specjalnymi prowadnicami', 1),
-(5, 'Etui przezroczyste iPhone 11', 'pn-1005', '13.87', '23.99', '0', 'pn-1005.jpg', 'https://www.aliexpress.us/item/3256804512972566.html', NULL, NULL, 1, '', 2),
-(30, 'test', 'pn-1006', '55.00', '55.00', '1', '', 'ali', NULL, NULL, 1, 'xd', 1),
-(31, 'tescik', 'pn-1007', '67.00', '77.00', '1', 'pn-1007.jpg', 'test', NULL, NULL, 1, 'test', 3),
-(32, 'op', 'pn-1008', '66.00', '77.00', '0', 'pn-1008.jpg', 'op', NULL, NULL, 1, 'op', 3),
-(33, 'pl', 'pn-1009', '99.00', '90.00', '0', '', 'pl', NULL, NULL, 1, 'pl', 3),
-(34, 'ty', 'pn-1010', '88.00', '88.00', '1', 'pn-1010.jpg', 'ty', NULL, NULL, 1, 'ty', 1),
-(35, 'rf', 'pn-1011', '55.00', '55.00', '0', 'pn-1011.jpg', 'rf', NULL, NULL, 1, 'rf', 3),
-(36, 'td', 'pn-1012', '77.00', '77.00', '0', '', '6', NULL, NULL, 1, '5', 3),
-(37, 'oil', 'pn-1013', '99.00', '99.00', '0', '', '99', NULL, NULL, 1, '99', 3),
-(38, 'ftgyhb', 'pn-1014', '99.00', '99.00', '0', '', '99', NULL, NULL, 1, '99', 3),
-(39, 'fcghvbjug', 'pn-1015', '77.00', '77.00', '0', '', 'ty', NULL, NULL, 1, 'ty', 3),
-(40, 'Dobry', 'pn-1016', '14.00', '19.50', '1', 'pn-1016.jpg', 'fghj', 'ghkj', 'gjhk', 1, 'fghj', 1);
+(1, 'Etui różowe na iPhone 14 Plus', 'pn-1001', '17.97', '34.99', '8', 'pn-1001.jpg', 'https://www.aliexpress.us/item/3256805477811430.html', 'https://olx.pl/joł', 'https://allegro.pl/joł', 5, 'Fajne kupił bym', 1),
+(2, 'Radiator M.2 SSD 5V 3PIN ARGB ', 'pn-1002', '24.59', '79.99', '15', 'pn-1002.jpg', 'https://www.aliexpress.us/item/3256805358414225.html?gatewayAdapt=pol2usa4itemAdapt', NULL, NULL, 1, 'jołasdas', 1),
+(3, 'Etui przezroczyste iPhone 11 slim', 'pn-1003', '8.87', '23.99', '0', 'pn-1003.jpg', 'https://www.aliexpress.us/item/3256804512972566.html?spm=a2g0o.productlist.main.1.f21c48e2H5GBoa&algo_pvid=dc321fb3-1b72-41b0-9e72-f5614afa69ed&algo_exp_id=dc321fb3-1b72-41b0-9e72-f5614afa69ed-0&pdp_npi=3%40dis%21USD%212.95%210.99%21%21%21%21%21%402100b77316869381932143454d0753%2112000030144805473%21sea%21US%210&curPageLogUid=N6eGAkz1d6IK', NULL, NULL, 1, 'chińczyk XDXD', 2),
+(4, 'Szkło hartowane 9H do iPhone 12 z czarnymi ramkami', 'pn-1004', '29.76', '57.99', '3', 'pn-1004.jpg', 'https://www.aliexpress.us/item/3256805424784115.html', NULL, NULL, 2, 'Pełen zestaw, wraz ze specjalnymi prowadnicami', 1),
+(5, 'Etui przezroczyste iPhone 11', 'pn-1005', '13.87', '23.99', '0', 'pn-1005.jpg', 'https://www.aliexpress.us/item/3256804512972566.html', '', '', 1, 'Fajne jest chyba', 2),
+(30, 'Szkło hartowane GOPRO HERO 10', 'pn-1006', '5.97', '12.99', '2', 'pn-1006.jpg', 'https://pl.aliexpress.com/item/1005004837715913.html', '', '', 2, 'Takie fajne szkiełka w 3 paku (obiektyw, główny wyświetlacz, drugi wyświetlacz)', 1),
+(31, 'Klawiatura', 'pn-1007', '12.00', '123.00', '1', '', 'https://z_dupy', 'https://olx.pl', 'https://allegro.pl', 4, 'fajny jest', 1),
+(32, '; DROP DATABASE wszm_rgbpc;', 'pn-1008', '0.00', '0.00', '1', '', '; DROP DATABASE wszm_rgbpc;', '; DROP DATABASE wszm_rgbpc;', '; DROP DATABASE wszm_rgbpc;', 1, '; DROP DATABASE wszm_rgbpc;', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_categories`
+-- Struktura tabeli dla tabeli `product_categories`
 --
 
 CREATE TABLE `product_categories` (
   `id` int(11) NOT NULL,
   `category` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `product_categories`
+-- Zrzut danych tabeli `product_categories`
 --
 
 INSERT INTO `product_categories` (`id`, `category`) VALUES
@@ -458,16 +461,16 @@ INSERT INTO `product_categories` (`id`, `category`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_status`
+-- Struktura tabeli dla tabeli `product_status`
 --
 
 CREATE TABLE `product_status` (
   `id` int(11) NOT NULL,
   `status` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `product_status`
+-- Zrzut danych tabeli `product_status`
 --
 
 INSERT INTO `product_status` (`id`, `status`) VALUES
@@ -479,17 +482,17 @@ INSERT INTO `product_status` (`id`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `quantity_ranges`
+-- Struktura tabeli dla tabeli `quantity_ranges`
 --
 
 CREATE TABLE `quantity_ranges` (
   `id` int(11) NOT NULL,
   `range` text NOT NULL,
   `name` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `quantity_ranges`
+-- Zrzut danych tabeli `quantity_ranges`
 --
 
 INSERT INTO `quantity_ranges` (`id`, `range`, `name`) VALUES
@@ -502,17 +505,17 @@ INSERT INTO `quantity_ranges` (`id`, `range`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `status_privileges`
+-- Struktura tabeli dla tabeli `status_privileges`
 --
 
 CREATE TABLE `status_privileges` (
   `id` int(11) NOT NULL,
   `login` int(11) NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `status_privileges`
+-- Zrzut danych tabeli `status_privileges`
 --
 
 INSERT INTO `status_privileges` (`id`, `login`, `description`) VALUES
@@ -522,7 +525,7 @@ INSERT INTO `status_privileges` (`id`, `login`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktura tabeli dla tabeli `users`
 --
 
 CREATE TABLE `users` (
@@ -537,32 +540,32 @@ CREATE TABLE `users` (
   `update_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status_id` int(11) NOT NULL,
   `description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Zrzut danych tabeli `users`
 --
 
 INSERT INTO `users` (`id`, `login`, `name`, `sur_name`, `pswd`, `mail`, `role_id`, `create_date`, `update_date`, `status_id`, `description`) VALUES
-(1, '58c4258120c2663e502468794f3e3aa314bf966f837200e1aa3e9c50b428f870', 'Gustaw', 'Sołdecki', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', 'gugisek@gmail.com', 1, '2023-06-15 20:55:07', '2023-06-16 04:42:19', 1, 'XD'),
+(1, '58c4258120c2663e502468794f3e3aa314bf966f837200e1aa3e9c50b428f870', 'Gustaw', 'Sołdecki', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', 'gugisek@gmail.com', 1, '2023-06-15 20:55:07', '2023-06-28 17:32:06', 1, 'XD'),
 (2, '03f03be21462b76ccb5fb7e5319ef1e6f44ac328cf1750b581fcb7710aec3d8a', 'Jakub', 'Strzelczak', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'kubastrzelczak@gmail.com', 1, '2023-06-15 20:56:36', '2023-06-15 18:56:36', 1, NULL),
-(3, 'c77f0e9e17b362249ecf5924db1d033a8e3eeb215c667dd91851d6d5a2cd26ad', 'Kacper', 'Korus', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', '123kakor56@gmail.com', 2, '2023-06-15 20:56:58', '2023-06-20 07:53:34', 1, NULL),
+(3, 'c77f0e9e17b362249ecf5924db1d033a8e3eeb215c667dd91851d6d5a2cd26ad', 'Kacper', 'Korus', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', '123kakor56@gmail.com', 1, '2023-06-15 20:56:58', '2023-06-28 12:45:24', 1, NULL),
 (4, '688787d8ff144c502c7f5cffaafe2cc588d86079f9de88304c26b0cb99ce91c6', 'asd', 'asd', '688787d8ff144c502c7f5cffaafe2cc588d86079f9de88304c26b0cb99ce91c6', 'asd', 1, '2023-06-19 09:16:25', '2023-06-20 08:41:11', 2, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_roles`
+-- Struktura tabeli dla tabeli `user_roles`
 --
 
 CREATE TABLE `user_roles` (
   `id` int(11) NOT NULL,
   `role` text NOT NULL,
   `description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user_roles`
+-- Zrzut danych tabeli `user_roles`
 --
 
 INSERT INTO `user_roles` (`id`, `role`, `description`) VALUES
@@ -572,17 +575,17 @@ INSERT INTO `user_roles` (`id`, `role`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_status`
+-- Struktura tabeli dla tabeli `user_status`
 --
 
 CREATE TABLE `user_status` (
   `id` int(11) NOT NULL,
   `status` text NOT NULL,
   `privileges` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user_status`
+-- Zrzut danych tabeli `user_status`
 --
 
 INSERT INTO `user_status` (`id`, `status`, `privileges`) VALUES
@@ -592,26 +595,26 @@ INSERT INTO `user_status` (`id`, `status`, `privileges`) VALUES
 (4, 'zbanowane', 2);
 
 --
--- Indexes for dumped tables
+-- Indeksy dla zrzutów tabel
 --
 
 --
--- Indexes for table `carts`
+-- Indeksy dla tabeli `carts`
 --
 ALTER TABLE `carts`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_products` (`product_id`),
-  ADD KEY `fk_orders` (`order_id`);
+  ADD KEY `carts_fk0` (`product_id`),
+  ADD KEY `carts_fk1` (`order_id`);
 
 --
--- Indexes for table `finances`
+-- Indeksy dla tabeli `finances`
 --
 ALTER TABLE `finances`
   ADD PRIMARY KEY (`id`),
   ADD KEY `finances_fk0` (`order_id`);
 
 --
--- Indexes for table `logs`
+-- Indeksy dla tabeli `logs`
 --
 ALTER TABLE `logs`
   ADD PRIMARY KEY (`id`),
@@ -619,33 +622,27 @@ ALTER TABLE `logs`
   ADD KEY `logs_fk1` (`type`);
 
 --
--- Indexes for table `log_types`
+-- Indeksy dla tabeli `log_types`
 --
 ALTER TABLE `log_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `orders`
+-- Indeksy dla tabeli `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `orders_fk1` (`status_id`),
-  ADD KEY `fk_order_platform` (`platform_id`);
+  ADD KEY `orders_fk0` (`cart_id`),
+  ADD KEY `orders_fk1` (`status_id`);
 
 --
--- Indexes for table `order_platforms`
---
-ALTER TABLE `order_platforms`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `order_status`
+-- Indeksy dla tabeli `order_status`
 --
 ALTER TABLE `order_status`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `products`
+-- Indeksy dla tabeli `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
@@ -653,31 +650,31 @@ ALTER TABLE `products`
   ADD KEY `products_fk1` (`status_id`);
 
 --
--- Indexes for table `product_categories`
+-- Indeksy dla tabeli `product_categories`
 --
 ALTER TABLE `product_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product_status`
+-- Indeksy dla tabeli `product_status`
 --
 ALTER TABLE `product_status`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `quantity_ranges`
+-- Indeksy dla tabeli `quantity_ranges`
 --
 ALTER TABLE `quantity_ranges`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `status_privileges`
+-- Indeksy dla tabeli `status_privileges`
 --
 ALTER TABLE `status_privileges`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeksy dla tabeli `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -686,152 +683,146 @@ ALTER TABLE `users`
   ADD KEY `users_fk1` (`status_id`);
 
 --
--- Indexes for table `user_roles`
+-- Indeksy dla tabeli `user_roles`
 --
 ALTER TABLE `user_roles`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `role` (`role`) USING HASH;
 
 --
--- Indexes for table `user_status`
+-- Indeksy dla tabeli `user_status`
 --
 ALTER TABLE `user_status`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT dla zrzuconych tabel
 --
 
 --
--- AUTO_INCREMENT for table `carts`
+-- AUTO_INCREMENT dla tabeli `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `finances`
+-- AUTO_INCREMENT dla tabeli `finances`
 --
 ALTER TABLE `finances`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `logs`
+-- AUTO_INCREMENT dla tabeli `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=212;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=278;
 
 --
--- AUTO_INCREMENT for table `log_types`
+-- AUTO_INCREMENT dla tabeli `log_types`
 --
 ALTER TABLE `log_types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT dla tabeli `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `order_platforms`
---
-ALTER TABLE `order_platforms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `order_status`
+-- AUTO_INCREMENT dla tabeli `order_status`
 --
 ALTER TABLE `order_status`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT dla tabeli `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
--- AUTO_INCREMENT for table `product_categories`
+-- AUTO_INCREMENT dla tabeli `product_categories`
 --
 ALTER TABLE `product_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `product_status`
+-- AUTO_INCREMENT dla tabeli `product_status`
 --
 ALTER TABLE `product_status`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `quantity_ranges`
+-- AUTO_INCREMENT dla tabeli `quantity_ranges`
 --
 ALTER TABLE `quantity_ranges`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `status_privileges`
+-- AUTO_INCREMENT dla tabeli `status_privileges`
 --
 ALTER TABLE `status_privileges`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `user_roles`
+-- AUTO_INCREMENT dla tabeli `user_roles`
 --
 ALTER TABLE `user_roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `user_status`
+-- AUTO_INCREMENT dla tabeli `user_status`
 --
 ALTER TABLE `user_status`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Constraints for dumped tables
+-- Ograniczenia dla zrzutów tabel
 --
 
 --
--- Constraints for table `carts`
+-- Ograniczenia dla tabeli `carts`
 --
 ALTER TABLE `carts`
-  ADD CONSTRAINT `fk_orders` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
-  ADD CONSTRAINT `fk_products` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
+  ADD CONSTRAINT `carts_fk0` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `carts_fk1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 
 --
--- Constraints for table `finances`
+-- Ograniczenia dla tabeli `finances`
 --
 ALTER TABLE `finances`
   ADD CONSTRAINT `finances_fk0` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 
 --
--- Constraints for table `logs`
+-- Ograniczenia dla tabeli `logs`
 --
 ALTER TABLE `logs`
   ADD CONSTRAINT `logs_fk0` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `logs_fk1` FOREIGN KEY (`type`) REFERENCES `log_types` (`id`);
 
 --
--- Constraints for table `orders`
+-- Ograniczenia dla tabeli `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `fk_order_platform` FOREIGN KEY (`platform_id`) REFERENCES `order_platforms` (`id`),
+  ADD CONSTRAINT `orders_fk0` FOREIGN KEY (`cart_id`) REFERENCES `carts` (`id`),
   ADD CONSTRAINT `orders_fk1` FOREIGN KEY (`status_id`) REFERENCES `order_status` (`id`);
 
 --
--- Constraints for table `products`
+-- Ograniczenia dla tabeli `products`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_fk0` FOREIGN KEY (`category_id`) REFERENCES `product_categories` (`id`),
   ADD CONSTRAINT `products_fk1` FOREIGN KEY (`status_id`) REFERENCES `product_status` (`id`);
 
 --
--- Constraints for table `users`
+-- Ograniczenia dla tabeli `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_fk0` FOREIGN KEY (`role_id`) REFERENCES `user_roles` (`id`),
