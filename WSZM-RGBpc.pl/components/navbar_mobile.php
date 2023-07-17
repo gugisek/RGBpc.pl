@@ -1,13 +1,15 @@
-<section id="mobile_nav_fixed" class="sm:hidden flex bg-[#f8f9fa] shadow-xl z-10 justify-between items-center px-4 py-2 transition-all duration-300">
-    <div class=" w-[30px] h-8"></div>
-    <img src="public/img/logo2.png" alt="logo" class="w-[120px]">
-    <div id="hamburger" class="bg-[#3d3d3d] before:translate-y-[10px] after:translate-y-[-10px] block before:bg-[#3d3d3d]  after:bg-[#3d3d3d]"></div> 
-</section>
-<section class="sm:hidden bg-[#f8f9fa]">
+<div class="w-full fixed">
+    <section id="mobile_nav_fixed" class="sm:hidden w-full flex bg-[#f8f9fa] shadow-xl z-10 justify-between items-center px-4 py-2 transition-all duration-300">
+        <div class=" w-[30px] h-8"></div>
+        <img src="public/img/logo2.png" alt="logo" class="w-[120px]">
+        <div id="hamburger" class="bg-[#3d3d3d] before:translate-y-[10px] after:translate-y-[-10px] block before:bg-[#3d3d3d]  after:bg-[#3d3d3d]"></div> 
+    </section>
+</div>
+<section class="sm:hidden bg-[#f8f9fa] fixed w-full mt-[60px]">
     <section id="mobile_nav" style="height: 0vh;" class="w-full overflow-y-auto transition-all duration-300">
         <!-- LOGO + text -->
         <!-- MENU -->
-        <section class="w-full pb-8 pt-4 px-1 flex flex-col gap-1 overflow-x-hidden">
+        <section class="w-full mb-[60px] pb-8 pt-4 px-1 flex flex-col gap-1 overflow-x-hidden">
             <?php
             $buttons=["dashboard", "produkty", "zamówienia"];
             while($button = current($buttons)) {

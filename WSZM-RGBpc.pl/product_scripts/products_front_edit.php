@@ -56,7 +56,7 @@ if ($action == "edit") {
                 <div class="flex w-full md:flex-row flex-col gap-4">
                     <div class='flex flex-col gap-2 md:w-1/2'>
                         <label for='sku' class='text-xs text-gray-500'>SKU</label>
-                        <input required readonly type='text' name='sku' id='sku' value='<?=$sku?>' class='w-full py-2 px-4 rounded-lg text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent uppercase'>
+                        <input required readonly type='text' name='sku' id='sku' value='<?=$sku?>' class='hover:cursor-default cursor-default w-full py-2 px-4 rounded-lg text-gray-700 outline-none transition-all duration-300 shadow-sm uppercase'>
                     </div>
                     <div class="flex md:flex-row flex-col gap-2 md:w-1/2">
                         <div class='flex flex-col gap-2 md:w-1/2'>
@@ -110,38 +110,32 @@ if ($action == "edit") {
                     <label for='description' class='text-xs text-gray-500'>Opis</label>
                     <input type='text' name='description' id='description' value='<?=$description?>' class='w-full py-2 px-4 rounded-lg text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>
                 </div>
-                <div class='flex flex-row gap-2'>
+                <div class='flex md:flex-row flex-col gap-2'>
                     <div>
                         <label for='source' class='text-xs text-gray-500'>Źródło</label>
                         <div class="flex items-center justify-center gap-2">
-                            <input required type='text' name='source' id='source' value='<?=$source?>' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>
-                            <a href="<?=$source?>" target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                                </svg>
+                            <a href="<?=$source?>" target="_blank" class="hover:scale-105 bg-[#ff5a03] px-[1px] flex items-center justify-center hover:shadow-xl hover:shadow-red-300 w-[50px] h-[40px] rounded-lg transition-all duration-300">
+                                <img src="./public/img/icons/alie.png" alt="aliexpress-redirect" class="">
                             </a>
+                            <input required type='text' name='source' id='source' value='<?=$source?>' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>
                         </div>
                     </div>
                     <div>
                         <label for='our_olx' class='text-xs text-gray-500'>OLX</label>
                         <div class="flex items-center justify-center gap-2">
-                            <input type='text' name='our_olx' id='our_olx' value='<?=$our_olx?>' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>
-                            <a href="<?=$our_olx?>" target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                                </svg>
+                            <a href="<?=$our_olx?>" target="_blank" class="hover:scale-105 bg-[#002f34] flex items-center justify-center hover:shadow-xl hover:shadow-green-900 w-[50px] h-[40px] rounded-lg transition-all duration-300">
+                                <img src="./public/img/icons/olx.png" alt="olx-redirect" class="w-6 h-6">
                             </a>
+                            <input type='text' name='our_olx' id='our_olx' value='<?=$our_olx?>' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>
                         </div>
                     </div>
                     <div>
                         <label for='our_allegro' class='text-xs text-gray-500'>Allegro</label>
                         <div class="flex items-center justify-center gap-2">
-                            <input type='text' name='our_allegro' id='our_allegro' value='<?=$our_allegro?>' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>
-                            <a href="<?=$our_allegro?>" target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                                </svg>
+                            <a href="<?=$our_allegro?>" target="_blank" class="hover:scale-105 bg-[#ff5a03] px-[1px] flex items-center justify-center hover:shadow-xl hover:shadow-orange-300 w-[50px] h-[40px] rounded-lg transition-all duration-300">
+                                <img src="./public/img/icons/allegro.png" alt="allegro-redirect" class="">
                             </a>
+                            <input type='text' name='our_allegro' id='our_allegro' value='<?=$our_allegro?>' class='w-full py-2 px-4 rounded-lg shadow-sm text-gray-700 outline-none focus:text-gray-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent'>
                         </div>
                     </div>
                 </div>
