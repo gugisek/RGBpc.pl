@@ -1,3 +1,20 @@
+<hr>
+Beta 0.1.0v - dashboard update
+<hr>
+
+Major updates:
+- add dashboard page
+- complete first and second row of widgets
+
+Minor updates:
+- fix stay scroll script
+- update hover efect on users table
+- add link to dashboard on logo in mobile navbar
+- other fixes and improvements
+<br>
+<hr>
+<br>
+<br>
 Last backup: <br>
 2022-09-20 16:54
 
