@@ -1,11 +1,11 @@
-<div class="w-full fixed">
+<div class="w-full fixed z-10">
     <section id="mobile_nav_fixed" class="sm:hidden w-full flex bg-[#f8f9fa] shadow-xl z-10 justify-between items-center px-4 py-2 transition-all duration-300">
         <div class=" w-[30px] h-8"></div>
-        <img src="public/img/logo2.png" alt="logo" class="w-[120px]">
+        <a href="?page=dashboard&action="><img src="public/img/logo2.png" alt="logo" class="w-[120px]"></a>
         <div id="hamburger" class="bg-[#3d3d3d] before:translate-y-[10px] after:translate-y-[-10px] block before:bg-[#3d3d3d]  after:bg-[#3d3d3d]"></div> 
     </section>
 </div>
-<section class="sm:hidden bg-[#f8f9fa] fixed w-full mt-[60px]">
+<section class="sm:hidden bg-[#f8f9fa] fixed w-full mt-[60px] z-10">
     <section id="mobile_nav" style="height: 0vh;" class="w-full overflow-y-auto transition-all duration-300">
         <!-- LOGO + text -->
         <!-- MENU -->

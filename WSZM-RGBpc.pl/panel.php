@@ -11,9 +11,12 @@
 <?php include 'components/head.php'; ?>
 <body class="h-full w-full flex sm:flex-row flex-col ">
     <?php include 'components/navbar_mobile.php'; ?>
-    <?php include 'components/navbar.php'; ?>
+    <?php include 'components/navbar.php'; 
+    $page = $_GET['page'];
+    $action = $_GET['action'];
+    ?>
     <div class="sm:hidden h-[60px]"></div>
-    <section id="scrolled_div" style="height: 100%;" class="lg:w-5/6 w-full flex flex-col items-center justify-between bg-[#f8f9fa] overflow-y-auto">
+    <section id="<?php if($page == 'archiwum' or ($page == 'produkty' and $action == '') or ($page == 'zamówienia' and $action == '') or ($page == 'zamówienia' and $action == 'create_cart')){echo 'scrolled_div';}else{echo 'div';}?>" style="height: 100%;" class="lg:w-5/6 w-full flex flex-col items-center justify-between bg-[#f8f9fa] overflow-y-auto">
         <?php
         $page = $_GET['page'];
         if ($page=="dashboard" or $page=="") {

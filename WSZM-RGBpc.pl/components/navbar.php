@@ -1,9 +1,14 @@
 <section id="menu"class="hover:w-[400px] lg:hover:w-1/5 w-[130px] lg:w-1/5 xl:hover:w-1/6 xl:w-1/6 h-screen sm:flex hidden flex-col items-center justify-between bg-[#f8f9fa] py-5 pl-8 pr-4 font-[Lexend]  transition-all duration-300">
-    <a class="flex hover:bg-white hover:shadow-lg w-full font-medium text-gray-600 gap-4 items-center justify-center py-4 px-5 text-sm rounded-xl transition-all duration-300">
+    <a href="?page=dashboard&action=" class="hidden lg:flex hover:bg-white hover:shadow-lg w-full font-medium text-gray-600 gap-4 items-center justify-center py-4 px-5 text-sm rounded-xl transition-all duration-300">
         <img src="public/img/logo2.png" alt="logo" class="hidden lg:block w-1/2 max-w-[150px] min-w-[80px]">
         <div class="hidden lg:block">
             <h1 class="text-xs mb-[-5px]">Witaj</h1><h1 class="text-lg"><?=$_SESSION['user']?></h1>
         </div>
+        <svg id="btn" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="lg:hidden block w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+    </a>
+    <a class="lg:hidden flex hover:bg-white hover:shadow-lg w-full font-medium text-gray-600 gap-4 items-center justify-center py-4 px-5 text-sm rounded-xl transition-all duration-300">
         <svg id="btn" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="lg:hidden block w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>

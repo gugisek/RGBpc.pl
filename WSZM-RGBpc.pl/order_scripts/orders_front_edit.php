@@ -147,7 +147,15 @@ if($error == 'cart_edited'){
         <div class='flex flex-row gap-2'>
             <button type='submit' class='w-full py-2 px-4 bg-green-500 hover:bg-green-600 hover:shadow-green-500 shadow-xl rounded-lg text-white font-medium transition-all duration-300'>Zapisz</button>
             <a href='?page=zamówienia&action=create_cart&for=<?php echo $id; ?>&edit=edit' class='w-full py-2 px-4 bg-indigo-500 text-center hover:bg-indigo-600 hover:shadow-infigo-500 shadow-xl rounded-lg text-white font-medium transition-all duration-300'>Edytuj koszyk</a>
-            <a href='?page=zamówienia&action=' class='w-full py-2 px-4 bg-red-500 text-center hover:bg-red-600 hover:shadow-red-500 shadow-xl rounded-lg text-white font-medium transition-all duration-300'>Anuluj</a>
+            <?php
+            if (isset($_GET['return']))
+            {
+                $return = $_GET['return'];
+            } else{
+                $return = '';
+            }
+            ?>
+            <a href='?page=<?php if ($return!=''){echo $return;}else{echo 'zamówienia';}?>&action=' class='w-full py-2 px-4 bg-red-500 text-center hover:bg-red-600 hover:shadow-red-500 shadow-xl rounded-lg text-white font-medium transition-all duration-300'>Anuluj</a>
         </div>
     </form>
 </section>
