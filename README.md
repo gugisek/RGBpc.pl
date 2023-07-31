@@ -1,5 +1,5 @@
 <hr>
-Beta 0.1.0v - dashboard update
+Beta v0.1.0 - dashboard update
 <hr>
 
 Major updates:
