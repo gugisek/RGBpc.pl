@@ -1,0 +1,28 @@
+<hr>
+Beta 0.2.0v - users update
+<hr>
+
+Major updates:
+- redesign: users table
+- add to users: title, department, profile picture
+
+Minor updates and fixes:
+- add customizable colors for user status
+- small redesign of login page
+- fix spell in login errors
+- fix dashboard orders_summary widget logic for 0 orders
+<br>
+<br>
+<hr>
+Beta 0.1.0v - dashboard update
+<hr>
+
+Major updates:
+- add dashboard page
+- complete first and second row of widgets
+
+Minor updates:
+- fix stay scroll script
+- update hover efect on users table
+- add link to dashboard on logo in mobile navbar
+- other fixes and improvements

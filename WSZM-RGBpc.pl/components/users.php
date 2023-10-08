@@ -12,6 +12,7 @@
             </svg>
         </a>
     </section>
+    <?php include 'user_scripts/popups.php'; ?>
     <?php
         $action = $_GET['action'];
         include 'user_scripts/users_front_edit.php';

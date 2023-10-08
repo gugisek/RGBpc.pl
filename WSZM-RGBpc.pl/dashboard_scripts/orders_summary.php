@@ -18,7 +18,11 @@
     $sql='SELECT sum(value) FROM orders where MONTH(date) = '.$current_month.' and YEAR(date) = '.$current_year.' and seller = "RGBPC.PL"';
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-    $orders_current_month_wychodzace = $row['sum(value)'];
+    if ($row['sum(value)'] == NULL) {
+        $orders_current_month_wychodzace = 0;
+    } else {
+        $orders_current_month_wychodzace = $row['sum(value)'];
+    }
 
     // $recent_month = date("m")-1;
     // $sql='SELECT sum(value) FROM orders where MONTH(date) = '.$recent_month.' and YEAR(date) = '.$current_year.' and seller = "RGBPC.PL"';

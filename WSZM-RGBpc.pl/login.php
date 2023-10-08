@@ -12,16 +12,14 @@
 <body class="min-h-screen flex justify-between">
     
     <section class="w-full flex flex-col items-center justify-between font-[Lexend]">
-        <section class="w-full h-full flex items-center justify-center">
-            <section class="items-center justify-center neo-shadow min-h-1/3 w-1/6 min-w-[250px] max-w-[500px] py-10 px-5 flex flex-col">
+        <section class="w-full h-full flex flex-col items-center justify-center">
+            <section class="flex items-center flex-col justify-center">
                 <img src="public/img/logo2.png" alt="logo" class="w-3/5">
                 <span class=" font-[Lexend] py-5 text-xs text-gray-600">Zaloguj się, aby kontynuować</span>
-                <?php
-                    if(isset($_SESSION['error']))
-                    {
-                        echo '<span class="text-red-500 text-center text-sm pb-6">'.$_SESSION['error'].'</span>';
-                    }
-                ?>
+                
+            </section>
+            <section class="items-center justify-center neo-shadow min-h-1/3 w-1/6 min-w-[250px] max-w-[500px] py-10 px-5 flex flex-col">
+                
                 <form action="scripts/login_script.php" method="POST" class="flex-col flex gap-4">
                     <input type="text" id="login" name="login" placeholder="Login" class="input" required>
                     <input type="password" id="pswd" name="password" placeholder="Hasło" class="input" required>
@@ -30,10 +28,16 @@
                 <?php
                     if(isset($_SESSION['error']))
                     {
+                        echo '<span class="text-red-500 text-center text-xs mt-6">'.$_SESSION['error'].'</span>';
+                    }
+                    ?>
+                <?php
+                    if(isset($_SESSION['error']))
+                    {
                         echo '<script> document.getElementById("login").classList.add("animate-pulse", "bg-red-100"); document.getElementById("pswd").classList.add("animate-pulse", "bg-red-100"); </script>';
                         unset($_SESSION['error']);
                     }
-                ?>
+                    ?>
             </section>
             
         </section>

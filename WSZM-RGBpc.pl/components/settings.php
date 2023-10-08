@@ -49,6 +49,12 @@
         <h1 class="pb-2 font-medium text-gray-600 font-[Lexend]">Ustawienia</h1>
         tabela
         tu bezie sie edytowało np. statusy, role zmieniało i tworzyło nowe
+        <br>
+        Do dodania w ustawieniach:<br>
+        ustawienia koloru dla statusów<br>
+        ustawienia tytułu dla użytkowników<br>
+        ustawienia działu dla użytkowników<br>
+
     </section>
     <section class="w-full bg-white shadow-xl rounded-3xl py-6 px-6">
         <div class="w-full flex items-center pb-3 gap-2">

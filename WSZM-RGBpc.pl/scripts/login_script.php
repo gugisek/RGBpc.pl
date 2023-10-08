@@ -19,19 +19,31 @@ if(mysqli_num_rows($result) > 0)
         $_SESSION['user'] = $name;
         $_SESSION['login'] = $login_sha;
         $_SESSION['login_id'] = $login_id;
+        $sql = "SELECT dashboard, products, orders, outcome, income, accountancy, users, logs, settings from users join user_roles on users.role_id= user_roles.id where users.login = '".$login_sha."';";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['privilage_dashboard'] = $row['dashboard'];
+        $_SESSION['privilage_products'] = $row['products'];
+        $_SESSION['privilage_orders'] = $row['orders'];
+        $_SESSION['privilage_outcome'] = $row['outcome'];
+        $_SESSION['privilage_income'] = $row['income'];
+        $_SESSION['privilage_accountancy'] = $row['accountancy'];
+        $_SESSION['privilage_users'] = $row['users'];
+        $_SESSION['privilage_logs'] = $row['logs'];
+        $_SESSION['privilage_settings'] = $row['settings'];
         header('Location: ../panel.php?page=dashboard&action=');
     }
     else
     {
         session_start();
-        $_SESSION['error'] = 'Konto nieaktywne, zablokowane lub wyłączone.<br><br> Skontaktuj się z administratorem';
+        $_SESSION['error'] = 'Konto nieaktywne, zablokowane lub wyłączone.<br><br> Skontaktuj się z administratorem.';
         header('Location: ../login.php');
     }
 }
 else
 {
     session_start();
-    $_SESSION['error'] = 'Nieprawidłowy login lub hasło';
+    $_SESSION['error'] = 'Nieprawidłowy login lub hasło.';
     header('Location: ../login.php');
 }
 ?>
