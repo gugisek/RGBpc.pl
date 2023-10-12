@@ -27,6 +27,7 @@
             var popupId = null;
             //information private
             var popupIdPersonalInpt = document.querySelector("#popup_personal_id");
+            var popupIdRole = document.querySelector("#popup_role_id");
             var popupNameInpt = document.getElementById("popup_name_inpt");
             var popupSurname = document.getElementById("popup_surname");
             var popupEmail = document.getElementById("popup_email");
@@ -84,6 +85,7 @@
                     if ($_SESSION['privilage_users']!=1) {
                         echo '
                         popupIdPersonalInpt.value = '.$row['id'].';
+                        popupIdRole.value = '.$row['id'].';
                         popupNameInpt.value = "'.$row['name'].'";
                         popupSurname.value = "'.$row['sur_name'].'";
                         popupEmail.value = "'.$row['mail'].'";

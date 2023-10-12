@@ -19,6 +19,8 @@ if(mysqli_num_rows($result) > 0)
         $_SESSION['user'] = $name;
         $_SESSION['login'] = $login_sha;
         $_SESSION['login_id'] = $login_id;
+        $_SESSION['alert'] = 'Zalogowano pomyślnie.';
+        $_SESSION['alert_type'] = 'ok';
         $sql = "SELECT dashboard, products, orders, outcome, income, accountancy, users, logs, settings from users join user_roles on users.role_id= user_roles.id where users.login = '".$login_sha."';";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);

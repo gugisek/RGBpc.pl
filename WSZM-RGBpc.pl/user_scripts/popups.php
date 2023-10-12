@@ -12,7 +12,17 @@
   <section id="popup" onclick="popupOpenClose()" class="fixed scale-0 top-0 left-0 w-full h-full transition-all duration-300">
     <div class="flex items-center justify-center w-full h-full px-2">
       <div onclick="event.cancelBubble=true;" class="bg-white md:min-w-[800px] md:w-auto w-full max-w-[800px] max-h-[80vh] overflow-y-auto flex md:flex-row flex-col gap-4 rounded-2xl py-6 px-6 shadow-xl">
-        <div id="popupItself" class="flex h-auto w-full justify-between flex-col">                        
+        <div id="popupItself" class="flex h-auto w-full justify-between flex-col">
+          <div class="w-full flex justify-between items-center sm:hidden">
+            <span>  </span>
+              <a onclick="popupOpenClose()" class="-mt-2 pb-3 flex items-center space-x-2 text-gray-500 hover:text-red-600 transition-all duration-500">
+                  <p class="uppercase font-medium text-xs">zamknij</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+
+              </a>
+          </div>                        
                     <!-- This example requires Tailwind CSS v2.0+ -->
           <div>
             <div>
@@ -74,6 +84,7 @@
                     <div class="border-t border-gray-200"></div>
                   </div>
                 </div>
+                <!-- personal info -->
                 <div  class="mt-10 sm:mt-0">
                   <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
@@ -143,6 +154,7 @@
                     <div class="border-t border-gray-200"></div>
                   </div>
                 </div>
+                <!-- role -->
                 <div class="mt-10 sm:mt-0">
                   <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
@@ -152,9 +164,11 @@
                       </div>
                     </div>
                     <div class="mt-5 md:col-span-2 md:mt-0">
-                      <form action="#" method="POST">
+                      <form action="user_scripts/users_back_role.php" method="POST">
+                        <input type="hidden" name="popup_role_id" id="popup_role_id" value="">
                         <div class="overflow-hidden shadow sm:rounded-md">
                           <div class="bg-white px-4 py-5 sm:p-6">
+                            
                             <div class="grid grid-cols-6 gap-6">
                                 <div class="col-span-6 sm:col-span-3">
                                     <div class="relative rounded-md border border-gray-300 shadow-sm focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600">
@@ -226,6 +240,7 @@
                     <div class="border-t border-gray-200"></div>
                   </div>
                 </div>
+                <!-- personalisation -->
                 <div class="mt-10 sm:mt-0">
                   <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
@@ -309,7 +324,7 @@
                                     </div>
                                 </div>
 
-                              <div class="col-span-6 sm:col-span-4">
+                              <div class="col-span-6 sm:col-span-6">
                                     <div class="relative rounded-md border border-gray-300 shadow-sm focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600">
                                       <label for="popup_status_inpt" class="absolute -top-2 left-2 -mt-px inline-block bg-white px-1 text-xs font-medium text-gray-900">Status</label>
                                         <select type="text" name="popup_status_inpt" id="popup_status_inpt" class="capitalize px-3 py-2 rounded-md block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 focus:outline-0 sm:text-sm" placeholder="">
