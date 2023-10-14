@@ -21,13 +21,16 @@
             var popupImg = document.getElementById("popup_img");
             var popupStatus = document.getElementById("popup_status");
             var popupRole = document.getElementById("popup_role");
+            var popupId = null;
+            //information private
             var popupRoleOption = document.querySelectorAll("#popup_role_option");
             var popupDepartmentOption = document.querySelectorAll("#popup_department_option");
             var popupTitleOption = document.querySelectorAll("#popup_title_option");
-            var popupId = null;
-            //information private
+            var popupStatusOption = document.querySelectorAll("#popup_status_option");
+
             var popupIdPersonalInpt = document.querySelector("#popup_personal_id");
             var popupIdRole = document.querySelector("#popup_role_id");
+            var popupIdAccount = document.querySelector("#popup_account_id");
             var popupNameInpt = document.getElementById("popup_name_inpt");
             var popupSurname = document.getElementById("popup_surname");
             var popupEmail = document.getElementById("popup_email");
@@ -86,6 +89,7 @@
                         echo '
                         popupIdPersonalInpt.value = '.$row['id'].';
                         popupIdRole.value = '.$row['id'].';
+                        popupIdAccount.value = '.$row['id'].';
                         popupNameInpt.value = "'.$row['name'].'";
                         popupSurname.value = "'.$row['sur_name'].'";
                         popupEmail.value = "'.$row['mail'].'";
@@ -118,6 +122,14 @@
                             }
                             else {
                                 popupTitleOption[i].removeAttribute("selected");
+                            }
+                        }
+                        for (var i = 0; i < popupStatusOption.length; i++) {
+                            if (popupStatusOption[i].value == "'.$row['status'].'") {
+                                popupStatusOption[i].setAttribute("selected", "");
+                            }
+                            else {
+                                popupStatusOption[i].removeAttribute("selected");
                             }
                         }
                         popupOpenClose();

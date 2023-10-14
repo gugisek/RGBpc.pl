@@ -297,30 +297,32 @@
                     <div class="border-t border-gray-200"></div>
                   </div>
                 </div>
+                <!-- account -->
                 <div class="mt-10 sm:mt-0">
                   <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
                       <div class="px-4 sm:px-0">
                         <h3 class="text-lg font-medium leading-6 text-gray-900">Konto</h3>
-                        <p class="mt-1 text-sm text-gray-600">Use a permanent address where you can receive mail.</p>
+                        <p class="mt-1 text-sm text-gray-600">Login i hasło są szyfrowane, można je jedynie zresetować.</p>
                       </div>
                     </div>
                     <div class="mt-5 md:col-span-2 md:mt-0">
-                      <form action="#" method="POST">
+                      <form action="user_scripts/users_back_account.php" method="POST">
+                        <input type="hidden" name="popup_account_id" id="popup_account_id" value="">
                         <div class="overflow-hidden shadow sm:rounded-md">
                           <div class="bg-white px-4 py-5 sm:p-6">
                             <div class="grid grid-cols-6 gap-6">
                                 <div class="col-span-6 sm:col-span-3">
                                     <div class="relative rounded-md border border-gray-300 shadow-sm focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600">
-                                        <label for="popup_name_input" class="absolute -top-2 left-2 -mt-px inline-block bg-white px-1 text-xs font-medium text-gray-900">Hasło</label>
-                                        <input type="text" name="popup_name_input" id="popup_name_inpt" class="px-3 py-2 rounded-md block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 focus:outline-0 sm:text-sm" placeholder="">
+                                        <label for="popup_login" class="absolute -top-2 left-2 -mt-px inline-block bg-white px-1 text-xs font-medium text-gray-900">Login</label>
+                                        <input type="text" name="popup_login" id="popup_login" class="px-3 py-2 rounded-md block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 focus:outline-0 sm:text-sm" placeholder="">
                                     </div>
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-3">
                                     <div class="relative rounded-md border border-gray-300 shadow-sm focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600">
-                                        <label for="popup_name_input" class="absolute -top-2 left-2 -mt-px inline-block bg-white px-1 text-xs font-medium text-gray-900">Powtórz hasło</label>
-                                        <input type="text" name="popup_name_input" id="popup_name_inpt" class="px-3 py-2 rounded-md block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 focus:outline-0 sm:text-sm" placeholder="">
+                                        <label for="popup_login_2" class="absolute -top-2 left-2 -mt-px inline-block bg-white px-1 text-xs font-medium text-gray-900">Powtórz login</label>
+                                        <input type="text" name="popup_login_2" id="popup_login_2" class="px-3 py-2 rounded-md block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 focus:outline-0 sm:text-sm" placeholder="">
                                     </div>
                                 </div>
 
@@ -339,8 +341,22 @@
                                                     }
                                                 }
                                             ?>
-                                        </select></div>
-                                </div>              
+                                        </select>
+                                      </div>
+                                </div>    
+                                <div class="col-span-6 sm:col-span-3">
+                                    <div class="relative rounded-md border border-gray-300 shadow-sm focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600">
+                                        <label for="popup_pswd" class="absolute -top-2 left-2 -mt-px inline-block bg-white px-1 text-xs font-medium text-gray-900">Hasło</label>
+                                        <input type="text" name="popup_pswd" id="popup_pswd" class="px-3 py-2 rounded-md block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 focus:outline-0 sm:text-sm" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="col-span-6 sm:col-span-3">
+                                    <div class="relative rounded-md border border-gray-300 shadow-sm focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600">
+                                        <label for="popup_pswd_2" class="absolute -top-2 left-2 -mt-px inline-block bg-white px-1 text-xs font-medium text-gray-900">Powtórz hasło</label>
+                                        <input type="text" name="popup_pswd_2" id="popup_pswd_2" class="px-3 py-2 rounded-md block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 focus:outline-0 sm:text-sm" placeholder="">
+                                    </div>
+                                </div>          
                             </div>
                           </div>
                           <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">

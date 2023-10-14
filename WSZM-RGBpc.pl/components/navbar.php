@@ -113,6 +113,9 @@
             </span>
         <a href="scripts/logout.php" class="flex items-center gap-3 py-2 px-3 w-full font-light hover:bg-white hover:shadow-xl rounded-xl transition-all duration-300">
             <div class="bg-white p-3 rounded-xl shadow-xl">
+                <?php include 'public/img/svg/ustawienia.php'; ?>
+            </div>
+            <div class="bg-white p-3 rounded-xl shadow-xl">
                 <?php include 'public/img/svg/logout.php'; ?>
             </div>
             <span id="text_btn" class="text_btn hidden lg:block text-gray-700 text-sm">Wyloguj</span>

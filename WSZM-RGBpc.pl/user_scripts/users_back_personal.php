@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../scripts/conn_db.php";
 $id = $_POST['popup_personal_id'];
 $name = $_POST['popup_name_input'];
@@ -14,23 +15,26 @@ $row_old = $result_old->fetch_assoc();
 //log
 
 $sql = "UPDATE `users` SET `name` = '$name', `sec_name` = '$name_2', `sur_name` = '$sur_name', `mail` = '$email', `description` = '$description', `addres` = '$addres' WHERE `users`.`id` = $id";
-$result = mysqli_query($conn, $sql);
 
-
-if ($result) {
-    //log
-    $object_id=$id;
-    $object_type="users";
-    $before="Imię: $row_old[name]<br> Drugie imię: $row_old[sec_name]<br> Nazwisko: $row_old[sur_name]<br> Email: $row_old[mail]<br> Opis: $row_old[description]<br> Adres: $row_old[addres]<br> Data modyfikacji: $row_old[update_date]";
-    $after="Imię: $name<br> Drugie imię: $name_2<br> Nazwisko: $sur_name<br> Email: $email<br> Opis: $description<br> Adres: $addres<br> Data modyfikacji: current_timestamp()";
-    $action_type="1";
-    $desc="Edytowano dane personalne użytkownika";
-    include "../scripts/log.php";
-    //log
-    header('Location: ../panel.php?page=użytkownicy&action=edited');
-    $_SESSION['alert'] = 'Dane personalne zostały zmienione.';
-    $_SESSION['alert_type'] = 'ok';
-} else {
-    header('Location: ../panel.php?page=użytkownicy&action=error');
+if($name != $row_old['name'] || $name_2 != $row_old['sec_name'] || $sur_name != $row_old['sur_name'] || $email != $row_old['mail'] || $addres != $row_old['addres'] || $description != $row_old['description']){
+    if ($conn->query($sql) === TRUE) {
+        //log
+        $object_id=$id;
+        $object_type="users";
+        $before="Imię: $row_old[name]<br> Drugie imię: $row_old[sec_name]<br> Nazwisko: $row_old[sur_name]<br> Email: $row_old[mail]<br> Opis: $row_old[description]<br> Adres: $row_old[addres]<br> Data modyfikacji: $row_old[update_date]";
+        $after="Imię: $name<br> Drugie imię: $name_2<br> Nazwisko: $sur_name<br> Email: $email<br> Opis: $description<br> Adres: $addres<br> Data modyfikacji: current_timestamp()";
+        $action_type="1";
+        $desc="Edytowano dane personalne użytkownika";
+        include "../scripts/log.php";
+        //log
+        $_SESSION['alert'] = 'Dane personalne zostały zmienione.';
+        $_SESSION['alert_type'] = 'ok';
+    } else {
+        header('Location: ../panel.php?page=użytkownicy&action=error');
+    }
+}else {
+    $_SESSION['alert'] = 'Dane personalne są takie same jak poprzednie.';
+    $_SESSION['alert_type'] = 'warn';
 }
+header('Location: ../panel.php?page=użytkownicy&action=edited');
 ?>

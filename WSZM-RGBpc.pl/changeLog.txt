@@ -1,16 +1,31 @@
-<hr>
+<!-- <hr>
 Beta 0.2.0v - users update
 <hr>
 
 Major updates:
 - redesign: users table
+- reorganise users edit page and change logic
 - add to users: title, department, profile picture
+- add settings page for user // to do
 
 Minor updates and fixes:
 - add customizable colors for user status
 - small redesign of login page
 - fix spell in login errors
 - fix dashboard orders_summary widget logic for 0 orders
+<br>
+<br>
+-->
+<hr>
+Beta 0.1.1v
+<hr>
+
+Major updates:
+- complete account section front and back in user edit
+
+Minor updates and fixes:
+- add settings button for user profile in navbar
+- fix back for personal section in user edit
 <br>
 <br>
 <hr>
