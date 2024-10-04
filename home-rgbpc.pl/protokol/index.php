@@ -44,7 +44,7 @@
             if (surce === "") {
                 cel.innerHTML = placeholder; // wyświetl placeholder
             } else {
-                cel.innerHTML = surce; // wyświetl wartość z inputa
+                cel.innerHTML = surce.replace(/\n/g, '<br>');
             }
         }
 
@@ -115,8 +115,8 @@
         }
     </script>
     <section class="font-[poppins] flex flex-row w-full min-h-screen items-center justify-center bg-green-50">
-        <section class="flex sm:flex-row flex-col p-12">
-            <section class="border-l border-t border-b rounded-2xl border-black-600 px-4 py-4">
+        <section class="flex sm:flex-row flex-col sm:p-12">
+            <section class="border-l border-t border-b border-r sm:mr-4 rounded-2xl border-black-600 px-4 py-4">
                 <h1 class="text-xl font-medium">Dane uzupełniające:</h1>
 
 
@@ -176,8 +176,8 @@
                     </button>
                 </div>
             </section>
-            <section>
-                <div class="my_shadow">
+            <section class="flex h-full sm:items-center sm:justify-center">
+                <div class="my_shadow sm:mt-0 mt-8">
                     <div id="protok" class="w-[80mm] flex flex-col py-4 px-4 items-center">
                         <img src="img/logo.png" alt="" class="grayscale contrast-0 w-full mb-2">
                         
