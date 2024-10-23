@@ -1,0 +1,56 @@
+* {
+    scroll-behavior: smooth;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 7px;
+    background: #fff;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #3d3d3d;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #000;
+  }
+
+  .typing-text {
+    border-right: 2px solid;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    /* Usunięcie niepotrzebnego efektu płynnego */
+    animation: blink 0.75s step-end infinite alternate;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.menu {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .menu.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .bg-zoom {
+    background-size: auto 120%;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .bg-zoom:hover {
+    background-size: auto 100%;
+  }
