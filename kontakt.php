@@ -1,16 +1,13 @@
-<?php 
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 <?php
-$title = "Twój RGB sklep komputerowy";
+$title = "kontakt z nami";
 include 'components/head.php'; ?>    
 </head>
 <body>
-    <?php include 'components/alert.php'; ?>
-    <?php include 'components/hero.php'; ?>
+    <?php include 'components/nav/navbar.php'; ?>
+    <?php include 'components/contact_main.php'; ?>
     <?php include 'components/footer.php'; ?>
     <script>
         AOS.init();

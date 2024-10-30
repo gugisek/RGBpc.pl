@@ -31,16 +31,16 @@
           <div>
             <h3 class="text-sm font-semibold leading-6 text-gray-900">Sklep</h3>
             <ul role="list" class="mt-6 space-y-4">
-              <li>
+              <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="50">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Marketing</a>
               </li>
-              <li>
+              <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="100">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Analytics</a>
               </li>
-              <li>
+              <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="150">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Commerce</a>
               </li>
-              <li>
+              <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="200">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Insights</a>
               </li>
             </ul>
@@ -48,16 +48,16 @@
           <div class="mt-10 md:mt-0">
             <h3 class="text-sm font-semibold leading-6 text-gray-900">Usługi</h3>
             <ul role="list" class="mt-6 space-y-4">
-              <li>
+              <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="250">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Pricing</a>
               </li>
-              <li>
+              <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="300">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Documentation</a>
               </li>
-              <li>
+              <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="350">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Guides</a>
               </li>
-              <li>
+              <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="400">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">API Status</a>
               </li>
             </ul>
@@ -67,13 +67,13 @@
           <div>
             <h3 class="text-sm font-semibold leading-6 text-gray-900">RGBpc.pl</h3>
             <ul role="list" class="mt-6 space-y-4">
-              <li>
+              <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="450">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">O nas</a>
               </li>
-              <li>
+              <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="500">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Kontakt</a>
               </li>
-              <li>
+              <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="550">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Nasze produkty</a>
               </li>
             </ul>
@@ -81,13 +81,13 @@
           <div class="mt-10 md:mt-0">
             <h3 class="text-sm font-semibold leading-6 text-gray-900">Informacje</h3>
             <ul role="list" class="mt-6 space-y-4">
-              <li>
+              <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="600">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Reklamacje</a>
               </li>
-              <li>
+              <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="650">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Dostawy</a>
               </li>
-              <li>
+              <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="700">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Polityka prywatności</a>
               </li>
             </ul>

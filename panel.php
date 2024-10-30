@@ -5,13 +5,12 @@ session_start();
 <html lang="pl">
 <head>
 <?php
-$title = "Twój RGB sklep komputerowy";
+$title = "panel WSZM";
 include 'components/head.php'; ?>    
 </head>
 <body>
     <?php include 'components/alert.php'; ?>
-    <?php include 'components/hero.php'; ?>
-    <?php include 'components/footer.php'; ?>
+    <?php include 'components/panel/panel_body.php'; ?>
     <script>
         AOS.init();
     </script>
