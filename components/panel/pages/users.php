@@ -3,7 +3,7 @@
         <div class="text-gray-400">
         <span id="nav_button_users" onclick="openUsersSite('users_table')" class="users_table font-medium text-2xl hover:text-violet-500 duration-150 cursor-pointer">Użytkownicy </span><span id="nav_button_users" onclick="openUsersSite('employe_table')" class="employe_table font-medium text-2xl hover:text-violet-500 duration-150 cursor-pointer">i pracownicy</span>
         </div>
-        <div class="hover:text-white hover:bg-violet-500 hover:shadow-xl shadow-violeet-300 hover:scale-105 active:scale-90 duration-150 group flex gap-x-3 rounded-xl p-3 cursor-pointer">
+        <div onclick="openPopupUsersAdd()"  class="hover:text-white hover:bg-violet-500 hover:shadow-xl shadow-violeet-300 hover:scale-105 active:scale-90 duration-150 group flex gap-x-3 rounded-xl p-3 cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
@@ -11,7 +11,7 @@
     </div>
 
     <section class="flex flex-col gap-4">
-        <div class="grid grid-cols-7 text-sm text-gray-400 font-[poppins] bg-white rounded-2xl shadow-xl mt-4">
+        <div class="grid grid-cols-7 text-sm text-gray-600 font-[poppins] bg-white rounded-2xl ring-1 ring-black ring-opacity-5 shadow-xl mt-4">
             <div class="font-medium py-5 pl-4 pr-3 sm:pl-6">
                 Pracownik
             </div>
@@ -103,6 +103,6 @@ include "../../popup.php";
 <?php 
 $name_in_scripts = 'UsersAdd';
 $delete_path = '';
-$path = '../users/users_add.php';
+$path = 'components/panel/users/users_add.php';
 include "../../popup.php";
 ?>

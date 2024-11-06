@@ -21,8 +21,8 @@ if(isset($_SESSION['alert'])){
               <div id="alert_icon" class="px-1"></div>
             </div>
             <div class="ml-3 w-0 flex-1 pt-0.5">
-              <p id="alert_title" class="text-sm font-medium text-gray-900">'.$alert_name.'</p>
-              <p id="aler_desc" class="mt-1 text-sm text-gray-500">'.$_SESSION['alert'].'</p>
+              <p id="alert_title" class="text-sm font-bold text-gray-900 font-[poppins]">'.$alert_name.'</p>
+              <p id="aler_desc" class="text-sm text-gray-800">'.$_SESSION['alert'].'</p>
             </div>
             <div class="ml-4 flex flex-shrink-0">
               <button type="button" onclick="alertClose()" class="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">

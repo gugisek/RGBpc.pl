@@ -29,13 +29,13 @@
                             $desc = $row['description'];
                         }
                         echo '
-                        <div onclick="openPopupUsers('.$row['id'].')" class="grid grid-cols-7 rounded-2xl hover:bg-gray-200 duration-150 cursor-pointer">
+                        <div onclick="openPopupUsers('.$row['id'].')" class="grid grid-cols-7 rounded-2xl hover:bg-gray-200 duration-150 cursor-pointer active:scale-95">
                             <div class="font-medium py-2 pl-4 pr-3 sm:pl-6">
                                 <div class="flex items-center">
-                                    <div class="h-10 w-10 flex-shrink-0">
+                                    <!-- <div class="h-10 w-10 flex-shrink-0">
                                     <img class="h-10 w-10 rounded-full object-cover" src="public/img/users_images/'.$row['profile_picture'].'" alt="">
-                                    </div>
-                                    <div class="ml-4">
+                                    </div>-->
+                                    <div class="">
                                     <div class="font-medium text-gray-900">'.$row['name'].' '.$row['sur_name'].'</div>
                                     <div class="text-gray-500 -mt-2 text-sm font-regular">'.$row['mail'].'</div>
                                     </div>

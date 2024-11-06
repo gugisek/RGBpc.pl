@@ -1,5 +1,5 @@
 <?php 
-session_start();
+include 'scripts/security.php';
 ?>
 <!DOCTYPE html>
 <html lang="pl">
