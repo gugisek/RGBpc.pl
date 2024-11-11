@@ -145,6 +145,7 @@
 <?php 
 $name_in_scripts = 'Logs';
 $delete_path = '';
+$close = 'true';
 $path = 'components/panel/archive/logs_details.php';
 include "../../popup.php";
 ?>

@@ -153,7 +153,7 @@ include "../../popup.php";
 
 
 $name_in_scripts = 'Categories';
-$delete_path = 'scripts/settings/users//delete.php';
+$delete_path = 'scripts/settings/products/categories/delete.php';
 $path = 'components/panel/settings/product_categories/edit.php';
 include "../../popup.php";
 

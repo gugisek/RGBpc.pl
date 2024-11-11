@@ -96,8 +96,8 @@
 
 
 
-  <section class="ml-20">
-      <aside id="panelBody" class="inset-y-0 hidden w-full min-h-screen overflow-y-auto border-r border-gray-200 bg-gray-50 px-4 py-6 sm:px-6 lg:px-8 xl:block">
+  <section class="lg:ml-20">
+      <aside id="panelBody" class="inset-y-0 w-full min-h-screen overflow-y-auto border-r border-gray-200 bg-gray-50 px-4 py-6 sm:px-6 lg:px-8 block">
      
      </aside>
   </section>

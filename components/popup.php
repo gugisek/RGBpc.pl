@@ -1,10 +1,26 @@
 
 <section id="popup<?=$name_in_scripts?>Bg" class="fixed backdrop-blur-sm z-[50] h-0 opacity-0 top-0 left-0 w-full h-full bg-[#00000051] transition-opacity duration-300"></section>
-  <section id="popup<?=$name_in_scripts?>" onclick="popup<?=$name_in_scripts?>CloseConfirm()" class="z-[60] fixed scale-0 top-0 left-0 w-full h-full">
+  <section id="popup<?=$name_in_scripts?>" 
+            <?php
+            if(isset($close) and $close == 'true'){
+              echo 'onclick="popup'.$name_in_scripts.'OpenClose()"';
+            }else{
+              echo 'onclick="popup'.$name_in_scripts.'CloseConfirm()"';
+            }
+            ?>
+   class="z-[60] fixed scale-0 top-0 left-0 w-full h-full">
     <div class="flex items-center justify-center w-full h-full px-2">
       <div onclick="event.cancelBubble=true;" class="bg-white shadow-xl md:min-w-[400px] md:w-auto w-full max-w-[800px] max-h-[80vh] min-h-[20vh] overflow-y-auto flex flex-col items-center py-4 px-4 gap-4 rounded-[25px] sm:px-6  -xl">
         <div class="w-full flex flex-row justify-end">
-            <button onclick="popup<?=$name_in_scripts?>CloseConfirm()" type="button" class="rounded-md text-gray-800 hover:text-gray-400 flex flex-row gap-2 text-sm items-center duration-150 focus:outline-none focus:ring-2 theme-ring-focus focus:ring-offset-2">
+            <button 
+            <?php
+            if(isset($close) and $close == 'true'){
+              echo 'onclick="popup'.$name_in_scripts.'OpenClose()"';
+            }else{
+              echo 'onclick="popup'.$name_in_scripts.'CloseConfirm()"';
+            }
+            ?>
+             type="button" class="rounded-md text-gray-800 hover:text-gray-400 flex flex-row gap-2 text-sm items-center duration-150 focus:outline-none focus:ring-2 theme-ring-focus focus:ring-offset-2">
                 <span class="sr-only">Zamknij</span>Zamknij
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -80,7 +96,7 @@
             </div>
           </div>
           <form action="<?=$delete_path?>" method="POST" class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-              <input type="hidden" name="id" id="id_for_delete" value="<?=$id?>">
+              <input type="hidden" name="id" id="id_for_delete_<?=$name_in_scripts?>" value="<?=$id?>">
               <button class="active:scale-95 duration-150 mt-3 inline-flex w-full justify-center rounded-full px-4 py-2 text-sm font-medium text-gray-900 shadow-sm sm:ml-3 ring-inset ring-1 ring-[#3d3d3d] hover:ring-red-500 hover:bg-red-500 hover:text-white hover:shadow-xl duration-150 sm:mt-0 sm:w-auto">Usuń</button>
               <button onclick="popup<?=$name_in_scripts?>Delete()" type="button" class="sm:mt-0 mt-3 active:scale-95 duration-150 inline-flex w-full justify-center rounded-full bg-gray-900 duration-150 px-4 py-2 text-sm font-medium text-white shadow-sm hover:shadow-xl hover:bg-gray-500 sm:ml-3 sm:w-auto">Anuluj</button>
           </form>
@@ -102,7 +118,7 @@
     }
     function openPopup<?=$name_in_scripts?>(id) {
         //wstawienie wartośći id do id_for_delete
-        var id_for_delete = document.getElementById("id_for_delete");
+        var id_for_delete = document.getElementById("id_for_delete_<?=$name_in_scripts?>");
         id_for_delete.value = id;
 
         var popupOutput = document.getElementById("pupup<?=$name_in_scripts?>Output");
