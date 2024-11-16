@@ -197,29 +197,38 @@
                 <p class="">Zleceniodawca:</p>
                 <div class="flex flex-row items-center">
                     <input type="radio" value="EuroNET" id="EuroNET" name="zleceniodawca" class="cursor-pointer" checked="checked">
-                    <label for="EuroNET" class="pl-2 cursor-pointer">EuroNET</label>
+                    <label for="EuroNET" class="pl-2 cursor-pointer text-sm">EuroNET</label>
                     <input class="ml-4 cursor-pointer" type="radio" value="Inny" id="Inny" name="zleceniodawca">
-                    <label for="Inny" class="pl-2 cursor-pointer">Inny</label>
+                    <label for="Inny" class="pl-2 cursor-pointer text-sm">Inny</label>
                 </div>
                 <p class="mt-2">Marginesy:</p>
                 <div class="flex flex-row items-center">
                     <input type="radio" value="Standardowe" id="Standardowe" name="marginesy" class="cursor-pointer" checked="checked" onchange="marginesy(this.value)">
-                    <label for="Standardowe" class="pl-2 cursor-pointer">Standardowe</label>
+                    <label for="Standardowe" class="pl-2 cursor-pointer text-sm">Standardowe</label>
                     <input class="ml-4 cursor-pointer" type="radio" value="Zwiększone" id="Zwiększone" name="marginesy" onchange="marginesy(this.value)">
-                    <label for="Zwiększone" class="pl-2 cursor-pointer">Zwiększone</label>
+                    <label for="Zwiększone" class="pl-2 cursor-pointer text-sm">Zwiększone</label>
                     <input class="ml-4 cursor-pointer" type="radio" value="none" id="none" name="marginesy" onchange="marginesy(this.value)">
-                    <label for="none" class="pl-2 cursor-pointer">Brak</label>
+                    <label for="none" class="pl-2 cursor-pointer text-sm">Brak</label>
                 </div>
                 <p class="mt-2">Szerokość:</p>
-                <div class="flex flex-row items-center">
-                    <input type="radio" value="80" id="80" name="szerokosc" class="cursor-pointer" checked="checked" onchange="szerokosc(this.value)">
-                    <label for="80" class="pl-2 cursor-pointer">80mm</label>
-                    <input class="ml-4 cursor-pointer" type="radio" value="85" id="85" name="szerokosc" onchange="szerokosc(this.value)">
-                    <label for="85" class="pl-2 cursor-pointer">85mm</label>
-                    <input class="ml-4 cursor-pointer" type="radio" value="90" id="90" name="szerokosc" onchange="szerokosc(this.value)">
-                    <label for="90" class="pl-2 cursor-pointer">90mm</label>
-                    <input class="ml-4 cursor-pointer" type="radio" value="95" id="95" name="szerokosc" onchange="szerokosc(this.value)">
-                    <label for="95" class="pl-2 cursor-pointer">95mm</label>
+                <div class="flex flex-row items-center flex-wrap gap-4">
+                    <div>
+                        <input type="radio" value="80" id="80" name="szerokosc" class="cursor-pointer" checked="checked" onchange="szerokosc(this.value)">
+                        <label for="80" class="pl-2 cursor-pointer text-sm">80mm</label>
+                    </div>
+                    <div>
+                        <input class="cursor-pointer" type="radio" value="85" id="85" name="szerokosc" onchange="szerokosc(this.value)">
+                        <label for="85" class="pl-2 cursor-pointer text-sm">85mm</label>
+                    </div>
+                    <div>
+                        <input class="cursor-pointer" type="radio" value="90" id="90" name="szerokosc" onchange="szerokosc(this.value)">
+                        <label for="90" class="pl-2 cursor-pointer text-sm">90mm</label>
+                    </div>
+                    <div>
+                        <input class=" cursor-pointer" type="radio" value="95" id="95" name="szerokosc" onchange="szerokosc(this.value)">
+                        <label for="95" class="pl-2 cursor-pointer text-sm">95mm</label>
+                    </div>
+
                 </div>
                 <div class="flex flex-row items-center justify-center mt-4 gap-2">
                     <button class="flex items-center justify-center bg-gray-800 hover:bg-gray-600 hover:scale-110 duration-150 text-white p-2 rounded-2xl" onclick="reload()">
