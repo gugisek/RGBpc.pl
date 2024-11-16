@@ -49,7 +49,7 @@
             <h3 class="text-sm font-semibold leading-6 text-gray-900">Usługi</h3>
             <ul role="list" class="mt-6 space-y-4">
               <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="250">
-                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-violet-500 duration-100">Pricing</a>
+                <a href="uslugi/protokol" target="_blank" class="text-sm leading-6 text-gray-600 hover:text-violet-500 duration-100">Protokół</a>
               </li>
               <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="300">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-violet-500 duration-100">Documentation</a>
