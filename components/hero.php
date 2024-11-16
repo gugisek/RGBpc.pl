@@ -13,8 +13,8 @@
             <a href="" class="py-2 w-full text-center text-xs">Usługi</a>
             <a href="" class="py-2 w-full text-center text-xs">Wysyłka</a>
       </div> -->
-        <div class="flex flex-row items-center gap-4">
-            <img class="h-18 w-auto" src="img/logo2.png" alt="">
+        <div class="flex md:flex-row flex-col items-center gap-4">
+            <img class="sm:h-18 h-12 w-auto" src="img/logo2.png" alt="">
             <div class="border-l border-gray-600 pl-4">
                 <p class="font-bold text-lg font-[poppins]">Twój ulubiony</p>
                 <div class="text-2xl typing-text h-[30px] -mt-2"></div>
@@ -24,7 +24,7 @@
   </div>
 </div>
 
-<div class="absolute inset-x-0 bottom-0 z-50">
+<div class="absolute inset-x-0 bottom-0 z-10">
     <nav class="flex items-center justify-center p-6 lg:px-8 animate-bounce	" aria-label="Global">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5" />
@@ -36,7 +36,7 @@
 <script>
 
 document.addEventListener('DOMContentLoaded', function() {
-    const texts = ["Sklep komputerowy", "Serwis laptopów", "Twoje miejsce z technologią", "Coś wpisać", "Bo chatgpt to robił"];
+    const texts = ["Sklep komputerowy", "WEB developer", "Serwis PC/laptopów"];
     let index = 0;
     const typingText = document.querySelector('.typing-text');
 

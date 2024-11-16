@@ -35,7 +35,7 @@
     </section>
 </section>
 <script>
-    function openUsersSite(site) {
+function openUsersSite(site) {
     var body = document.getElementById("table_body");
      body.innerHTML = "<div data-aos='fade-up' data-aos-delay='100' class='w-full duartion-150 flex items-center mt-[20vh] justify-center z-[999]'><div class='z-[30] bg-black/90 p-4 rounded-2xl'><div class='lds-dual-ring'></div></div></div>";
     const url = "components/panel/users/" + site + ".php";

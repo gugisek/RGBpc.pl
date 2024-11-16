@@ -105,3 +105,63 @@
       transform: rotate(360deg);
     }
   }
+
+  /* Chrome, Safari, Edge, Opera */
+#hide_arrows::-webkit-outer-spin-button,
+#hide_arrows::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+#hide_arrows[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+input[type="checkbox"] {
+  /* Ukryj domyślny wygląd pola wyboru */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* Ustaw niestandardowy rozmiar pola wyboru */
+  width: 20px;
+  height: 20px;
+  /* Dodaj niestandardowy wygląd */
+  border: 1px solid #3d3d3d; /* Kolor obramowania */
+  border-radius: 4px; /* Zakrąglenie */
+  position: relative;
+  background-color: #fdfdfd; /* Kolor tła */
+}
+
+input[type="checkbox"]:focus {
+  /* Zaznaczenie koloru obramowania po zaznaczeniu */
+  border-color: #8b5cf6;
+  outline: none;
+  --tw-ring-inset: inset;
+  --tw-ring-offset-width: 0px;
+}
+
+/* Styl dla tła pola wyboru (checkbox) po zaznaczeniu */
+input[type="checkbox"]:checked::before {
+  content: "";
+  display: block;
+  position: absolute;
+  /* Zaznaczenie koloru tła po zaznaczeniu */
+  background-color: #8b5cf6;
+  /* Ustawienie rozmiaru tła */
+  width: 14px;
+  height: 14px;
+  /* Pozycjonowanie tła */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2px; /* Zakrąglenie tła */
+}
+
+input[type="checkbox"]::before:focus {
+  /* Zaznaczenie koloru obramowania po zaznaczeniu */
+  border-color: #8b5cf6;
+  outline: none;
+  --tw-ring-inset: inset;
+}

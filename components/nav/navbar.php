@@ -2,6 +2,57 @@
 include 'flyout_menu_sklep.php'; ?>
 <?php include 'flyout_menu_uslugi.php'; ?>
 <header class="absolute inset-x-0 top-0 z-50">
+      <div id="sidenav_mobile" class="transition-all duration-150 fixed inset-y-0 right-0 z-[101] w-full overflow-y-auto bg-violet-500 px-6 py-6 lg:hidden sm:max-w-sm sm:ring-1 sm:ring-white/10 right-[-100%]">
+        <div class="flex items-center justify-between">
+          <a href="/" class="-m-1.5 p-1.5 px-4">
+          <img data-aos="fade-down" data-aos-delay="100" class="h-8 w-auto aos-init aos-animate" src="img/logo2.png" alt="">
+        </a>
+          <button onclick="openNavToggle()" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-100">
+            <span class="sr-only">Close menu</span>
+            <svg class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="mt-20 flow-root">
+          <div class="-my-6 divide-y divide-gray-500/25">
+            <div class="space-y-2 py-6 font-[poppins] text-xl flex flex-col gap-4">
+            <?php
+                $a = ["Sklep", "Made in Poland", "Usługi", "O nas", "Kontakt"];
+                $a_link = ["sklep.php", "#produkt", "#oferta", "#pytania", "kontakt.php"];
+                for ($i = 0; $i < count($a); $i++) {
+                  echo "<a  href='" . $a_link[$i] . "' class='w-full '><span class='text-xl font-semibold leading-6 text-white hover:bg-white/40 px-4 py-1 rounded-lg hover:text-violet-500 druation-150 active:scale-95 transition-all'>" . $a[$i];
+                  echo "</span></a>";
+                }
+                ?>
+            </div>
+            <div class="py-6">
+            <?php
+              if (isset($_SESSION['logged'])) {
+                echo '
+                        <div class="flex flex-col gap-4 font-[poppins]" role="none">';
+                            
+                            if($_SESSION['dashboard']!=5){
+                              echo '
+                              <a href="panel.php" class="w-full py-1"><span class="text-xl font-semibold leading-6 text-white hover:bg-white/40 px-4 py-1 rounded-lg hover:text-violet-500 druation-150 active:scale-95 transition-all">Panel WSZM</span></a>
+                              ';
+                            }
+
+                            echo '
+                            <a href="" class="w-full py-1"><span class="text-xl font-semibold leading-6 text-white hover:bg-white/40 px-4 py-1 rounded-lg hover:text-violet-500 druation-150 active:scale-95 transition-all">Ustawienia konta</span></a>
+
+                            <a href="scripts/login/logout.php" class="w-full py-1"><span class="text-xl font-semibold leading-6 text-white hover:bg-white/40 px-4 py-1 rounded-lg hover:text-violet-500 druation-150 active:scale-95 transition-all">Wyloguj się</span></a>
+                    </div>
+                ';
+              } else {
+                echo '
+                  <a href="login" class="font-[poppins] text-xl font-semibold leading-6 text-white hover:bg-white/40 px-8 py-1 rounded-lg hover:text-violet-500 druation-150 active:scale-95 transition-all">Zaloguj się</a>';
+              }
+              ?>
+            </div>
+          </div>
+        </div>
+      </div>
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
         <a href="/" class="-m-1.5 p-1.5 px-4">
@@ -15,7 +66,7 @@ include 'flyout_menu_sklep.php'; ?>
           </svg>
         </button>
       </div>
-      <div class="hidden lg:flex lg:gap-x-8">
+      <div class="hidden lg:flex xl:gap-x-8 lg:gap-x-4">
         <?php
         $a = ["Sklep", "Made in Poland", "Usługi", "O nas", "Kontakt"];
         $a_link = ["sklep.php", "#produkt", "#oferta", "#pytania", "kontakt.php"];
@@ -32,7 +83,7 @@ include 'flyout_menu_sklep.php'; ?>
         }
         ?>
       </div>
-      <div data-aos="fade-down" data-aos-delay="600" class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <div data-aos="fade-down" data-aos-delay="600" class="hidden lg:flex lg:flex-1 lg:justify-end items-center">
         <a href="login" class="text-sm font-semibold leading-6 text-black hover:bg-violet-600/30 px-4 py-1 rounded-lg hover:text-violet-500 druation-150 active:scale-95 transition-all">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
@@ -143,4 +194,11 @@ include 'flyout_menu_sklep.php'; ?>
     menu2.classList.remove('active');
     });
 
+</script>
+<script>
+function openNavToggle() {
+  const backdrop = document.getElementById('backdrop');
+  const sidenav = document.getElementById('sidenav_mobile');
+  sidenav.classList.toggle('right-[-100%]');
+}
 </script>

@@ -3,7 +3,7 @@
         <div class="flex itesm-center justify-between">
             <h1 class="font-medium text-2xl">Produkty</h1>
             <div class="flex items-center gap-2">
-               <div onclick="openPopupUsersAdd()"  class="hover:text-white hover:bg-violet-500 hover:shadow-xl shadow-violeet-300 hover:scale-105 active:scale-90 duration-150 group flex gap-x-3 rounded-xl p-3 cursor-pointer">
+               <div onclick="openPopupProductsAdd()"  class="hover:text-white hover:bg-violet-500 hover:shadow-xl shadow-violeet-300 hover:scale-105 active:scale-90 duration-150 group flex gap-x-3 rounded-xl p-3 cursor-pointer">
                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                    </svg>
@@ -56,14 +56,14 @@
         <div id="table_body" class="divide-y divide-gray-200">
             <?php
             include "../../../scripts/conn_db.php";
-            $sql = "SELECT products.id, products.name, products.sku, products.img, products.source, product_categories.category, products.description, products.sell_price_brutto, products.status_id, count(product_doms.id) as 'quantity', product_status.status FROM `products` left JOIN product_categories on product_categories.id=products.id LEFT JOIN product_doms on product_doms.product_id=products.id LEFT JOIN product_status on product_status.id=products.status_id group by products.id order by sku desc;";
+            $sql = "SELECT products.id, products.name, products.sku, products.img, products.source, product_categories.category, products.description, products.sell_price_brutto, products.status_id, count(product_doms.id) as 'quantity', product_status.status FROM `products` left JOIN product_categories on product_categories.id=products.category_id LEFT JOIN product_doms on product_doms.product_id=products.id LEFT JOIN product_status on product_status.id=products.status_id group by products.id order by id desc;";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo '
                     <div onclick="openPopupProducts('.$row['id'].')" class="grid grid-cols-8 text-sm text-gray-600 font-[poppins] rounded-2xl hover:bg-gray-200 cursor-pointer active:scale-95 duration-150">
                         <div class="col-span-2 font-medium py-5 pl-4 pr-3 sm:pl-6 flex items-center gap-4">
-                            <img src="img/products_images/'.$row['img'].'" alt="" class="size-10 rounded-xl border border-gray-300">
+                            <img src="img/products_images/'.$row['img'].'" alt="" class="size-10 rounded-xl border border-gray-300 object-cover">
                             <span>'. $row['name'] .'</span>
                         </div>
                         <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 flex items-center uppercase">
@@ -112,8 +112,9 @@ $close= 'true';
 include "../../popup.php";
 ?>
 <?php 
-$name_in_scripts = 'UsersAdd';
+$name_in_scripts = 'ProductsAdd';
 $delete_path = '';
-$path = 'components/panel/users/users_add.php';
+$close= 'false';
+$path = 'components/panel/products/add.php';
 include "../../popup.php";
 ?>
