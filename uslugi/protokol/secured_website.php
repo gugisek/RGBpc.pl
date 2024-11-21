@@ -274,7 +274,7 @@
                                 <span id="czynnosci_cel"></span>
                             </p>
                                 
-                            <p id="new_serial_body" class="hidden text-xs text-justify"><br/> W związku z wykonanymi czynnościami seriwisowymi numer seryjny urządzenia uległ zmianie. <br/><br/>Nowy numer seryjny: <span class="font-medium text-sm uppercase" id="new_serial_cel"></span></p>
+                            <p id="new_serial_body" class="hidden text-xs text-justify"><br/> W związku z wykonanymi czynnościami serwisowymi numer seryjny urządzenia uległ zmianie. <br/><br/>Nowy numer seryjny: <span class="font-medium text-sm uppercase" id="new_serial_cel"></span></p>
 
                             <div id="kosztorys" class="hidden">
                                 <h1 class="font-bold mt-2">KOSZTORYS</h1>

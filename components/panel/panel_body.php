@@ -104,10 +104,10 @@
 </div>
 
 <script>
-    function openPanelSite(site) {
+    function openPanelSite(site, get) {
     var body = document.getElementById("panelBody");
      body.innerHTML = "<div data-aos='fade-up' data-aos-delay='100' class='w-full duartion-150 flex items-center mt-[40vh] justify-center z-[999]'><div class='z-[30] bg-black/90 p-4 rounded-2xl'><div class='lds-dual-ring'></div></div></div>";
-    const url = "components/panel/pages/" + site + ".php";
+    const url = "components/panel/pages/" + site + ".php?" + get;
     fetch(url)
         .then(response => response.text())
         .then(data => {
@@ -132,16 +132,21 @@
       nazwa = "Użytkownicy"
     } else if(site == 'products'){
       nazwa = "Produkty"
-    } else if(site == 'orders'){
+    } else if(site == 'product_edit'){
+      nazwa = "Edytuj produkt"
+    }else if(site == 'orders'){
       nazwa = "Zamówienia"
     }else if(site == 'finances'){
       nazwa = "Finanse i rozliczenia"
     }else if(site == 'archive'){
       nazwa = "Archiwum zamian"
+    }else if(site == 'settings'){
+      nazwa = "Ustawienia"
     }
-    document.title = "RGBpc.pl - " + nazwa + " - WSZM";
+    document.title = nazwa + " - WSZM - RGBpc.pl";
 
     localStorage.setItem("PanelSite", site);
+    localStorage.setItem("PanelSiteGet", get);
     var removeButtons = document.querySelectorAll("#nav_button");
     for (var i = 0; i < removeButtons.length; i++) {
       removeButtons[i].classList.remove("sidenav-button-active");
@@ -164,10 +169,14 @@ function executeScripts(parsedDocument) {
 }
 
 var panelSite = localStorage.getItem("PanelSite");
+var panelSiteGet = localStorage.getItem("PanelSiteGet");
 if (panelSite == null) {
     openPanelSite('dashboard');
 } else {
-    openPanelSite(panelSite);
+    if (panelSiteGet == null) {
+        panelSiteGet = "";
+    }
+    openPanelSite(panelSite, panelSiteGet);
     var removeButtons = document.querySelectorAll("#nav_button");
     for (var i = 0; i < removeButtons.length; i++) {
       removeButtons[i].classList.remove("sidenav-button-active");

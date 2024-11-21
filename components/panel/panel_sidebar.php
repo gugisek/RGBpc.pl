@@ -11,7 +11,11 @@
           for ($i = 0; $i < count($name); $i++) {
             echo '
             <li>
-            <a id="nav_button" onclick="openPanelSite(`' . $name_link[$i] . '`)" class="' . $name_link[$i] . ' cursor-pointer text-gray-800 hover:text-white hover:bg-violet-500 hover:shadow-xl shadow-violeet-300 hover:scale-105 active:scale-90 duration-150 group flex gap-x-3 rounded-xl p-3 text-sm leading-6 font-semibold">
+            <a id="nav_button" onclick="openPanelSite(`' . $name_link[$i] . '`)" class="' . $name_link[$i] . ' cursor-pointer ';
+            if ($name[$i] == 'Products') {
+              echo 'product_edit';
+            }
+             echo ' text-gray-800 hover:text-white hover:bg-violet-500 hover:shadow-xl shadow-violeet-300 hover:scale-105 active:scale-90 duration-150 group flex gap-x-3 rounded-xl p-3 text-sm leading-6 font-semibold">
               ';
               if ($name[$i] == 'Users'){
                 echo '

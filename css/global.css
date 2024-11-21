@@ -1,3 +1,7 @@
+:root {
+  --text: #8b5cf6;
+}
+
 * {
     scroll-behavior: smooth;
   }
@@ -164,4 +168,23 @@ input[type="checkbox"]::before:focus {
   border-color: #8b5cf6;
   outline: none;
   --tw-ring-inset: inset;
+}
+
+
+select {
+
+  /* styling */
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  /* reset */
+
+  margin: 0;      
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }

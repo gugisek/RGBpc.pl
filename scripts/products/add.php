@@ -82,7 +82,7 @@ if ($name != "" && $sku != "" && $description != "" && $category != "") {
                     $id = mysqli_insert_id($conn);
                     //log
                     $before = '';
-                    $after = 'Nazwa: '.$name.', SKU: '.$sku.', Opis: '.$description.', Kategoria: '.$category.', Warianty: '.$viariants;
+                    $after = 'Nazwa: '.$name.' <br/>SKU: '.$sku.'<br/>Opis: '.$description.'<br/>Kategoria: '.$category.'<br/>Typ: '.$viariants;
                     $object_id = $id;
                     $object_type="products";
                     $action_type = '2';
