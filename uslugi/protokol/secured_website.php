@@ -172,7 +172,7 @@
                             <label for="csd" class="pl-2 cursor-pointer text-xs">csd</label>
                         </div>
                         <div class="flex items-center">
-                            <input class="cursor-pointer" type="radio" value="Akcesroium zostało wymienione na nowe." id="aw" name="czynn_preset" onchange="wypelnijCP(this.id)">
+                            <input class="cursor-pointer" type="radio" value="Akcesorium zostało wymienione na nowe." id="aw" name="czynn_preset" onchange="wypelnijCP(this.id)">
                             <label for="aw" class="pl-2 cursor-pointer text-xs">aw</label>
                         </div>
                         <div class="flex items-center">
