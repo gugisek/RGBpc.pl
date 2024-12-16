@@ -94,3 +94,6 @@ $description = $row['description'];
             </div>
         </div>
     </section>
+<script>
+    highlightChanges();
+</script>

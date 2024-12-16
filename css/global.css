@@ -188,3 +188,12 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
+
+@keyframes shrink-width {
+  from {
+      width: 100%;
+  }
+  to {
+      width: 0%;
+  }
+}

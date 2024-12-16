@@ -1,4 +1,40 @@
 
+ <?php
+ if (!isset($_GET['page_id']) or $_GET['page_id']==""){
+    $page_id = 1;
+}else{
+    $page_id = $_GET['page_id'];
+}
+if(isset($_GET['page_id'])) {
+    $page_id = $_GET['page_id'];
+}else {
+    $page_id = 1;
+} 
+include '../../../scripts/conn_db.php';
+$sql = "SELECT count(id) FROM logs";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_row($result);
+$total_records = $row[0];
+$total_pages = ceil($total_records / 20);
+ ?>
+ 
+ <div class="w-full flex items-center px-12 mb-4 -mt-12 justify-end">
+                    <div onclick="openPageArchive('<?php if($page_id > 1) {echo $page_id - 1;}else {echo $page_id;} ?>')" class="flex items-center">
+                            <button type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                                </svg>
+                            </button>
+                    </div>
+                    <div onclick="openPageArchive('<?php if($page_id < $total_pages) {echo $page_id + 1;}else {echo $page_id;} ?>')" class="flex items-center">
+
+                            <button type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </button>
+                    </div>
+                    </div>
                 <table class="w-full" data-aos="fade-in" data-aos-delay="100">
                     <tr class=" text-left text-xs text-gray-400 ">
                         <th class="sticky top-0 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 py-3.5 text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell px-3 text-center md:w-auto md:table-cell sm:pl-6 lg:pl-8">ID</th>
@@ -10,11 +46,7 @@
                         <th class="sticky top-0 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell w-[9%] text-center">Typ</th>
                     </tr>
                     <?php
-                    if (!isset($_GET['page_id']) or $_GET['page_id']==""){
-                        $page_id = 1;
-                    }else{
-                        $page_id = $_GET['page_id'];
-                    }
+                    
                     
                         include '../../../scripts/conn_db.php';
                         $sql = "SELECT logs.id, users.name, users.sur_name, logs.when, logs.object_id, logs.object_type, log_types.type,logs.description FROM `logs` left join users on users.id=logs.user_id join log_types on log_types.id=logs.type order by id desc limit 20 offset ".($page_id - 1) * 20;
@@ -59,7 +91,7 @@
                                         echo " text-gray-800";
                                     }
                                     echo "'>".$row['object_type']."</td>";
-                                    echo "<td class='text-center text-sm text-gray-500 capitalize ";
+                                    echo "<td class='text-center text-sm capitalize ";
                                     if ($row['type'] == "create") {
                                         echo " text-green-500";
                                     }
@@ -87,18 +119,6 @@
                 <div class="w-full flex items-center justify-between mt-2 mb-[-16px]">
                     <div class="w-1/3"></div>
                             <div class="flex items-center">
-                        <?php if(isset($_GET['page_id'])) {
-                            $page_id = $_GET['page_id'];
-                        }else {
-                            $page_id = 1;
-                        } 
-                        include '../../../scripts/conn_db.php';
-                        $sql = "SELECT count(id) FROM logs";
-                        $result = mysqli_query($conn, $sql);
-                        $row = mysqli_fetch_row($result);
-                        $total_records = $row[0];
-                        $total_pages = ceil($total_records / 20);
-                        ?>
                     
                         <form onclick="openPageArchive('<?php if($page_id > 1) {echo $page_id - 1;}else {echo $page_id;} ?>')" class="flex items-center">
                             <input type="hidden" name="page" value="archiwum">

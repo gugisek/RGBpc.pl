@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
 <?php
-$title = "";
+$title = "produkt";
 include '../../components/head.php'; ?>    
 </head>
 <body>

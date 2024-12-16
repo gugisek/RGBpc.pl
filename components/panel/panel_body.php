@@ -103,6 +103,9 @@
   </section>
 </div>
 
+
+
+
 <script>
     function openPanelSite(site, get) {
     var body = document.getElementById("panelBody");
@@ -134,6 +137,8 @@
       nazwa = "Produkty"
     } else if(site == 'product_edit'){
       nazwa = "Edytuj produkt"
+    }else if(site == 'doms'){
+      nazwa = "Stan magazynowy"
     }else if(site == 'orders'){
       nazwa = "Zamówienia"
     }else if(site == 'finances'){
@@ -187,4 +192,18 @@ if (panelSite == null) {
       activeButtons[i].classList.add("sidenav-button-active");
     }
 }
+</script>
+<?php include 'components/panel/search.php'; ?>
+<script>
+  function openSearch() {
+
+       var popup = document.getElementById("searchMain")
+       var popupBg = document.getElementById("searchMainBg")
+       popupBg.classList.toggle("opacity-0")
+       popupBg.classList.toggle("h-0")
+       popup.classList.toggle("scale-0")
+       popup.classList.add("duration-200")
+
+  }
+  
 </script>

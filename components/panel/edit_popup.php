@@ -28,7 +28,7 @@ if($quill=='true'){
     $quill="";
 }
 ?>
-<button onclick="insertEdited<?=$quill?>('<?=$for?>');popupEditOpenClose()" class="active:scale-95 duration-150 inline-flex w-full justify-center rounded-full bg-gray-900 px-4 py-2 text-sm font-medium text-white shadow-sm hover:shadow-xl hover:bg-violet-600 mt-4">Wstaw dane</button>
+<div onclick="insertEdited<?=$quill?>('<?=$for?>');popupEditOpenClose()" class="active:scale-95 duration-150 inline-flex w-full justify-center rounded-full bg-gray-900 px-4 py-2 text-sm font-medium text-white shadow-sm hover:shadow-xl hover:bg-violet-600 mt-4">Wstaw dane</div>
 <script>
     var quill = new Quill('#editor-container-popup', {
             theme: 'snow',

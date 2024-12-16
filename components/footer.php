@@ -76,6 +76,9 @@
               <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="550">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-violet-500 duration-100">Nasze produkty</a>
               </li>
+              <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="550">
+                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-violet-500 duration-100">Stan zamówienia</a>
+              </li>
             </ul>
           </div>
           <div class="mt-10 md:mt-0">
