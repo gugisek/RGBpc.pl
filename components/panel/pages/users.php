@@ -13,7 +13,7 @@
     <section class="flex flex-col gap-4">
         <div class="grid grid-cols-7 text-sm text-gray-600 font-[poppins] bg-white rounded-2xl ring-1 ring-black ring-opacity-5 shadow-xl mt-4">
             <div class="font-medium py-5 pl-4 pr-3 sm:pl-6">
-                Pracownik
+                Użytkownik
             </div>
             <div class="col-span-2 font-medium py-5 pl-4 pr-3 sm:pl-6">
                 Opis
@@ -25,7 +25,7 @@
                 Rola
             </div>
             <div class="font-medium py-5 pl-4 pr-3 sm:pl-6">
-                Zatrudniony
+                Utworzony
             </div>
             <div class="font-medium py-5 pl-4 pr-3 sm:pl-6">
                 Ostatnio widziany

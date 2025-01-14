@@ -12,7 +12,12 @@
                     <h1 class="font-medium text-2xl text-gray-600">Stan magazynowy</h1>
                 </a>
             </div>
-            <div class="flex items-center gap-2 flex-row-reverse" data-aos="fade-right" data-aos-delay="100">
+            <div class="flex items-center gap-2 flex-row" data-aos="fade-right" data-aos-delay="100">
+            <div onclick="openPopupDomsAdd()"  class="hover:text-white hover:bg-violet-500 text-gray-600 hover:shadow-xl shadow-violeet-300 hover:scale-105 active:scale-90 duration-150 group flex gap-x-3 rounded-xl p-3 cursor-pointer">
+                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                       <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                   </svg>
+               </div>
             <div class="mx-auto max-w-xl transform overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-black ring-opacity-5 transition-all">
                     <div class="relative">
                         <svg class="pointer-events-none absolute left-4 top-3.5 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -27,25 +32,25 @@
 <section data-aos="fade-right" data-aos-delay="100">
     <section class="flex flex-col gap-4">
         <div class="grid grid-cols-8 text-sm text-gray-600 font-[poppins] bg-white ring-1 ring-black ring-opacity-5 rounded-2xl shadow-xl mt-2">
-            <div class="col-span-2 font-medium py-5 pl-4 pr-3 sm:pl-6">
+            <div class="col-span-2 font-medium py-5 pl-4 pr-3 sm:pl-6 flex items-center">
                 Nazwa
             </div>
             <div class="font-medium py-5 pl-4 pr-3 sm:pl-6">
                 Numer seryjny
             </div>
-            <div class="font-medium py-5 pl-4 pr-3 sm:pl-6">
+            <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 xl:block hidden">
                 Kategoria
             </div>
-            <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 flex justify-center">
+            <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 flex justify-center items-center">
                 Cena zakupu brutto
             </div>
-            <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 flex justify-center">
-                Cena netto
+            <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 flex justify-center items-center">
+                Źródło
             </div>
-            <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 flex gap-2 justify-center">
+            <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 flex gap-2 justify-center items-center">
                 <span>Cena brutto</span>
             </div>
-            <div class="font-medium py-5 pl-4 pr-3 sm:pl-6">
+            <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 flex items-center">
                 Status
             </div>
         </div>
@@ -54,3 +59,10 @@
         </div>
     </section>
 </section>
+<?php 
+$name_in_scripts = 'DomsAdd';
+$delete_path = '';
+$path = 'components/panel/doms/add.php';
+$close= '';
+include "../../popup.php";
+?>

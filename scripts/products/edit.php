@@ -12,6 +12,11 @@ $source = $_POST['source'];
 $description = $_POST['description'];
 $full_description = $_POST['full_description'];
 
+//przeształcenie full description tak aby nie miał znaków przeszkadzających kwerendzie SQL
+$full_description = str_replace("'", "''", $full_description);
+
+
+
 $sku = $_POST['sku'];
 
 $variants = $_POST['variants'];

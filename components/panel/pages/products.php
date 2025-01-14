@@ -2,6 +2,7 @@
     
         <div class="flex itesm-center justify-between">
             <h1 class="font-medium text-2xl">Produkty</h1>
+            
             <div class="flex items-center gap-2">
                 <div onclick="openPanelSite('doms')"  class="hover:text-white hover:bg-violet-500 text-gray-600 hover:shadow-xl shadow-violeet-300 hover:scale-105 active:scale-90 duration-150 group flex gap-x-3 rounded-xl p-3 cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">

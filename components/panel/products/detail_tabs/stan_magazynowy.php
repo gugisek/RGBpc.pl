@@ -1,16 +1,16 @@
 <div data-aos="fade-in" data-aos-delay="100">
     <table>
-        <div class="grid grid-cols-4 text-sm shadow-xl text-gray-800 font-[poppins] rounded-2xl active:scale-95 duration-150">
-                        <div class=" font-medium py-5 pl-4 pr-3 sm:pl-6 flex items-center">
+        <div class="grid grid-cols-4 text-xs shadow-xl text-gray-800 font-[poppins] rounded-2xl active:scale-95 duration-150">
+                        <div class=" font-medium py-4 pl-4 pr-3 sm:pl-6 flex items-center">
                             Numer seryjny
                         </div>
-                        <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 flex items-center">
+                        <div class="font-medium py-4 pl-4 pr-3 sm:pl-6 flex items-center">
                             Data zakupu
                         </div>
-                        <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 flex items-center justify-center">
+                        <div class="font-medium py-4 pl-4 pr-3 sm:pl-6 flex items-center justify-center">
                             Cena zakupu brutto
                         </div>
-                        <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 text-center">
+                        <div class="font-medium py-4 pl-4 pr-3 sm:pl-6 text-center">
                             Źródło
                         </div>
 
@@ -19,7 +19,7 @@
         <?php
         $id = $_GET['id'];
         include '../../../../scripts/conn_db.php';
-        $sql = "select product_doms.id, product_doms.dom_code, product_doms.bought_price_brutto, product_doms.bought_date, product_doms.bought_source_id from product_doms where product_doms.product_id = $id";
+        $sql = "select product_doms.id, product_doms.dom_code, product_doms.bought_price_brutto, product_doms.bought_date, supplayers.name, product_doms.bought_source_id from product_doms left join supplayers on supplayers.id=product_doms.bought_source_id where product_doms.product_id = $id";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 
@@ -37,7 +37,7 @@
                             '. number_format(round($row['bought_price_brutto'],2),2,',','') .' PLN
                         </div>
                         <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 text-center">
-                            '. $row['bought_source_id'] .'
+                            '. $row['name'] .'
                         </div>
 
                     </div>

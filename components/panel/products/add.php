@@ -38,7 +38,9 @@ if(mysqli_num_rows($result) > 0){
                 <input name="sku" id="sku" type="text" value='pn-<?=$pn['right(sku,4)+1']?>' placeholder="pn-<?=$pn['right(sku,4)+1']?>" maxlength="10" class="uppercase border rounded-xl w-full py-1.5 px-4 text-sm border-gray-400 focus:ring-0 focus:outline-0 focus:bg-[#1c1c1c] focus:border-[#1c1c1c] focus:shadow-xl duration-150 font-medium focus:text-white" required>
             </div>
         </div>
+        
     </div>
+    
     <div class="mt-4 flex md:flex-row flex-col gap-2">
         <div class="w-full">
             <label for="description" class="ml-px block pl-2 text-sm font-medium leading-6 text-gray-900">Krótki opis</label>

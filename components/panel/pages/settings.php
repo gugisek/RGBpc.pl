@@ -11,7 +11,7 @@
             <svg class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-violet-500 duration-150" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            Użytkownicy - role
+            Role użytkowników
           </a>
         </li>
         <li>
@@ -21,7 +21,7 @@
           </svg>
 
 
-            Produkty - kategorie
+            Kategorie produktów
           </a>
         </li>
         <li>
@@ -31,17 +31,28 @@
           </svg>
 
 
-            Kategorie - specyfikacje
+            Specyfikacje kategorii
+          </a>
+        </li>
+        <li>
+          <a href="#dostawcy" class="text-gray-700 hover:text-violet-500 hover:bg-gray-50 group duration-150 flex gap-x-3 rounded-md py-2 pl-2 pr-3 text-sm leading-6 font-semibold">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 shrink-0 text-gray-400 group-hover:text-violet-500 duration-150">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+          </svg>
+
+
+
+            Dostawcy
           </a>
         </li>
       </ul>
     </nav>
   </aside>
 
-  <main class="px-4 sm:px-6 lg:flex-auto lg:px-0">
+  <main class="px-4 sm:px-6 lg:flex-auto lg:px-0 ">
     <div class="mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 pb-16 lg:max-w-none">
       <div id="ur" class="bg-white rounded-2xl shadow-lg p-8">
-        <h2 class="text-base font-semibold leading-7 text-gray-900">Użytkownicy - role</h2>
+        <h2 class="text-base font-semibold leading-7 text-gray-900">Role użytkowników</h2>
         <p class="mt-1 text-sm leading-6 text-gray-500">Role jakie możesz przypisać dla kont. Lepiej nie edytować domyślnej roli user.</p>
 
         <dl class="mt-6 divide-y divide-gray-100 border-t border-gray-150 text-sm leading-6">
@@ -69,7 +80,7 @@
       </div>
 
       <div id="pk" class="bg-white rounded-2xl shadow-lg p-8">
-        <h2 class="text-base font-semibold leading-7 text-gray-900">Produkty - kategorie</h2>
+        <h2 class="text-base font-semibold leading-7 text-gray-900">Kategorie produktów</h2>
         <p class="mt-1 text-sm leading-6 text-gray-500">Edytuj drzwko kategori dla produktów.</p>
 
         <dl class="mt-6 divide-y divide-gray-100 border-t border-gray-150 text-sm leading-6">
@@ -118,7 +129,7 @@
       </div>
 
       <div id="ks" class="bg-white rounded-2xl shadow-lg p-8">
-        <h2 class="text-base font-semibold leading-7 text-gray-900">Kategorie - specyfikacje</h2>
+        <h2 class="text-base font-semibold leading-7 text-gray-900">Specyfikacje dla kategorii</h2>
         <p class="mt-1 text-sm leading-6 text-gray-500">Edytuj listę specyfikacji oraz paraametrów dla produktów.</p>
 
         <dl class="mt-6 divide-y divide-gray-100 border-t border-gray-150 text-sm leading-6">
@@ -157,6 +168,36 @@
         </div>
         </dl>
       </div>
+
+      <div id="dostawcy" class="bg-white rounded-2xl shadow-lg p-8">
+        <h2 class="text-base font-semibold leading-7 text-gray-900">Dostawcy</h2>
+        <p class="mt-1 text-sm leading-6 text-gray-500">Dodaj lub edytuj dostawców, nie jest zalecane usuwanie.</p>
+
+        <dl id="body_dostawcy" class="mt-6 divide-y divide-gray-100 border-t border-gray-150 text-sm leading-6">
+        <?php
+                include '../../../scripts/conn_db.php';
+                $sql = "SELECT id, name, description FROM supplayers";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo '<div onclick="openPopupSupp('.$row['id'].')" class="py-5 px-4 sm:flex hover:bg-gray-200 duration-150 cursor-pointer rounded-2xl active:scale-[98%]">
+                        <dt class="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">'.$row["name"].'</dt>
+                        <dd class="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
+                          <div class="text-gray-900">'.$row["description"].'</div>
+                        </dd>
+                      </div>';
+                    }
+                } else {
+                    echo "Brak wyników";
+                }
+            ?>
+          <div class="flex border-t border-gray-100 pt-6">
+            <button type="button" onclick="openPopupSuppAdd()" class="text-sm px-4 font-semibold leading-6 text-violet-500 hover:text-violet-300 duration-150"><span aria-hidden="true">+</span> Dodaj nowego dostawcę</button>
+          </div>
+        </dl>
+      </div>
+
+
 
     </div>
   </main>
@@ -204,6 +245,74 @@
   }
 </script>
 
+<script>
+
+    function displaySupp() {
+      var body_supp = document.getElementById('body_dostawcy');
+      const url = "components/panel/settings/supp/list.php";
+      fetch(url)
+          .then(response => response.text())
+          .then(data => {
+              const parser = new DOMParser();
+              const parsedDocument = parser.parseFromString(data, "text/html");
+              body_supp.innerHTML = parsedDocument.body.innerHTML;
+              executeScripts(parsedDocument);
+          });
+      }
+
+    function updateSupp() {
+        
+    // Dane do wysłania w żądaniu
+
+    var id = document.getElementById('supp_id').value;
+    var name = document.getElementById('supp_name').value;
+    var description = document.getElementById('supp_description').value;
+
+    console.log(id, name, description);
+
+    const postData = new FormData();
+    postData.append('id', id);
+    postData.append('name', name);
+    postData.append('description', description);
+
+      //ustawnienie kółka ładowania
+      var supp_loading = document.getElementById('supp_loading');
+      supp_loading.innerHTML = "<div class='w-full duartion-150 flex items-center justify-center z-[999]'><div class='z-[30] fixed bg-black/90 p-4 mt-40 rounded-2xl'><div class='lds-dual-ring'></div></div></div>";
+
+    // Wysyłanie żądania POST do skryptu PHP
+    fetch('scripts/settings/supp/edit.php', {
+        method: 'POST',
+        body: postData,
+    })
+    .then(response => response.json()) // Oczekiwanie na odpowiedź JSON
+    .then(data => {
+        // Jeśli odpowiedź zawiera sukces lub błąd
+        switch (data.status) {
+            case 'success':
+                showAlert('success', data.message); // Wyświetl sukces
+                popupSuppOpenClose();
+                displaySupp();
+                break;
+            case 'error':
+                showAlert('error', data.message); // Wyświetl błąd
+                break;
+            case 'warning':
+                showAlert('warning', data.message); // Wyświetl ostrzeżenie
+                break;
+            default:
+                showAlert('error', 'Nieznany status odpowiedzi');
+        }
+    })
+    .catch(error => {
+      // Wyświetlenie alertu błędu w przypadku problemów z żądaniem
+      showAlert('error', 'Wystąpił problem połączenia z serwerem');
+      console.error('Błąd:', error);
+    });
+    supp_loading.innerHTML = "";
+  }
+
+</script>
+
 
 <?php 
 $name_in_scripts = 'UserRoles';
@@ -237,4 +346,13 @@ $delete_path = 'scripts/settings/products/parameters/delete.php';
 $path = 'components/panel/settings/product_categories/parameters_edit.php';
 include "../../popup.php";
 
+$name_in_scripts = 'Supp';
+$delete_path = 'scripts/settings/supp/delete.php';
+$path = 'components/panel/settings/supp/edit.php';
+include "../../popup.php";
+
+$name_in_scripts = 'SuppAdd';
+$delete_path = '';
+$path = 'components/panel/settings/supp/add.php';
+include "../../popup.php";
 ?>

@@ -6,38 +6,38 @@ include '../security.php';
 $name = $_POST['name'];
 $sur_name = $_POST['sur_name'];
 $email = $_POST['email'];
-$role = $_POST['role'];
+
 $description = $_POST['description'];
-$status_id = $_POST['status_id'];
+
 $id = $_POST['id'];
 
 $password = $_POST['pswd'];
 $reapet_password = $_POST['repeat_pswd'];
 
 
-if ($name != "" && $sur_name != "" && $email != "" && $role != "" && $id != "" && $status_id != "") {
+if ($name != "" && $sur_name != "" && $email != "" && $id != "") {
     
     include "../conn_db.php";
-    $sql_old = "SELECT users.id, users.name, users.sur_name, users.mail, role_id, status_id, description FROM users where users.id = $id;";
+    $sql_old = "SELECT users.id, users.name, users.sur_name, users.mail, description FROM users where users.id = $id;";
     $result_old = mysqli_query($conn, $sql_old);
     $row_old = mysqli_fetch_assoc($result_old);
 
-    if ($row_old['name'] != $name || $row_old['sur_name'] != $sur_name || $row_old['mail'] != $email || $row_old['role_id'] != $role || $row_old['description'] != $description || $row_old['status_id'] != $status_id) {
-        $sql = "UPDATE users SET name='$name', sur_name='$sur_name', mail='$email', role_id=$role, description='$description', status_id=$status_id WHERE id=$id;";
+    if ($row_old['name'] != $name || $row_old['sur_name'] != $sur_name || $row_old['mail'] != $email || $row_old['description'] != $description) {
+        $sql = "UPDATE users SET name='$name', sur_name='$sur_name', mail='$email', description='$description' WHERE id=$id;";
         echo $sql;
         if (mysqli_query($conn, $sql)) {
 
             //log
-            $before = 'Imię: ' . $row_old['name'] . ' ' . $row_old['sur_name'] . ' <br/> Email: ' . $row_old['mail'] . '<br/> Rola: ' . $row_old['role_id'] . '<br/> Opis: ' . $row_old['description'] . '<br/> Status: ' . $row_old['status_id'];
-            $after = 'Imię: ' . $name . ' ' . $sur_name . '<br/> Email: ' . $email . '<br/> Rola: ' . $role . '<br/> Opis: ' . $description . '<br/> Status: ' . $status_id;
+            $before = 'Imię: ' . $row_old['name'] . ' ' . $row_old['sur_name'] . ' <br/> Email: ' . $row_old['mail'] . '<br/> Opis: ' . $row_old['description'];
+            $after = 'Imię: ' . $name . ' ' . $sur_name . '<br/> Email: ' . $email . '<br/> Opis: ' . $description;
             $object_id = $id;
             $object_type="users";
             $action_type = '1';
-            $desc = 'Edytowano użytkownika';
+            $desc = 'Edytowano profil użytkownika';
             include "../../scripts/log.php";
             //log
 
-            $_SESSION['alert'] = 'Dane zostały zaktualizowane';
+            $_SESSION['alert'] = 'Profil został zaktualizowany';
             $_SESSION['alert_type'] = 'success';
         } else {
             $_SESSION['alert'] = 'Błąd aktualizacji danych';
@@ -53,7 +53,7 @@ if ($name != "" && $sur_name != "" && $email != "" && $role != "" && $id != "" &
                 $sql = "UPDATE users SET pswd='$sha_password' WHERE id=$id;";
                 echo $sql;
                 if (mysqli_query($conn, $sql)) {
-                    $_SESSION['alert'] = 'Dane zostały zaktualizowane';
+                    $_SESSION['alert'] = 'Profil został zaktualizowany';
                     $_SESSION['alert_type'] = 'success';
 
                     //log
@@ -62,7 +62,7 @@ if ($name != "" && $sur_name != "" && $email != "" && $role != "" && $id != "" &
                     $object_id = $id;
                     $object_type="users";
                     $action_type = '1';
-                    $desc = 'Edytowano hasło użytkownika';
+                    $desc = 'Edytowano hasło użytkownika (profil)';
                     include "../../scripts/log.php";
                     //log
 
@@ -132,7 +132,7 @@ if(($_FILES['photo_img']['name'] != "")){
         rename($target_file, $target_dir ."pp-" . $id . "_". time() ."." . $img_ext);
         $file_name = "pp-".$id. "_". time() ."." . $img_ext;
         $image = $file_name;
-        $_SESSION['alert'] = 'Pomyślnie zaktualizowano dane';
+        $_SESSION['alert'] = 'Profil został zaktualizowany';
         $_SESSION['alert_type'] = 'success';
         $sql = "UPDATE users SET profile_picture = '$image' WHERE id = $id";
         if($id = $_SESSION['login_id']){
@@ -146,7 +146,7 @@ if(($_FILES['photo_img']['name'] != "")){
         $object_id = $id;
         $object_type="users";
         $action_type = '1';
-        $desc = 'Zmieniono zdjęcie profilowe';
+        $desc = 'Zmieniono zdjęcie profilowe (profil)';
         include "../../scripts/log.php";
         //log
 

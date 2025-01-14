@@ -96,8 +96,8 @@
 
 
 
-  <section class="lg:ml-20">
-      <aside id="panelBody" class="inset-y-0 w-full min-h-screen overflow-y-auto border-r border-gray-200 bg-gray-50 px-4 py-6 sm:px-6 lg:px-8 block">
+  <section style="background-image: url('ximg/users_images/pp-1_1734508643.png');"  class="lg:ml-20 bg-fixed bg-cover bg-center">
+      <aside id="panelBody" class=" inset-y-0 w-full min-h-screen overflow-y-auto border-r border-gray-200 bg-gray-50/90 px-4 py-6 sm:px-6 lg:px-8 block">
      
      </aside>
   </section>
@@ -206,4 +206,19 @@ if (panelSite == null) {
 
   }
   
+</script>
+<script>
+    function imgPrevProduct(type) {
+        const file = document.getElementById(`${type}`).files[0];
+        const reader = new FileReader();
+        reader.onloadend = function() {
+            //ustawienie dla wszystkich img o id popup_img_inpt src
+            document.getElementById(`popup_img_inpt_${type}`).src = reader.result;
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            document.getElementById(`popup_img_inpt_${type}`).src = "";
+        }
+    }
 </script>

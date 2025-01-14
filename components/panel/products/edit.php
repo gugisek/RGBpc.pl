@@ -96,21 +96,22 @@ $name = strtolower($name);
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75ZM6.75 16.5h.75v.75h-.75v-.75ZM16.5 6.75h.75v.75h-.75v-.75ZM13.5 13.5h.75v.75h-.75v-.75ZM13.5 19.5h.75v.75h-.75v-.75ZM19.5 13.5h.75v.75h-.75v-.75ZM19.5 19.5h.75v.75h-.75v-.75ZM16.5 16.5h.75v.75h-.75v-.75Z" />
                 </svg>
             </a>
+            
         </div>
         <div id="details_body">
         
             <table>
-                <div class="grid grid-cols-4 text-sm shadow-xl text-gray-800 font-[poppins] rounded-2xl active:scale-95 duration-150">
-                                <div class=" font-medium py-5 pl-4 pr-3 sm:pl-6 flex items-center">
+                <div class="grid grid-cols-4 text-xs shadow-xl text-gray-800 font-[poppins] rounded-2xl active:scale-95 duration-150 border border-black/10">
+                                <div class=" font-medium py-4 pl-4 pr-3 sm:pl-6 flex items-center">
                                     Numer seryjny
                                 </div>
-                                <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 flex items-center">
+                                <div class="font-medium py-4 pl-4 pr-3 sm:pl-6 flex items-center">
                                     Data zakupu
                                 </div>
-                                <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 flex items-center justify-center">
+                                <div class="font-medium py-4 pl-4 pr-3 sm:pl-6 flex items-center justify-center">
                                     Cena zakupu brutto
                                 </div>
-                                <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 text-center">
+                                <div class="font-medium py-4 pl-4 pr-3 sm:pl-6 text-center">
                                     Źródło
                                 </div>
 
@@ -118,7 +119,7 @@ $name = strtolower($name);
                 
                 <?php
                 
-                $sql = "select product_doms.id, product_doms.dom_code, product_doms.bought_price_brutto, product_doms.bought_date, product_doms.bought_source_id from product_doms where product_doms.product_id = $id";
+                $sql = "select product_doms.id, product_doms.dom_code, product_doms.bought_price_brutto, supplayers.name, product_doms.bought_date, product_doms.bought_source_id from product_doms left join supplayers on supplayers.id=product_doms.bought_source_id where product_doms.product_id = $id";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
                         
@@ -136,7 +137,7 @@ $name = strtolower($name);
                                     '. number_format(round($row['bought_price_brutto'],2),2,',','') .' PLN
                                 </div>
                                 <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 text-center">
-                                    '. $row['bought_source_id'] .'
+                                    '. $row['name'] .'
                                 </div>
 
                             </div>
@@ -146,6 +147,7 @@ $name = strtolower($name);
                         echo '<span class="text-xs text-gray-600 text-center w-full flex items-center justify-center py-12">Brak w magazynie</span>';
                     }
                 ?>
+                
             </table>
         </div>
         
@@ -275,3 +277,10 @@ function executeScripts(parsedDocument) {
         status.innerHTML = statusHTML;
     }
 </script>
+<?php 
+$name_in_scripts = 'Doms';
+$delete_path = 'scripts/products/delete.php';
+$path = 'components/panel/doms/details.php';
+$close= 'true';
+include "../../popup.php";
+?>

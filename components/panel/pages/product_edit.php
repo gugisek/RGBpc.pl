@@ -421,14 +421,14 @@ $name = strtolower($name);
                         </div>
                         <a class="pl-4 col-span-2 flex items-center gap-2 pr-2 border-l border-gray-200">
                             <input oninput="handleInputChange(`'. $row4['id'] .'`)" id="input-'.$row4['id'].'" type="text" value="'.$row4['specs_value'].'" class="w-full px-2 focus:outline-violet-600">
-                            <button id="button-'. $row4['id'] .'" class="hidden hover:text-green-500 duration-150 text-gray-900"
+                            <span id="button-'. $row4['id'] .'" class="hidden hover:text-green-500 duration-150 text-gray-900 cursor-pointer"
                              onclick="handleButtonClick('. $row4['id'] .', document.getElementById(`input-'. $row4['id'] .'`).value, '. $id .', '. $specs_id .')"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                 </svg>
 
-                            </button>
+                            </span>
                         </a>
                     </div>';
                     }
@@ -517,21 +517,7 @@ $name_in_scripts = "products";
 </script>
 
 
-<script>
-    function imgPrevProduct(type) {
-        const file = document.getElementById(`${type}`).files[0];
-        const reader = new FileReader();
-        reader.onloadend = function() {
-            //ustawienie dla wszystkich img o id popup_img_inpt src
-            document.getElementById(`popup_img_inpt_${type}`).src = reader.result;
-        }
-        if (file) {
-            reader.readAsDataURL(file);
-        } else {
-            document.getElementById(`popup_img_inpt_${type}`).src = "";
-        }
-    }
-</script>
+
 
 
 <script>
