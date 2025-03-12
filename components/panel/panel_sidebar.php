@@ -21,6 +21,9 @@
             if ($name[$i] == 'Products') {
               echo 'product_edit doms';
             }
+            if ($name[$i] == 'Orders') {
+              echo 'order_add ';
+            }
              echo ' text-gray-800 hover:text-white hover:bg-violet-500 hover:shadow-xl shadow-violeet-300 hover:scale-105 active:scale-90 duration-150 group flex gap-x-3 rounded-xl p-3 text-sm leading-6 font-semibold">
               ';
               if ($name[$i] == 'Users'){

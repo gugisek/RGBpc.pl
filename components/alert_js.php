@@ -1,4 +1,4 @@
-<div id="alertsContainer" class="fixed z-[99] inset-0 flex flex-col items-center space-y-4 px-4 py-6 sm:items-end sm:p-6 pointer-events-none"></div>
+<div id="alertsContainer" class="fixed z-[99] inset-0 min-h-[300vh] flex flex-col items-center space-y-4 px-4 py-6 sm:items-end sm:p-6 pointer-events-none"></div>
 
 <script>
     function closeAlertWithAnimation(alertDiv) {

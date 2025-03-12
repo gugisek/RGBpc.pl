@@ -45,12 +45,34 @@
             Dostawcy
           </a>
         </li>
+        <li>
+          <a href="#opcje_dostaw" class="text-gray-700 hover:text-violet-500 hover:bg-gray-50 group duration-150 flex gap-x-3 rounded-md py-2 pl-2 pr-3 text-sm leading-6 font-semibold">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 shrink-0 text-gray-400 group-hover:text-violet-500 duration-150">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+          </svg>
+
+
+
+            Opcje dostaw
+          </a>
+        </li>
+        <li>
+          <a href="#platformy" class="text-gray-700 hover:text-violet-500 hover:bg-gray-50 group duration-150 flex gap-x-3 rounded-md py-2 pl-2 pr-3 text-sm leading-6 font-semibold">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 shrink-0 text-gray-400 group-hover:text-violet-500 duration-150">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+          </svg>
+
+
+
+            Platformy
+          </a>
+        </li>
       </ul>
     </nav>
   </aside>
 
   <main class="px-4 sm:px-6 lg:flex-auto lg:px-0 ">
-    <div class="mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 pb-16 lg:max-w-none">
+    <div class="mx-auto max-w-2xl space-y-8 sm:space-y-20 lg:mx-0 pb-16 lg:max-w-none">
       <div id="ur" class="bg-white rounded-2xl shadow-lg p-8">
         <h2 class="text-base font-semibold leading-7 text-gray-900">Role użytkowników</h2>
         <p class="mt-1 text-sm leading-6 text-gray-500">Role jakie możesz przypisać dla kont. Lepiej nie edytować domyślnej roli user.</p>
@@ -197,6 +219,68 @@
         </dl>
       </div>
 
+      <div id="opcje_dostaw" class="bg-white rounded-2xl shadow-lg p-8">
+        <h2 class="text-base font-semibold leading-7 text-gray-900">Opcje dostaw</h2>
+        <p class="mt-1 text-sm leading-6 text-gray-500">Dodaj lub edytuj opcje dostaw i ich parametry.</p>
+
+        <dl id="body_delivery" class="mt-6 divide-y divide-gray-100 border-t border-gray-150 text-sm leading-6">
+        <?php
+                include '../../../scripts/conn_db.php';
+                $sql = "SELECT shippings.id, shippings.name, shippings.img, shippings.desc_short, platforms.img as 'img_p', platforms.name as 'name_p' FROM `shippings` left join platforms on platforms.id=shippings.platform_id order by platforms.name asc";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo '<div onclick="openPopupDeliveries('.$row['id'].')" class="py-5 px-4 flex items-center hover:bg-gray-200 duration-150 cursor-pointer rounded-2xl active:scale-[98%]">
+                        <dt class="font-medium text-gray-900 sm:w-64 flex gap-2 items-center sm:pr-6">
+                          <img class="size-9 border border-black/10 rounded-lg object-contain" src="img/icons/delivery/'.$row['img'].'">
+                          <span>'.$row["name"].'</span>
+                        </dt>
+                        <dd class="mt-1 flex items-center justify-between gap-x-6 sm:mt-0 sm:flex-auto">
+                          <div class="text-gray-900">'.$row["desc_short"].'</div>
+                          <div class="text-gray-600"><img class="size-9 border border-black/10 rounded-lg object-contain" src="img/icons/platforms/'.$row['img_p'].'" alt="'.$row['name_p'].'"></div>
+                        </dd>
+                      </div>';
+                    }
+                } else {
+                    echo "Brak wyników";
+                }
+            ?>
+          <div class="flex border-t border-gray-100 pt-6">
+            <button type="button" onclick="openPopupDeliveriesAdd()" class="text-sm px-4 font-semibold leading-6 text-violet-500 hover:text-violet-300 duration-150"><span aria-hidden="true">+</span> Dodaj nową opcje dostawy</button>
+          </div>
+        </dl>
+      </div>
+
+      <div id="platformy" class="bg-white rounded-2xl shadow-lg p-8">
+        <h2 class="text-base font-semibold leading-7 text-gray-900">Platformy</h2>
+        <p class="mt-1 text-sm leading-6 text-gray-500">Dodaj lub edytuj platformy i ich parametry.</p>
+
+        <dl id="body_platforms" class="mt-6 divide-y divide-gray-100 border-t border-gray-150 text-sm leading-6">
+        <?php
+                include '../../../scripts/conn_db.php';
+                $sql = "SELECT id, name, img FROM `platforms`";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo '<div onclick="openPopupPlatforms('.$row['id'].')" class="py-5 px-4 flex items-center hover:bg-gray-200 duration-150 cursor-pointer rounded-2xl active:scale-[98%]">
+                        <dt class="font-medium text-gray-900 sm:w-64 flex gap-2 items-center sm:pr-6">
+                          <img class="size-9 border border-black/10 rounded-lg object-contain" src="img/icons/platforms/'.$row['img'].'">
+                          <span>'.$row["name"].'</span>
+                        </dt>
+                        <dd class="mt-1 flex items-center justify-between gap-x-6 sm:mt-0 sm:flex-auto">
+                           </dd>
+                      </div>';
+                    }
+                } else {
+                    echo "Brak wyników";
+                }
+            ?>
+            </dl>
+          <div class="flex border-t border-gray-100 pt-6">
+            <button type="button" onclick="openPopupPlatformsAdd()" class="text-sm px-4 font-semibold leading-6 text-violet-500 hover:text-violet-300 duration-150"><span aria-hidden="true">+</span> Dodaj nową platformę</button>
+          </div>
+      </div>
+
 
 
     </div>
@@ -284,25 +368,38 @@
         method: 'POST',
         body: postData,
     })
-    .then(response => response.json()) // Oczekiwanie na odpowiedź JSON
-    .then(data => {
-        // Jeśli odpowiedź zawiera sukces lub błąd
-        switch (data.status) {
-            case 'success':
-                showAlert('success', data.message); // Wyświetl sukces
-                popupSuppOpenClose();
-                displaySupp();
-                break;
-            case 'error':
-                showAlert('error', data.message); // Wyświetl błąd
-                break;
-            case 'warning':
-                showAlert('warning', data.message); // Wyświetl ostrzeżenie
-                break;
-            default:
-                showAlert('error', 'Nieznany status odpowiedzi');
-        }
+    .then(response => response.text())  // Odczytuje dane jako tekst, nie JSON
+    .then(text => {
+        const jsonObjects = text.trim().split('\n').map(jsonString => {
+            try {
+                return JSON.parse(jsonString);  // Parsowanie każdego fragmentu tekstu jako JSON
+            } catch (e) {
+                console.error('Błąd parsowania JSON:', e);
+                return null;
+            }
+        }).filter(obj => obj !== null);  // Filtruje tylko poprawnie sparsowane obiekty JSON
+
+        jsonObjects.forEach(data => {
+            if (data.status) {  // Jeśli dane posiadają status
+                switch (data.status) {
+                    case 'success':
+                        showAlert('success', data.message);
+                        popupSuppOpenClose();
+                        displaySupp();
+                        break;
+                    case 'error':
+                        showAlert('error', data.message);
+                        break;
+                    case 'warning':
+                        showAlert('warning', data.message);
+                        break;
+                    default:
+                        showAlert('error', 'Nieznany status odpowiedzi');
+                }
+            }
+        });
     })
+
     .catch(error => {
       // Wyświetlenie alertu błędu w przypadku problemów z żądaniem
       showAlert('error', 'Wystąpił problem połączenia z serwerem');
@@ -310,6 +407,359 @@
     });
     supp_loading.innerHTML = "";
   }
+
+  function displayDelivery() {
+      var body_delivery = document.getElementById('body_delivery');
+      const url = "components/panel/settings/deliveries/list.php";
+      fetch(url)
+          .then(response => response.text())
+          .then(data => {
+              const parser = new DOMParser();
+              const parsedDocument = parser.parseFromString(data, "text/html");
+              body_delivery.innerHTML = parsedDocument.body.innerHTML;
+              executeScripts(parsedDocument);
+          });
+      }
+
+    function updateDelivery() {
+    // Pobranie danych z pól formularza
+    var id = document.getElementById('delivery_id').value;
+    var name = document.getElementById('delivery_name').value;
+    var platform_id = document.getElementById('platform_id').value;
+    var desc_short = document.getElementById('delivery_desc_short').value;
+    var imgInput = document.getElementById('fileToUploadfav'); // Pobieramy input typu file
+    var price = document.getElementById('delivery_price').value;
+    // jeżeli box machine jest checked to box machine = 1
+    if (document.getElementById('delivery_machine').checked) {
+        var machine = 1;
+    } else {
+        var machine = 0;
+    }
+
+    // Tworzymy FormData
+    const postData = new FormData();
+    postData.append('id', id);
+    postData.append('name', name);
+    postData.append('platform_id', platform_id);
+    postData.append('desc_short', desc_short);
+    postData.append('price', price);
+    postData.append('machine', machine);
+
+    // Sprawdzamy, czy użytkownik wybrał plik
+    if (imgInput.files.length > 0) {
+        postData.append('photo_img', imgInput.files[0]); // Dodajemy obiekt pliku
+    }
+
+    // Pokazanie kółka ładowania
+    var delivery_loading = document.getElementById('delivery_loading');
+    delivery_loading.innerHTML = "<div class='w-full duartion-150 flex items-center justify-center z-[999]'><div class='z-[30] fixed bg-black/90 p-4 mt-40 rounded-2xl'><div class='lds-dual-ring'></div></div></div>";
+
+    // Wysyłanie żądania POST do skryptu PHP
+    fetch('scripts/settings/delivery/edit.php', {
+        method: 'POST',
+        body: postData
+    })
+
+    .then(response => response.text())
+    .then(text => {
+        // Rozbijanie tekstu na fragmenty JSON-owe
+        const rawJsonParts = text.trim().split(/(?<=\})\s*(?=\{)/); // Dzielenie na podstawie zakończenia jednego JSON-a i początku następnego
+
+        const jsonObjects = rawJsonParts.map(jsonString => {
+            try {
+                return JSON.parse(jsonString);  // Parsowanie każdego fragmentu jako JSON
+            } catch (e) {
+                console.error('Błąd parsowania JSON:', e, 'Fragment:', jsonString);
+                return null;
+            }
+        }).filter(obj => obj !== null);
+
+        var i = 1;
+
+        jsonObjects.forEach(data => {
+            if (data.status) {  // Jeśli dane posiadają status
+                switch (data.status) {
+                    case 'success':
+                        showAlert('success', data.message);
+                        if(i==1){
+                          popupDeliveriesOpenClose();
+                          displayDelivery();
+                        }
+                        break;
+                    case 'error':
+                        showAlert('error', data.message);
+                        break;
+                    case 'warning':
+                        showAlert('warning', data.message);
+                        break;
+                    default:
+                        showAlert('error', 'Nieznany status odpowiedzi');
+                }
+            }
+            i = i+1;
+        });
+    })
+    .catch(error => {
+        showAlert('error', 'Wystąpił problem połączenia z serwerem');
+        console.error('Błąd:', error);
+    })
+
+    .finally(() => {
+        delivery_loading.innerHTML = ""; // Ukrycie kółka ładowania po zakończeniu żądania
+    });
+}
+
+
+</script>
+<!-- Shippings Add -->
+<script>
+function addDelivery() {
+    // Pobranie danych z pól formularza
+    var name = document.getElementById('add_delivery_name').value;
+    var platform_id = document.getElementById('add_platform_id').value;
+    var desc_short = document.getElementById('add_delivery_desc_short').value;
+    var imgInput = document.getElementById('add_fileToUploadfav'); // Pobieramy input typu file
+    var price = document.getElementById('add_delivery_price').value;
+    // jeżeli box machine jest checked to box machine = 1
+    if (document.getElementById('add_delivery_machine').checked) {
+        var machine = 1;
+    } else {
+        var machine = 0;
+    }
+
+    // Tworzymy FormData
+    const postData = new FormData();
+    postData.append('name', name);
+    postData.append('platform_id', platform_id);
+    postData.append('desc_short', desc_short);
+    postData.append('price', price);
+    postData.append('machine', machine);
+
+    // Sprawdzamy, czy użytkownik wybrał plik
+    if (imgInput.files.length > 0) {
+        postData.append('photo_img', imgInput.files[0]); // Dodajemy obiekt pliku
+    }
+
+    // Pokazanie kółka ładowania
+    var delivery_loading = document.getElementById('add_delivery_loading');
+    delivery_loading.innerHTML = "<div class='w-full duartion-150 flex items-center justify-center z-[999]'><div class='z-[30] fixed bg-black/90 p-4 mt-40 rounded-2xl'><div class='lds-dual-ring'></div></div></div>";
+
+    // Wysyłanie żądania POST do skryptu PHP
+    fetch('scripts/settings/delivery/add.php', {
+        method: 'POST',
+        body: postData
+    })
+
+    .then(response => response.text())
+    .then(text => {
+        // Rozbijanie tekstu na fragmenty JSON-owe
+        const rawJsonParts = text.trim().split(/(?<=\})\s*(?=\{)/); // Dzielenie na podstawie zakończenia jednego JSON-a i początku następnego
+
+        const jsonObjects = rawJsonParts.map(jsonString => {
+            try {
+                return JSON.parse(jsonString);  // Parsowanie każdego fragmentu jako JSON
+            } catch (e) {
+                console.error('Błąd parsowania JSON:', e, 'Fragment:', jsonString);
+                return null;
+            }
+        }).filter(obj => obj !== null);
+
+        var i = 1;
+
+        jsonObjects.forEach(data => {
+            if (data.status) {  // Jeśli dane posiadają status
+                switch (data.status) {
+                    case 'success':
+                        showAlert('success', data.message);
+                        if(i==1){
+                          popupDeliveriesAddOpenClose();
+                          displayDelivery();
+                        }
+                        break;
+                    case 'error':
+                        showAlert('error', data.message);
+                        break;
+                    case 'warning':
+                        showAlert('warning', data.message);
+                        break;
+                    default:
+                        showAlert('error', 'Nieznany status odpowiedzi');
+                }
+            }
+            i = i+1;
+        });
+    })
+    .catch(error => {
+        showAlert('error', 'Wystąpił problem połączenia z serwerem');
+        console.error('Błąd:', error);
+    })
+
+    .finally(() => {
+        delivery_loading.innerHTML = ""; // Ukrycie kółka ładowania po zakończeniu żądania
+    });
+}
+</script>
+<!-- Platformy -->
+<script>
+  function displayPlatform() {
+      var body_delivery = document.getElementById('body_platforms');
+      const url = "components/panel/settings/platforms/list.php";
+      fetch(url)
+          .then(response => response.text())
+          .then(data => {
+              const parser = new DOMParser();
+              const parsedDocument = parser.parseFromString(data, "text/html");
+              body_delivery.innerHTML = parsedDocument.body.innerHTML;
+              executeScripts(parsedDocument);
+          });
+      }
+
+    function updatePlatform() {
+    // Pobranie danych z pól formularza
+    var id = document.getElementById('platform_id').value;
+    var name = document.getElementById('platform_name').value;
+    var imgInput = document.getElementById('fileToUploadfav'); // Pobieramy input typu file
+    // Tworzymy FormData
+    const postData = new FormData();
+    postData.append('id', id);
+    postData.append('name', name);
+
+    // Sprawdzamy, czy użytkownik wybrał plik
+    if (imgInput.files.length > 0) {
+        postData.append('photo_img', imgInput.files[0]); // Dodajemy obiekt pliku
+    }
+
+    // Pokazanie kółka ładowania
+    var delivery_loading = document.getElementById('platform_loading');
+    delivery_loading.innerHTML = "<div class='w-full duartion-150 flex items-center justify-center z-[999]'><div class='z-[30] fixed bg-black/90 p-4 mt-40 rounded-2xl'><div class='lds-dual-ring'></div></div></div>";
+
+    // Wysyłanie żądania POST do skryptu PHP
+    fetch('scripts/settings/platform/edit.php', {
+        method: 'POST',
+        body: postData
+    })
+
+    .then(response => response.text())
+    .then(text => {
+        // Rozbijanie tekstu na fragmenty JSON-owe
+        const rawJsonParts = text.trim().split(/(?<=\})\s*(?=\{)/); // Dzielenie na podstawie zakończenia jednego JSON-a i początku następnego
+
+        const jsonObjects = rawJsonParts.map(jsonString => {
+            try {
+                return JSON.parse(jsonString);  // Parsowanie każdego fragmentu jako JSON
+            } catch (e) {
+                console.error('Błąd parsowania JSON:', e, 'Fragment:', jsonString);
+                return null;
+            }
+        }).filter(obj => obj !== null);
+
+        var i = 1;
+
+        jsonObjects.forEach(data => {
+            if (data.status) {  // Jeśli dane posiadają status
+                switch (data.status) {
+                    case 'success':
+                        showAlert('success', data.message);
+                        if(i==1){
+                          popupPlatformsOpenClose();
+                          displayPlatform();
+                        }
+                        break;
+                    case 'error':
+                        showAlert('error', data.message);
+                        break;
+                    case 'warning':
+                        showAlert('warning', data.message);
+                        break;
+                    default:
+                        showAlert('error', 'Nieznany status odpowiedzi');
+                }
+            }
+            i = i+1;
+        });
+    })
+    .catch(error => {
+        showAlert('error', 'Wystąpił problem połączenia z serwerem');
+        console.error('Błąd:', error);
+    })
+
+    .finally(() => {
+        delivery_loading.innerHTML = ""; // Ukrycie kółka ładowania po zakończeniu żądania
+    });
+}
+
+
+function addPlatform() {
+    // Pobranie danych z pól formularza
+    var name = document.getElementById('add_platform_name').value;
+    var imgInput = document.getElementById('add_fileToUploadfav'); // Pobieramy input typu file
+    // Tworzymy FormData
+    const postData = new FormData();
+    postData.append('name', name);
+
+    // Sprawdzamy, czy użytkownik wybrał plik
+    if (imgInput.files.length > 0) {
+        postData.append('photo_img', imgInput.files[0]); // Dodajemy obiekt pliku
+    }
+
+    // Pokazanie kółka ładowania
+    var delivery_loading = document.getElementById('add_platform_loading');
+    delivery_loading.innerHTML = "<div class='w-full duartion-150 flex items-center justify-center z-[999]'><div class='z-[30] fixed bg-black/90 p-4 mt-40 rounded-2xl'><div class='lds-dual-ring'></div></div></div>";
+
+    // Wysyłanie żądania POST do skryptu PHP
+    fetch('scripts/settings/platform/add.php', {
+        method: 'POST',
+        body: postData
+    })
+
+    .then(response => response.text())
+    .then(text => {
+        // Rozbijanie tekstu na fragmenty JSON-owe
+        const rawJsonParts = text.trim().split(/(?<=\})\s*(?=\{)/); // Dzielenie na podstawie zakończenia jednego JSON-a i początku następnego
+
+        const jsonObjects = rawJsonParts.map(jsonString => {
+            try {
+                return JSON.parse(jsonString);  // Parsowanie każdego fragmentu jako JSON
+            } catch (e) {
+                console.error('Błąd parsowania JSON:', e, 'Fragment:', jsonString);
+                return null;
+            }
+        }).filter(obj => obj !== null);
+
+        var i = 1;
+
+        jsonObjects.forEach(data => {
+            if (data.status) {  // Jeśli dane posiadają status
+                switch (data.status) {
+                    case 'success':
+                        showAlert('success', data.message);
+                        if(i==1){
+                          popupPlatformsAddOpenClose();
+                          displayPlatform();
+                        }
+                        break;
+                    case 'error':
+                        showAlert('error', data.message);
+                        break;
+                    case 'warning':
+                        showAlert('warning', data.message);
+                        break;
+                    default:
+                        showAlert('error', 'Nieznany status odpowiedzi');
+                }
+            }
+            i = i+1;
+        });
+    })
+    .catch(error => {
+        showAlert('error', 'Wystąpił problem połączenia z serwerem');
+        console.error('Błąd:', error);
+    })
+
+    .finally(() => {
+        delivery_loading.innerHTML = ""; // Ukrycie kółka ładowania po zakończeniu żądania
+    });
+}
 
 </script>
 
@@ -354,5 +804,25 @@ include "../../popup.php";
 $name_in_scripts = 'SuppAdd';
 $delete_path = '';
 $path = 'components/panel/settings/supp/add.php';
+include "../../popup.php";
+
+$name_in_scripts = 'Deliveries';
+$delete_path = 'scripts/settings/delivery/delete.php';
+$path = 'components/panel/settings/deliveries/edit.php';
+include "../../popup.php";
+
+$name_in_scripts = 'DeliveriesAdd';
+$delete_path = '';
+$path = 'components/panel/settings/deliveries/add.php';
+include "../../popup.php";
+
+$name_in_scripts = 'Platforms';
+$delete_path = 'scripts/settings/platform/delete.php';
+$path = 'components/panel/settings/platforms/edit.php';
+include "../../popup.php";
+
+$name_in_scripts = 'PlatformsAdd';
+$delete_path = '';
+$path = 'components/panel/settings/platforms/add.php';
 include "../../popup.php";
 ?>

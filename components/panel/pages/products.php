@@ -37,6 +37,9 @@
             <div class="font-medium py-5 pl-4 pr-3 sm:pl-6">
                 Kategoria
             </div>
+            <div class="font-medium py-5 pl-4 pr-3 sm:pl-6">
+                Kategoria
+            </div>
             <div class="font-medium py-5 pl-4 pr-3 sm:pl-6 flex justify-center">
                 Ilość
             </div>

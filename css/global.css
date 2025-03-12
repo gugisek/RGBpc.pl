@@ -197,3 +197,18 @@ select {
       width: 0%;
   }
 }
+
+/* Ukrywamy ikonę checkmark i podpis domyślnie */
+section > div > span:nth-child(3) {
+  display: none;
+}
+
+/* Pokazujemy ikonę checkmark i podpis po kliknięciu */
+section.active > div > span:nth-child(3) {
+  display: flex;
+}
+
+/* Ukrywamy ikonę koszyka i podpis po kliknięciu */
+section.active > div > span:nth-child(2) {
+  display: none;
+}
