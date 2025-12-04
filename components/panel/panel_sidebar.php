@@ -5,8 +5,8 @@
       <nav class="flex flex-col justify-between -mt-12">
         <ul role="list" class="flex flex-col items-center space-y-2">
           <?php
-          $name = ["Dashboard", "Search", "Products", "Orders", "Finances", "Users", "Archive", "Settings"];
-          $name_link = ["dashboard", "search", "products", "orders", "finances", "users", "archive", "settings"];
+          $name = ["Dashboard", "QuickOrder", "Search", "Products", "Orders", "Finances", "Users", "Archive", "Docs", "Settings"];
+          $name_link = ["dashboard", "quick_order", "search", "products", "orders", "finances", "users", "archive", "docs", "settings"];
 
           for ($i = 0; $i < count($name); $i++) {
             echo '
@@ -22,7 +22,7 @@
               echo 'product_edit doms';
             }
             if ($name[$i] == 'Orders') {
-              echo 'order_add ';
+              echo 'order_add order_details';
             }
              echo ' text-gray-800 hover:text-white hover:bg-violet-500 hover:shadow-xl shadow-violeet-300 hover:scale-105 active:scale-90 duration-150 group flex gap-x-3 rounded-xl p-3 text-sm leading-6 font-semibold">
               ';
@@ -79,6 +79,24 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
                     </svg>
+
+                ';
+              }elseif($name[$i] == 'Docs'){
+                echo '
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                    </svg>
+
+
+                ';
+              }elseif($name[$i] == 'QuickOrder'){
+                echo '
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 3.75 9.375v-4.5ZM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5ZM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 13.5 9.375v-4.5Z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75ZM6.75 16.5h.75v.75h-.75v-.75ZM16.5 6.75h.75v.75h-.75v-.75ZM13.5 13.5h.75v.75h-.75v-.75ZM13.5 19.5h.75v.75h-.75v-.75ZM19.5 13.5h.75v.75h-.75v-.75ZM19.5 19.5h.75v.75h-.75v-.75ZM16.5 16.5h.75v.75h-.75v-.75Z" />
+                    </svg>
+
+
 
                 ';
               }

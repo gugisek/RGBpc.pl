@@ -169,6 +169,7 @@
 
         postData.append('shipping_id', data_fourth[0]);
         postData.append('box_machine', data_fourth[1]);
+        postData.append('paynament_id', data_fourth[2]);
         
       
       //console.log(parameterId, value, productId);

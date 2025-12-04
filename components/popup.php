@@ -11,7 +11,7 @@
    class="z-[60] fixed scale-0 top-0 left-0 w-full h-full">
     <div class="flex items-center justify-center w-full h-full px-2">
       <div onclick="event.cancelBubble=true;" class="bg-white shadow-xl md:min-w-[400px] md:w-auto w-full max-w-[800px] max-h-[80vh] min-h-[20vh] overflow-y-auto flex flex-col items-center py-4 px-4 gap-4 rounded-[25px] sm:px-6  -xl">
-        <div class="w-full flex flex-row justify-end">
+        <div class="w-full flex flex-row justify-end z-10">
             <button 
             <?php
             if(isset($close) and $close == 'true'){

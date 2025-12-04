@@ -101,19 +101,30 @@
         seller = document.getElementById('seller').value;
         if(platform !="" && type !="" && seller !=""){
             //ustawienie localstorage dla supOrder json first na ok
-            // Pobranie obecnych danych z localStorage
-            let supOrder = JSON.parse(localStorage.getItem("supOrder"));
+            
+            if(localStorage.getItem("supOrder") == null){
+                let supOrder = {
+                    first: "ok",
+                    second: "",
+                    third: "",
+                    fourth: "",
+                    fifth: ""
+                }
+                localStorage.setItem("supOrder", JSON.stringify(supOrder));
+            }else{
+                let supOrder = JSON.parse(localStorage.getItem("supOrder"));
 
-            // Zmiana konkretnej wartości
-            supOrder.first = "ok";
+                // Zmiana konkretnej wartości
+                supOrder.first = "ok";
 
-            // Zapisanie zaktualizowanego obiektu z powrotem do localStorage
-            localStorage.setItem("supOrder", JSON.stringify(supOrder));
+                // Zapisanie zaktualizowanego obiektu z powrotem do localStorage
+                localStorage.setItem("supOrder", JSON.stringify(supOrder));
+            }
 
             saveFirst();
             supCheck('first');
             changeOrderNumber(document.getElementById('order_number').value, " / " + document.getElementById('external_number').value);
-            openOrderAddSite('second')
+            openOrderAddSite('second');
         }else{
             let supOrder = JSON.parse(localStorage.getItem("supOrder"));
 
