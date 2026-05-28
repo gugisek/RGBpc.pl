@@ -17,18 +17,18 @@
             <p class="mt-1 text-gray-600">Generator protokołów dla Jałkowego Serwisu</p>
           </div>
         </div>
-        <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+        <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-100 active:scale-95 duration-150">
           <div class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-            <svg class="h-6 w-6 text-gray-600 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
+            <svg class="h-6 w-6 text-gray-600 group-hover:text-pink-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
             </svg>
           </div>
           <div>
-            <a href="#" class="font-semibold text-gray-900">
-              Engagement
+            <a href="uslugi/cv/" target="_blank" class="font-semibold text-gray-900">
+              Generator CV — Social Media
               <span class="absolute inset-0"></span>
             </a>
-            <p class="mt-1 text-gray-600">Speak directly to your customers</p>
+            <p class="mt-1 text-gray-600">Kreator nowoczesnego CV dla influencerów i dziennikarzy</p>
           </div>
         </div>
         <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
