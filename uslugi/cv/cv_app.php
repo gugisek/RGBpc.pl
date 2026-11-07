@@ -360,6 +360,8 @@
         .L .ph-t{opacity:.28}
         .L .e,.L figure,.L .so,.L .ce,.L .lg,.L .sk-bars li{break-inside:avoid}
         .L .s-t{break-after:avoid}
+        /* Szwajcarski: etykieta stoi OBOK treści (siatka), więc "avoid" blokowałby każde łamanie w wierszu sekcji i Chrome przerzucał wszystkie sekcje na 2. stronę */
+        .L-swiss .s-t{break-after:auto}
         .L .h-photo{overflow:hidden;flex-shrink:0}
         .L .h-photo img{width:100%;height:100%;object-fit:cover}
         .L .h-photo:not(.ph) .ini{display:none}
