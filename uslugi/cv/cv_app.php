@@ -376,7 +376,6 @@
         .L-mag .h{border-top:3px solid #1b1914;margin-top:2px;display:grid;grid-template-columns:1fr auto;grid-template-areas:"id ph" "ct ct";column-gap:28px;padding-top:22px}
         .L-mag .h-id{grid-area:id;align-self:end;padding-bottom:18px}
         .L-mag .h-photo{grid-area:ph;width:116px;height:146px;margin-bottom:18px;align-self:end}
-        .L-mag .h-photo img{filter:grayscale(1) contrast(1.06)}
         .L-mag .h-photo.ph{display:none}
         .L-mag .h-name{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;font-size:64px;line-height:.92;letter-spacing:-.035em}
         .L-mag .h-name .w:last-child:not(:first-child){font-style:italic;color:var(--a);font-weight:300}
@@ -438,7 +437,6 @@
         .L-swiss .h-name .w{display:block}
         .L-swiss .h-title{grid-area:ti;align-self:end;font-size:15px;font-weight:500;line-height:1.25;letter-spacing:-.015em;max-width:300px}
         .L-swiss .h-photo{grid-area:ph;width:104px;height:130px;align-self:start}
-        .L-swiss .h-photo img{filter:grayscale(1)}
         .L-swiss .h-photo.ph{height:104px;background:var(--a);color:#fff;font-size:38px;font-weight:700;letter-spacing:-.05em}
         .L-swiss .h-contacts{grid-area:ct;align-self:end;font-size:9.5px;line-height:1.75}
         .L-swiss .h-contacts li{display:grid;grid-template-columns:58px 1fr}
