@@ -290,14 +290,15 @@
         }
         .cv-contacts{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.9rem}
         .cv-contact{
-            display:flex;align-items:center;gap:4px;
+            display:flex;align-items:baseline;gap:4px;
             font-size:.67rem;color:rgba(255,255,255,.7);
             font-weight:500;
             background:rgba(255,255,255,.1);
             padding:3px 8px;border-radius:20px;
             -webkit-print-color-adjust:exact;print-color-adjust:exact;
         }
-        .cv-contact svg{width:10px;height:10px;flex-shrink:0}
+        /* Ikona zakotwiczona do linii bazowej i wyśrodkowana na wysokości wielkich liter (0.727em w Inter) — niezależne od metryk linii, więc tak samo na ekranie i w PDF */
+        .cv-contact svg{width:10px;height:10px;flex-shrink:0;align-self:baseline;transform:translateY(calc(5px - .3635em))}
 
         /* ---- CV Body ---- */
         .cv-body{
